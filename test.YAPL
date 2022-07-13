@@ -1,0 +1,3 @@
+CLASS ObjectClass{
+    test:OBJECT <- true;
+}
