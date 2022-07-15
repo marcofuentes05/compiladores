@@ -17,8 +17,8 @@ NOT: N O T ;
 FALSE: F A L S E ;
 TRUE: T R U E ;
 
-TYPE_ID: [A-Z][a-zA-Z]*|SELF_TYPE;
-OBJECT_ID:  [a-z][a-zA-Z]*;
+TYPE_ID: [A-Z][a-zA-Z0-9_]*|SELF_TYPE;
+OBJECT_ID:  [a-z][a-zA-Z0-9_]*;
 SELF_TYPE: 'SELF_TYPE';
 SELF: 'self';
 DOUBLE_QUOTE: '"';
@@ -40,12 +40,13 @@ fragment HEX
    ;
 fragment ANY_CHARACTER:[A-Za-z];
 
-LINE_COMMENT:'--' ANY_CHARACTER* '\n';
-BLOCK_COMMENT: '...' (ANY_CHARACTER)* '...' ;
+LINE_COMMENT:'--' .*? [\n\r] -> skip;
+BLOCK_COMMENT: (('...' (ANY_CHARACTER)* '...')| ('(*' .*? '*)' )) -> skip;
 INTEGER: [0-9]+;
 
 PLUS_SIGN: '+';
 MINUS_SIGN: [\-];
+NOT_SIGN: [~];
 MULTIPLY_SIGN: '*';
 DIVIDE_SIGN: '/';
 LT_SIGN: '<';
@@ -95,6 +96,7 @@ feature: id '(' (formal (',' formal)* )? ')' ':' TYPE_ID '{' expr '}'
 formal: id ':' TYPE_ID ;
 expr: id '<-' expr
         | expr ('@' TYPE_ID)? '.'id (OPEN_PARENTHESIS (expr (',' expr)*)? CLOSE_PARENTHESIS)?
+        | id OPEN_PARENTHESIS (expr (',' expr)*)? CLOSE_PARENTHESIS
         | IF expr THEN expr ELSE expr FI
         | WHILE expr LOOP expr POOL
         | '{' (expr ';')+ '}'
@@ -104,7 +106,7 @@ expr: id '<-' expr
         | expr MINUS_SIGN expr
         | expr MULTIPLY_SIGN expr
         | expr DIVIDE_SIGN expr
-        | MINUS_SIGN expr
+        | (MINUS_SIGN|NOT_SIGN) expr
         | expr LT_SIGN expr
         | expr LE_SIGN expr
         | expr EQUAL_SIGN expr
