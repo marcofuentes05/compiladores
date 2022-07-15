@@ -1,0 +1,14 @@
+class Cons inherits List {
+    isNil: Int;
+    xCdr: List <- 5;
+
+    isNil ( ) : Bool { false };
+
+    init (hd: Int, tl: List) : Cons {
+        {
+            xcar <- hd;
+            xCdr <- tl;
+            self;
+        }
+    };
+};
