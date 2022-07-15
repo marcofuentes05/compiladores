@@ -102,6 +102,7 @@ expr: id '<-' expr
         | '{' (expr ';')+ '}'
         | 'let' id ':' TYPE_ID ('<-' expr)? (',' id ':' TYPE_ID ('<-' expr)?)* 'in' expr
         | NEW TYPE_ID
+        | ISVOID expr
         | expr PLUS_SIGN expr
         | expr MINUS_SIGN expr
         | expr MULTIPLY_SIGN expr
