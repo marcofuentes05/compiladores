@@ -1,4 +1,4 @@
-# Construcción de ompiladores
+# Construcción de Compiladores
 
 ### Laboratorio 0
 
