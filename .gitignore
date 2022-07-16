@@ -1,1 +1,8 @@
 node_modules/
+.antlr/
+*.interp
+*.tokens
+*.class
+*.java
+
+parser/
