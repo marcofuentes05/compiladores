@@ -21,6 +21,10 @@ Si existen errores léxicos o sintácticos, el algoritmo de recuperación los re
 
 Ambos ejemplos corresponden a `tests/self_type.YAPL`
 
+El **video** demostrando el funcionamiento del proyecto está disponible en [este link](https://youtu.be/IOQdCduloXw).
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/IOQdCduloXw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
 ### Configuración ANTLR
 
 Es necesario agregar el siguiente fragmento al entono
