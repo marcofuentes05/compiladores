@@ -39,3 +39,15 @@ alias grun="java org.antlr.v4.gui.TestRig"
 ```
 
 Esto habilita los comandos `antlr4` y `grun` para las sesiones futuras.
+
+
+### Laboratorio 1
+
+Para correr el laboratorio:
+
+```
+python3 main.py input.yapl
+```
+### Video Laboratorio 1
+
+https://youtu.be/nwIqlAE828g
