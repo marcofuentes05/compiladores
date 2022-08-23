@@ -1,0 +1,29 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "A frontend for our YAPL compiler",
+  "scripts": {
+    "start": "webpack-dev-server --hot --open"
+  },
+  "author": "Marco Fuentes",
+  "license": "ISC",
+  "dependencies": {
+    "monaco-editor-core": "^0.18.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-drag-drop-files": "^2.3.7"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.12",
+    "@types/react-dom": "^16.8.3",
+    "css-loader": "^3.3.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
