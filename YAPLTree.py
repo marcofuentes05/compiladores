@@ -5,12 +5,14 @@ from dist.YAPLVisitor import YAPLVisitor
 # This class defines a complete generic visitor for a parse tree produced by YAPLParser.
 
 class YAPLTree(YAPLVisitor):
+    def __init__(self):
+        YAPLVisitor.__init__()
+        self.symbolTable = {}
 
     # Visit a parse tree produced by YAPLParser#prog.
     def visitProg(self, ctx):
         for node in ctx.class_prod():
             child = self.visit(node)
-            print(child == None)
         return self.visitChildren(ctx)
 
 
@@ -42,7 +44,7 @@ class YAPLTree(YAPLVisitor):
     # Visit a parse tree produced by YAPLParser#Add.
     def visitAdd(self, ctx):
         for node in ctx.expr():
-            print(node.getText())
+            print(self.visit(node).get('type') if type(self.visit(node)) is dict else node.getText())
         return self.visitChildren(ctx)
 
 
@@ -63,17 +65,17 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#True.
     def visitTrue(self, ctx):
-        return self.visitChildren(ctx)
+        return {'type': 'bool'}
 
 
     # Visit a parse tree produced by YAPLParser#String.
     def visitString(self, ctx):
-        return self.visitChildren(ctx)
+        return {'type': 'string'}
 
 
     # Visit a parse tree produced by YAPLParser#False.
     def visitFalse(self, ctx):
-        return self.visitChildren(ctx)
+        return {'type': 'bool'}
 
 
     # Visit a parse tree produced by YAPLParser#Self.
@@ -88,7 +90,7 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Int.
     def visitInt(self, ctx):
-        return self.visitChildren(ctx)
+        return {'type': 'int'}
 
 
     # Visit a parse tree produced by YAPLParser#Divide.
