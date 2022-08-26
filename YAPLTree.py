@@ -7,6 +7,11 @@ class TokenTypes(Enum):
     CLASS_ID='class-id'
     VARIABLE_ID='variable-id'
     OPERATOR = 'operator'
+    FUNCTION_ID = 'function-id'
+
+main_class_id = 'Main'
+
+primitive_types = ['Int', 'String', 'Bool']
 
 def getOccurrencePosition(element):
     elementPayload = element.getPayload()
@@ -30,11 +35,23 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#class_prod.
     def visitClass_prod(self, ctx):
+        # print(dir(ctx))
+        # print(ctx.getRuleContext().getText)
         classNames = [classCtx.getText() for classCtx in ctx.TYPE_ID()]
-        print(classNames)
+        has_error = False
+        if classNames[0] in primitive_types:
+            self.errors.append(f'Cannot override primitive type f{classNames[0]} @{ctx.TYPE_ID()[0].getPayload().line}')
+            has_error = True
         if len(classNames) == 2 and classNames[0] == classNames[1]:
             self.errors.append(f'Recursive inheritance @ {ctx.TYPE_ID()[0].getPayload().line}')
-        else:
+            has_error = True
+        if main_class_id in classNames and main_class_id in self.symbolTable:
+            self.errors.append(f'Multiple main defs @ {ctx.TYPE_ID()[0].getPayload().line}')
+            has_error = True
+        if len(classNames) == 2 and classNames[1] in primitive_types:
+            self.errors.append(f'Class {classNames[0]} cannot inherit from primitive type {classNames[1]} @{ctx.TYPE_ID()[0].getPayload().line}')
+            has_error = True
+        if not has_error:
             for className in ctx.TYPE_ID():
                 if not className.getText() in self.symbolTable:
                     self.symbolTable[className.getText()] = { 'type': TokenTypes.CLASS_ID.value, 'occurrences': [getOccurrencePosition(className)] }
@@ -44,7 +61,6 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#id.
     def visitId(self, ctx):
-        print(self.symbolTable)
         id = ctx.OBJECT_ID()
         if not id.getText() in self.symbolTable:
             self.symbolTable[id.getText()] = { 'type': TokenTypes.VARIABLE_ID.value, 'occurrences': [getOccurrencePosition(id) ] }
@@ -55,11 +71,29 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#MethodFeature.
     def visitMethodFeature(self, ctx):
+        id = ctx.id_().getText()
+        typeId = ctx.TYPE_ID().getText()
+        self.symbolTable[id] = {
+            'type': TokenTypes.FUNCTION_ID.value,
+            'scope': ctx.parentCtx.getRuleContext().TYPE_ID()[0].getText(),
+            'occurrences': [getOccurrencePosition(ctx.TYPE_ID())],
+            'variable-type': TokenTypes.FUNCTION_ID.value,
+            'return-type': typeId,
+            'props': [{'id': formal.id_().getText(), 'type': formal.TYPE_ID().getText()} for formal in ctx.formal()]
+        }
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by YAPLParser#AttributeFeature.
     def visitAttributeFeature(self, ctx):
+        id = ctx.id_().getText()
+        typeId = ctx.TYPE_ID().getText()
+        self.symbolTable[id] = {
+            'type': TokenTypes.VARIABLE_ID.value,
+            'scope': ctx.parentCtx.getRuleContext().TYPE_ID()[0].getText(),
+            'occurrences': [getOccurrencePosition(ctx.TYPE_ID())],
+            'variable-type': typeId
+        }
         return self.visitChildren(ctx)
 
 
