@@ -30,5 +30,6 @@
       "fs": false,
       "path": false,
       "os": false
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

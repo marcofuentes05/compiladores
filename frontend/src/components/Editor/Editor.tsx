@@ -7,32 +7,34 @@ import './styles.css'
 interface IEditorPorps {
     language: string;
     fileContent: string;
+    editor: monaco.editor.IStandaloneCodeEditor | null;
+    setEditor: (editor: monaco.editor.IStandaloneCodeEditor) => void;
+    onFileContentChange: (newContent) => void;
 }
 
 export const Editor: React.FC<IEditorPorps> = (props: IEditorPorps) => {
-    console.log("🚀 ~ file: Editor.tsx ~ line 13 ~ props", props)
     let divNode;
     const assignRef = React.useCallback((node) => {
         // On mount get the ref of the div and assign it the divNode
         divNode = node;
     }, []);
 
-    const [editor, setEditor] = useState(null)
+    // const [editor, setEditor] = useState(null)
 
     useEffect(() => {
         if (divNode) {
-            setEditor(monaco.editor.create(divNode, {
+            props.setEditor(monaco.editor.create(divNode, {
                 language: props.language,
-                minimap: { enabled: false },
-                autoIndent: true
+                minimap: { enabled: true },
+                autoIndent: true,
+                theme: 'vs-dark'
             }));
         }
     }, [assignRef])
 
     useEffect(() => {
-        if (editor && props.fileContent) {
-            console.log("🚀 ~ file: Editor.tsx ~ line 33 ~ useEffect ~ props.fileContent", props.fileContent)
-            editor.getModel().setValue(props.fileContent);
+        if (props.editor && props.fileContent) {
+            props.editor.getModel().setValue(props.fileContent);
         }
     }, [props.fileContent])
 
