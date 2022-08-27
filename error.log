@@ -60,3 +60,583 @@
 2022-08-26 21:51:46,131 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
 2022-08-26 21:51:47,374 INFO werkzeug MainThread :  * Restarting with fsevents reloader
 2022-08-26 21:51:48,452 INFO backend Thread-1 : App successfuly started!
+2022-08-26 23:44:16,792 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-26 23:44:16,806 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-26 23:44:18,088 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-26 23:44:19,793 INFO backend Thread-1 : App successfuly started!
+2022-08-26 23:45:42,478 INFO werkzeug Thread-8 : 127.0.0.1 - - [26/Aug/2022 23:45:42] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 00:00:23,708 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 00:00:23] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:00:44,961 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 00:00:44] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:01:48,571 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 00:01:48] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:05:18,803 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 00:05:18] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:06:24,926 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:07:01,211 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:07:01,585 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:07:01,598 INFO werkzeug MainThread :  * Debugger PIN: 149-019-274
+2022-08-27 00:10:11,765 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 00:10:11] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:11:50,327 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 00:11:50] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:13:07,584 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 00:13:07] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:13:24,610 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:13:24,628 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:13:25,770 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 00:13:27,255 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:13:28,549 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 00:13:28] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:15:18,282 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:15:18,652 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:15:28,934 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 00:15:28] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:15:46,156 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 00:15:46] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:16:10,085 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:16:10,636 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:16:14,704 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 00:16:14] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:16:30,534 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 00:16:30] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:17:39,007 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 00:17:39] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:18:07,988 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 00:18:07] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:18:27,131 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 00:18:27] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 00:20:17,204 INFO werkzeug Thread-13 : 127.0.0.1 - - [27/Aug/2022 00:20:17] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:22:21,904 INFO werkzeug Thread-14 : 127.0.0.1 - - [27/Aug/2022 00:22:21] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:24:48,767 INFO werkzeug Thread-15 : 127.0.0.1 - - [27/Aug/2022 00:24:48] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:25:58,000 INFO werkzeug Thread-16 : 127.0.0.1 - - [27/Aug/2022 00:25:57] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:26:25,430 INFO werkzeug Thread-17 : 127.0.0.1 - - [27/Aug/2022 00:26:25] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:27:53,499 INFO werkzeug Thread-18 : 127.0.0.1 - - [27/Aug/2022 00:27:53] "[33mOPTIONS /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:28:06,510 INFO werkzeug Thread-19 : 127.0.0.1 - - [27/Aug/2022 00:28:06] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:28:43,619 INFO werkzeug Thread-20 : 127.0.0.1 - - [27/Aug/2022 00:28:43] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:29:04,498 INFO werkzeug Thread-21 : 127.0.0.1 - - [27/Aug/2022 00:29:04] "[33mPOST /compile_content/ HTTP/1.1[0m" 404 -
+2022-08-27 00:29:40,437 INFO werkzeug Thread-22 : 127.0.0.1 - - [27/Aug/2022 00:29:40] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:30:30,358 INFO werkzeug Thread-23 : 127.0.0.1 - - [27/Aug/2022 00:30:30] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:32:49,366 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:32:49,385 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:32:50,653 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 00:32:52,139 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:32:52,142 INFO werkzeug MainThread :  * Debugger PIN: 149-019-274
+2022-08-27 00:32:57,567 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 00:32:57] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:40:00,092 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:40:00,467 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:40:00,474 INFO werkzeug MainThread :  * Debugger PIN: 149-019-274
+2022-08-27 00:43:15,639 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:43:15,657 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:43:16,842 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 00:43:18,851 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:45:05,818 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 00:45:05] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:45:20,473 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 00:45:20] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:45:30,707 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 00:45:30] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:46:25,817 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 00:46:25] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:46:34,532 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 00:46:34] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:46:56,179 INFO werkzeug Thread-13 : 127.0.0.1 - - [27/Aug/2022 00:46:56] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:47:16,040 INFO werkzeug Thread-14 : 127.0.0.1 - - [27/Aug/2022 00:47:16] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:48:38,914 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:48:38,931 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:48:40,087 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 00:48:41,537 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:49:21,389 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 00:49:21] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:49:57,846 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:49:57,870 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 00:49:58,938 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 00:49:59,427 INFO backend Thread-1 : App successfuly started!
+2022-08-27 00:50:03,749 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 00:50:03] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:50:52,926 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 00:50:52] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:54:01,722 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 00:54:01] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:56:38,344 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 00:56:38] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:57:22,271 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 00:57:22] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:58:02,320 INFO werkzeug Thread-13 : 127.0.0.1 - - [27/Aug/2022 00:58:02] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 00:58:51,593 INFO werkzeug Thread-14 : 127.0.0.1 - - [27/Aug/2022 00:58:51] "[37mOPTIONS /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 01:00:23,362 INFO werkzeug Thread-15 : 127.0.0.1 - - [27/Aug/2022 01:00:23] "[37mOPTIONS /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 01:01:36,588 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 01:01:36,601 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 01:01:37,726 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 01:01:38,438 INFO backend Thread-1 : App successfuly started!
+2022-08-27 01:01:42,107 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 01:01:42] "[35m[1mOPTIONS /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 01:02:31,439 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 01:02:31,473 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 01:02:32,560 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 01:02:33,052 INFO backend Thread-1 : App successfuly started!
+2022-08-27 01:02:37,498 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 01:02:37] "[37mOPTIONS /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 01:02:55,137 INFO backend Thread-1 : App successfuly started!
+2022-08-27 01:02:55,501 INFO backend Thread-1 : App successfuly started!
+2022-08-27 01:03:02,830 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 01:03:02] "[37mOPTIONS /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 01:03:40,893 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 01:03:40] "[37mOPTIONS /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 01:09:06,235 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 01:09:06] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 01:11:24,051 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 01:11:24,082 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 01:11:25,166 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 01:11:27,131 INFO backend Thread-1 : App successfuly started!
+2022-08-27 01:11:27,135 INFO werkzeug MainThread :  * Debugger PIN: 149-019-274
+2022-08-27 01:31:16,251 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 01:31:16] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 01:31:24,677 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 01:31:24] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 01:31:55,411 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 01:31:55] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 01:34:04,838 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 01:34:04] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 01:34:41,522 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 01:34:41] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 01:37:17,776 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 01:37:17,790 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 01:37:18,923 INFO werkzeug MainThread :  * Restarting with fsevents reloader
+2022-08-27 01:37:20,402 INFO backend Thread-1 : App successfuly started!
+2022-08-27 01:37:23,633 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 01:37:23] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 02:01:45,536 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 02:01:45] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 02:12:36,128 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 02:12:36] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 02:12:47,500 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 02:12:47] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 02:14:46,343 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 02:14:46] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 02:17:48,355 INFO werkzeug Thread-13 : 127.0.0.1 - - [27/Aug/2022 02:17:48] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 02:17:58,450 INFO werkzeug Thread-14 : 127.0.0.1 - - [27/Aug/2022 02:17:58] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 02:18:16,856 INFO werkzeug Thread-15 : 127.0.0.1 - - [27/Aug/2022 02:18:16] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 02:18:22,787 INFO werkzeug Thread-16 : 127.0.0.1 - - [27/Aug/2022 02:18:22] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 02:24:01,961 INFO backend Thread-1 : App successfuly started!
+2022-08-27 02:26:08,602 INFO backend Thread-1 : App successfuly started!
+2022-08-27 10:22:05,930 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 10:22:05] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 10:31:58,730 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 10:31:58] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:13:09,568 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 11:13:09,580 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 11:13:12,992 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:13:36,189 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:13:36] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 11:19:54,747 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 11:19:54,762 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 11:19:57,240 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:30:55,746 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:30:55,769 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:30:58,377 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:30:59,490 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:30:59] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:31:54,760 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:31:54,778 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:31:56,580 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:31:58,021 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:31:59,910 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:31:59] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:32:24,022 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:32:24,041 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:32:25,735 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:32:25,760 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:32:25] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:32:27,326 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:32:38,492 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:32:38] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:32:51,819 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:32:51,832 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:32:53,610 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:32:55,064 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:32:59,181 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:32:59] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:43:15,159 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:43:15,172 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:43:17,809 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:44:09,034 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:44:09] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 11:44:45,633 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:44:45,653 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:44:47,352 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:44:48,796 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:44:51,880 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:44:51] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 11:45:19,129 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:45:19,164 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:45:20,947 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:45:22,400 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:45:24,119 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:45:24] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:45:43,836 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:45:43,854 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:45:45,531 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:45:47,006 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:45:47,032 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:45:47] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:46:58,836 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:47:00,695 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:47:02,119 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:47:03,601 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:47:03] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:47:41,699 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:47:41,716 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:47:45,137 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:47:46,631 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:47:46] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:47:54,859 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:47:54,874 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:47:56,537 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:47:57,990 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:48:00,956 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:48:00] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:48:09,092 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:48:09,110 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:48:10,777 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:48:12,717 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:48:12] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:49:25,661 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:49:25,684 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:49:27,403 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:49:28,922 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:49:31,179 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:49:31] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:50:34,361 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:50:34,379 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:50:36,547 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:50:37,985 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:50:47,569 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:50:47] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:51:56,603 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:51:56,621 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:51:58,436 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:51:59,883 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:52:00,121 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:52:00] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:53:28,354 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:53:28,369 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:53:30,191 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:53:31,659 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:53:34,535 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:53:34] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:54:11,725 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:54:11,748 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:54:13,538 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:54:16,452 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:54:16] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 11:54:34,014 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:54:34,031 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 11:54:35,749 INFO backend Thread-1 : App successfuly started!
+2022-08-27 11:54:37,018 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 11:54:37] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:54:50,700 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 11:54:50] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 11:54:54,435 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 11:54:54] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:01:46,591 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:01:46,603 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:02:09,157 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:02:10,604 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:02:11,815 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:02:11] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 12:02:41,522 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:02:41,548 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:02:43,235 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:02:44,841 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:02:45,769 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:02:45] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:03:37,432 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 12:03:37] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:13:41,031 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:15:25,878 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:15:28,300 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:15:28] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:16:02,319 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:16:02,340 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:16:04,008 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:16:05,466 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:16:07,825 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:16:07] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:16:15,284 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 12:16:15] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:17:37,103 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:17:37,148 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:17:39,038 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:17:40,505 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:17:41,872 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:17:41] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:17:46,080 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 12:17:46] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:17:49,534 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 12:17:49] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:17:53,283 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 12:17:53] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 12:20:08,970 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:20:08,983 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:20:11,118 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:20:13,633 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:20:13] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:20:19,779 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 12:20:19] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:21:34,743 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 12:21:34] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:40:02,123 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:40:02,138 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:40:05,066 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:40:16,698 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:40:16] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:40:36,475 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:40:36,506 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:40:38,219 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:40:41,383 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:40:41] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:40:50,221 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 12:40:50] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:45:02,194 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:45:02,208 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:45:04,046 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:45:05,497 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:45:12,291 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:45:12] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:46:52,354 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 12:46:52] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:52:12,170 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:52:12,188 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:52:16,141 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:52:17,530 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:52:17] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:52:37,280 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:52:37,299 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:52:39,007 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:52:40,506 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:53:10,145 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:53:10,167 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:53:12,163 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:53:32,902 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:53:32] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:54:33,575 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:54:33,588 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 12:54:36,248 INFO backend Thread-1 : App successfuly started!
+2022-08-27 12:54:39,662 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 12:54:39] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:54:48,478 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 12:54:48] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 12:55:05,157 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 12:55:05] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:01:31,620 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 13:01:31,649 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 13:01:37,035 INFO backend Thread-1 : App successfuly started!
+2022-08-27 13:01:58,058 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 13:01:58] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 13:02:17,128 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 13:02:17,149 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 13:02:18,868 INFO backend Thread-1 : App successfuly started!
+2022-08-27 13:02:20,390 INFO backend Thread-1 : App successfuly started!
+2022-08-27 13:02:20,413 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 13:02:20] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:07:57,898 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 13:07:57,909 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 13:08:00,523 INFO backend Thread-1 : App successfuly started!
+2022-08-27 13:08:06,842 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 13:08:06] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:11:55,594 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 13:11:55] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:12:51,273 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 13:12:51] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 13:13:11,507 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 13:13:11] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 13:15:05,393 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 13:15:05] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:15:54,756 INFO werkzeug Thread-13 : 127.0.0.1 - - [27/Aug/2022 13:15:54] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:16:23,889 INFO werkzeug Thread-14 : 127.0.0.1 - - [27/Aug/2022 13:16:23] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:16:27,782 INFO werkzeug Thread-15 : 127.0.0.1 - - [27/Aug/2022 13:16:27] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:16:28,509 INFO werkzeug Thread-16 : 127.0.0.1 - - [27/Aug/2022 13:16:28] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:16:29,085 INFO werkzeug Thread-17 : 127.0.0.1 - - [27/Aug/2022 13:16:29] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:16:29,726 INFO werkzeug Thread-18 : 127.0.0.1 - - [27/Aug/2022 13:16:29] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:16:30,256 INFO werkzeug Thread-19 : 127.0.0.1 - - [27/Aug/2022 13:16:30] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:16:30,708 INFO werkzeug Thread-20 : 127.0.0.1 - - [27/Aug/2022 13:16:30] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:17:40,730 INFO werkzeug Thread-21 : 127.0.0.1 - - [27/Aug/2022 13:17:40] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:17:45,412 INFO werkzeug Thread-22 : 127.0.0.1 - - [27/Aug/2022 13:17:45] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:17:45,978 INFO werkzeug Thread-23 : 127.0.0.1 - - [27/Aug/2022 13:17:45] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:17:46,622 INFO werkzeug Thread-24 : 127.0.0.1 - - [27/Aug/2022 13:17:46] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:17:56,963 INFO werkzeug Thread-25 : 127.0.0.1 - - [27/Aug/2022 13:17:56] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:19:05,315 INFO werkzeug Thread-26 : 127.0.0.1 - - [27/Aug/2022 13:19:05] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:19:06,728 INFO werkzeug Thread-27 : 127.0.0.1 - - [27/Aug/2022 13:19:06] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:19:07,235 INFO werkzeug Thread-28 : 127.0.0.1 - - [27/Aug/2022 13:19:07] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:19:24,861 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 13:19:24,897 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 13:19:28,990 INFO backend Thread-1 : App successfuly started!
+2022-08-27 13:19:31,242 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 13:19:31] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 13:22:04,297 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 13:22:04] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:04:18,092 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:04:18,106 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:04:20,829 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:04:27,117 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:04:27] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:05:57,388 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:05:57,401 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:06:00,023 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:06:04,523 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:06:04] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:07:21,010 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:07:21,029 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:07:22,813 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:07:24,287 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:07:26,591 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:07:26] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:07:39,416 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:07:39,441 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:07:41,239 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:07:42,667 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:07:43,735 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:07:43] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:09:55,676 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:09:55,694 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:09:57,517 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:10:02,362 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:10:02] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:10:30,857 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:10:30,880 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:10:32,609 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:10:36,506 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:10:36] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:11:54,607 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:11:54,662 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:11:56,736 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:12:01,460 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:12:01] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:12:26,820 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:12:26,844 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:12:28,504 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:12:29,972 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:13:46,496 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:13:46,510 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:13:48,293 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:13:51,428 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:13:51] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:17:16,713 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:17:16,745 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:17:19,271 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:17:22,641 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:17:22] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:18:45,975 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 14:18:45] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:18:52,659 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 14:18:52] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:26:25,096 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:26:27,714 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:26:32,819 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:26:32] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:26:47,561 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:26:47,580 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:26:49,279 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:26:50,784 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:26:53,208 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:26:53] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:27:59,619 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:27:59,640 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:28:01,744 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:28:03,145 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:28:08,740 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:28:08] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:32:10,153 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:32:10,164 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:32:12,786 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:32:14,762 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:32:14] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:33:14,705 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:33:14,709 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:33:16,553 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:33:20,319 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:33:20] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:33:31,192 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 14:33:31] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:33:43,417 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 14:33:43] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:35:28,170 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:35:28,194 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:35:30,016 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:35:31,473 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:35:45,220 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:35:45,258 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:35:46,941 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:35:57,466 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:35:57] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:36:51,701 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 14:36:51] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 14:37:54,559 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:37:54,576 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:37:57,055 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:40:31,205 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:40:31,220 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:40:34,140 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:40:36,579 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:40:36] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:41:12,429 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:41:12,439 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:41:14,157 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:41:15,627 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:41:19,199 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:41:19] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:41:56,524 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 14:41:56] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:42:03,274 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 14:42:03] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:44:06,997 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:44:07,012 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:44:09,423 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:44:25,944 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:44:25,962 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:44:27,653 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:44:32,816 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:44:32] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:44:41,816 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 14:44:41] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:44:52,496 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 14:44:52] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:44:58,330 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 14:44:58] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:45:52,329 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:45:52,341 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 14:45:54,210 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:45:57,746 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:45:57] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:47:34,781 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:47:34,789 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 14:47:36,827 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:47:38,301 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:47:40,530 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:47:40] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:47:53,662 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 14:47:53] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:48:21,583 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 14:48:21] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:49:27,992 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 14:49:27] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:50:00,552 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 14:50:00] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:50:48,529 INFO werkzeug Thread-13 : 127.0.0.1 - - [27/Aug/2022 14:50:48] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:51:24,875 INFO werkzeug Thread-14 : 127.0.0.1 - - [27/Aug/2022 14:51:24] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:51:28,995 INFO werkzeug Thread-15 : 127.0.0.1 - - [27/Aug/2022 14:51:28] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:51:58,482 INFO werkzeug Thread-16 : 127.0.0.1 - - [27/Aug/2022 14:51:58] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:52:47,047 INFO werkzeug Thread-17 : 127.0.0.1 - - [27/Aug/2022 14:52:47] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:52:51,600 INFO werkzeug Thread-18 : 127.0.0.1 - - [27/Aug/2022 14:52:51] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:53:01,717 INFO werkzeug Thread-19 : 127.0.0.1 - - [27/Aug/2022 14:53:01] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:53:04,578 INFO werkzeug Thread-20 : 127.0.0.1 - - [27/Aug/2022 14:53:04] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:53:08,704 INFO werkzeug Thread-21 : 127.0.0.1 - - [27/Aug/2022 14:53:08] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:53:14,521 INFO werkzeug Thread-22 : 127.0.0.1 - - [27/Aug/2022 14:53:14] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:56:10,376 INFO werkzeug Thread-23 : 127.0.0.1 - - [27/Aug/2022 14:56:10] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:56:14,281 INFO werkzeug Thread-24 : 127.0.0.1 - - [27/Aug/2022 14:56:14] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:56:16,863 INFO werkzeug Thread-25 : 127.0.0.1 - - [27/Aug/2022 14:56:16] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 14:59:16,301 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:59:16,313 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 14:59:20,514 INFO backend Thread-1 : App successfuly started!
+2022-08-27 14:59:29,115 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 14:59:29] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:00:50,774 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:00:50,790 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:00:53,176 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:00:55,088 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:00:55] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:01:34,725 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:01:34,732 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:05:32,666 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:05:34,124 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:05:35,130 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:05:35] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:05:56,253 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:05:56,271 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:05:58,021 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:05:59,456 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:06:00,238 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:06:00] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:06:45,714 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:06:45,732 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:06:47,490 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:06:48,959 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:06:49,817 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:06:49] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:07:17,227 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:07:17,246 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:07:18,957 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:07:20,387 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:07:21,735 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:07:21] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:08:14,879 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:08:14] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:08:53,636 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 15:08:53] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:09:08,535 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 15:09:08] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:09:38,342 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 15:09:38] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:09:57,859 INFO werkzeug Thread-13 : 127.0.0.1 - - [27/Aug/2022 15:09:57] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:10:19,466 INFO werkzeug Thread-14 : 127.0.0.1 - - [27/Aug/2022 15:10:19] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:23:50,606 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:23:50,621 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:23:53,459 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:24:01,937 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:24:01] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:24:18,789 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:24:18] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:29:40,197 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:29:40,227 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:29:42,023 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:29:43,122 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:29:43] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:29:48,364 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:29:48,391 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:29:50,047 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:29:51,511 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:29:51,546 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:29:51] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:33:17,135 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:33:17] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:33:54,476 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 15:33:54] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:37:14,893 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:37:14,913 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:37:16,749 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:37:20,322 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:37:20] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:38:16,016 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:38:16,039 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:38:17,743 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:38:19,168 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:38:23,163 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:38:23] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:38:37,387 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:38:37] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:38:42,569 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 15:38:42] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:38:46,120 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 15:38:46] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:42:50,105 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:42:50,140 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:42:52,022 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:42:53,990 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:42:53] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:43:28,937 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:43:28,954 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:43:30,619 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:43:32,732 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:43:32] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:44:04,323 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:44:04] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:44:24,096 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:44:24,111 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:44:25,772 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:44:27,224 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:44:29,682 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:44:29] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:44:32,454 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:44:32] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:45:01,472 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 15:45:01] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:45:47,313 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:45:47,345 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:45:49,121 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:45:50,546 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:45:52,459 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:45:52] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:46:06,196 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:46:06] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:46:16,096 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 15:46:16] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:46:47,163 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:46:47,182 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:46:48,909 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:46:50,332 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:47:41,172 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:47:41,191 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:47:42,963 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:47:44,405 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:47:48,659 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:47:48] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:48:02,770 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:48:02] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:48:06,550 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 15:48:06] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:48:22,171 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:48:22,190 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:48:23,873 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:48:25,328 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:48:28,891 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:48:28] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:48:38,016 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:48:38] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:48:41,556 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 15:48:41] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:48:47,422 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 15:48:47] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:48:55,395 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 15:48:55] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:51:09,720 INFO werkzeug Thread-13 : 127.0.0.1 - - [27/Aug/2022 15:51:09] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:51:14,911 INFO werkzeug Thread-14 : 127.0.0.1 - - [27/Aug/2022 15:51:14] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:51:20,041 INFO werkzeug Thread-15 : 127.0.0.1 - - [27/Aug/2022 15:51:20] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 15:53:16,494 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:53:16,513 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-08-27 15:53:18,307 INFO backend Thread-1 : App successfuly started!
+2022-08-27 15:53:28,551 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 15:53:28] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:53:35,161 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 15:53:35] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:53:39,482 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 15:53:39] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:53:44,604 INFO werkzeug Thread-11 : 127.0.0.1 - - [27/Aug/2022 15:53:44] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 15:59:03,487 INFO werkzeug Thread-12 : 127.0.0.1 - - [27/Aug/2022 15:59:03] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 16:02:27,681 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 16:02:27,696 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/customErrorListener.py', reloading
+2022-08-27 16:02:30,760 INFO backend Thread-1 : App successfuly started!
+2022-08-27 16:05:45,856 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 16:05:47,451 INFO backend Thread-1 : App successfuly started!
+2022-08-27 16:05:47,454 INFO backend Thread-1 : App successfuly started!
+2022-08-27 16:05:53,051 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 16:05:53] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 16:06:18,099 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 16:06:18,121 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 16:06:19,797 INFO backend Thread-1 : App successfuly started!
+2022-08-27 16:06:19,799 INFO backend Thread-1 : App successfuly started!
+2022-08-27 16:06:21,028 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 16:06:21] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-08-27 16:06:41,333 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 16:06:41,361 INFO werkzeug Thread-3 :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-08-27 16:06:43,066 INFO backend Thread-1 : App successfuly started!
+2022-08-27 16:06:45,651 INFO werkzeug Thread-8 : 127.0.0.1 - - [27/Aug/2022 16:06:45] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 16:06:54,924 INFO werkzeug Thread-9 : 127.0.0.1 - - [27/Aug/2022 16:06:54] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
+2022-08-27 16:07:02,090 INFO werkzeug Thread-10 : 127.0.0.1 - - [27/Aug/2022 16:07:02] "[37mPOST /compile_content HTTP/1.1[0m" 200 -
