@@ -16,7 +16,7 @@ const App = () => {
     const [fileContent, setFileContent] = useState<string|null>(null);
     const [editor, setEditor] = useState(null);
     const [isCompiling, setIsCompiling] = useState<boolean>(false);
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState<string[]>()
 return (
     <div>
         <Title />
@@ -30,7 +30,10 @@ return (
             />
             <div className="right-column">
                 <FileImporter setFileContentValue={setFileContent} />
-                <Button text="Compilar" onClick={() => onClickCompile(editor, setIsCompiling, setErrors)} />
+                <Button text="Compilar" onClick={() => {
+                    setErrors([]);
+                    onClickCompile(editor, setIsCompiling, setErrors);
+                }} />
                 <Errors errorsArray={errors} />
             </div>
         </div>
