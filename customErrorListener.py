@@ -1,5 +1,7 @@
+from distutils.log import error
 from antlr4 import *
 from antlr4.error.ErrorListener import *
+import os
 
 class customErrorListener(ErrorListener):
     ANSI_RESET = "\u001B[0m"
@@ -12,5 +14,7 @@ class customErrorListener(ErrorListener):
     ANSI_CYAN = "\u001B[36m"
     ANSI_WHITE = "\u001B[37m"
 
-    def syntaxError(self, offendingSymbol, line, character, message, e, e2):
-        print(self.ANSI_YELLOW + "Error en " + str(line) + " @ " + str(character) + ":\t" + str(message) + self.ANSI_RESET)
+    def syntaxError(self, offendingSymbol, location, line, column, message, e2):
+        error_string = f'Syntax error @ {line}:{column} -> {message} '
+        with open(f'{os.getcwd()}/instance/syntaxErrors.txt', 'a') as file:
+            file.write(f'{error_string}\n')
