@@ -28,30 +28,50 @@ $$
 {Γ ⊢ b : int \over a / b : int}
 $$
 
-## int y str
+
+## int y bool
 
 $$
 Γ ⊢ a : int \\
-{Γ ⊢ b : str \over a * b : str}
+{Γ ⊢ b : bool \over a + b : int}
 $$
 
-## str
+$$
+Γ ⊢ a : int \\
+{Γ ⊢ b : bool \over a - b : int}
+$$
 
 $$
-Γ ⊢ a : str \\
-{Γ ⊢ b : str \over a + b : str}
+Γ ⊢ a : int \\
+{Γ ⊢ b : bool \over a / b : int}
+$$
+
+$$
+Γ ⊢ a : int \\
+{Γ ⊢ b : bool \over a * b : int}
 $$
 
 ## bool
+$$
+Γ ⊢ a : bool \\
+{Γ ⊢ b : bool \over a + b : int}
+$$
 
 $$
 Γ ⊢ a : bool \\
-{Γ ⊢ b : bool \over a | b : bool}
+{Γ ⊢ b : bool \over a - b : int}
 $$
 
 $$
 Γ ⊢ a : bool \\
-{Γ ⊢ b : bool \over a \& b : bool}
+{Γ ⊢ b : bool \over a / b : int}
 $$
+
+$$
+Γ ⊢ a : bool \\
+{Γ ⊢ b : bool \over a * b : int}
+$$
+
+
 
 ### Todas las otras operaciones que no esten retornan error

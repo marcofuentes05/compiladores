@@ -18,12 +18,12 @@ class Fibonacci {
 
 class Main {
     n: Int <- 5;
-  	myfibonacci: Fibonacci;
+  	fib: Fibonacci;
   
   	main() : SELF_TYPE {
     	{
-        	myfibonacci <- new Fibonacci;
-          	out_int(myfibonacci.fibonacci(n));
+        	fib <- new Fibonacci;
+          	out_int(fib.fibonacci(n));
       	}
     };
 };

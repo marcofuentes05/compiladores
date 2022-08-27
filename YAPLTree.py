@@ -82,6 +82,12 @@ class YAPLTree(YAPLVisitor):
             if ctx.TYPE_ID()[1].getText() in primitive_types:
                 self.errors.append(f"Can't inherit from primitive type")
                 add = False
+            # check if is recursive inheritance
+            elif ctx.TYPE_ID()[1].getText() == self.currentClass:
+                self.errors.append(f"Can't do recursive inheritance") 
+
+
+                add = False
             elif len([symbol for symbol in self.symbolTable if ctx.TYPE_ID()[1].getText()== symbol['id']]) == 0:
                 self.errors.append(f'Inherited class {ctx.TYPE_ID()[1].getText()} does not exist')
                 add = False
@@ -123,11 +129,23 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#id.
     def visitId(self, ctx):
-        id = ctx.OBJECT_ID()
-        # if not id.getText() in self.symbolTable:
-        #     self.symbolTable.append({ 'id': id.getText(), 'type': TokenTypes.VARIABLE_ID.value, 'occurrences': [getOccurrencePosition(id) ] })
-        # else:
-        #     self.symbolTable[id.getText()]['occurrences'].append(getOccurrencePosition(id))
+        #Check if variable has been declared
+        id = ctx.getText()
+        symbol = None
+        
+        for sym in self.symbolTable:
+            if sym['id'] == id  and sym['belongs'] == self.currentMethod:
+                symbol = sym
+        if symbol == None:
+            for sym in self.symbolTable:
+                    if sym['id'] == id  and sym['belongs'] == self.currentClass:
+                        symbol = sym    
+        if(ctx.getText()=='self'):
+                return {'type':self.currentClass}
+        elif(symbol==None):
+            self.errors.append(f"{ctx.getText()} has not been declared @ {ctx.start.line}")
+            return {'type': 'Error'}
+        return {'type':symbol['type'], 'symbol': symbol}
         return self.visitChildren(ctx)
 
 
@@ -154,22 +172,21 @@ class YAPLTree(YAPLVisitor):
         #Add entry to table
         if add == True:
             self.symbolTable.append(entry)
-        # self.symbolTable.append({
-        #     'id': id,
-        #     'type': TokenTypes.FUNCTION_ID.value,
-        #     'scope': ctx.parentCtx.getRuleContext().TYPE_ID()[0].getText(),
-        #     'occurrences': [getOccurrencePosition(ctx.TYPE_ID())],
-        #     'variable-type': TokenTypes.FUNCTION_ID.value,
-        #     'return-type': typeId,
-        #     'props': [{'id': formal.id_().getText(), 'type': formal.TYPE_ID().getText()} for formal in ctx.formal()]
-        # })
-        return self.visitChildren(ctx)
+        
+        expr = self.visit(ctx.expr())
+
+        # return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by YAPLParser#AttributeFeature.
     def visitAttributeFeature(self, ctx):
         id = ctx.id_().getText()
         typeId = ctx.TYPE_ID().getText()
+
+        #If expression exists Check if type expression type is equal to mehtod type
+        valType = None
+        if ctx.expr() != None:
+            valType = self.visit(ctx.expr())['type']
 
         if typeId == 'Int':
             value = 0
@@ -180,13 +197,16 @@ class YAPLTree(YAPLVisitor):
         else:
             value = None
 
+        if ctx.expr() != None:
+            if typeId != valType:
+                self.errors.append(f"Can't assign {valType} to  variable type {typeId} @ {ctx.TYPE_ID().getPayload().line}")
+
         entry = {'id': id, 'type': typeId, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
 
         # Check if the class doesn't exist
         add = True
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id'] and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['belongs']:
-                print('LLEGAMOS ')
                 add = False
                 self.errors.append(f'Variable {id} is already defined @ {ctx.id_().OBJECT_ID().getPayload().line}')
 
@@ -202,7 +222,6 @@ class YAPLTree(YAPLVisitor):
         
         # Add parameters to method on symbol table entry
         for symbol in self.symbolTable:
-            # print(symbol)
             if symbol['id'] == self.currentMethod and symbol['belongs'] == self.currentClass and symbol['line'] == ctx.TYPE_ID().getPayload().line:
                 if symbol['typeParams'] == None:
                     symbol['typeParams'] = [ctx.TYPE_ID().getText()]
@@ -243,15 +262,21 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Add.
     def visitAdd(self, ctx):
-        # for child in ctx.getChildren():
-            # print('child ',child.getText())
         for node in ctx.expr():
-            # print('exp', node.getText())
-            self.visit(node)
-            # type = self.symbolTable[node.getText()]['type']
-            # if (self.symbolTable[node.getText()]['type'] != 'int' and self.symbolTable[node.getText()]['type'] != 'bool'):
-            #     self.errors.append(f'Invalid addition {node.getText()} is {type} @ line {ctx.PLUS_SIGN().getPayload().line}')
-            #     return {'type': 'Error'}
+            child = self.visit(node)
+
+            if 'idType' in child:
+                if child['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { child['idType']} @ {ctx.start.line}")
+            
+            #Impicit cast from bool to int
+            if(child['type']=='Bool'):
+                child['type'] = 'Int'
+                    
+            if(child['type']!='Int' and child['type']!='Bool'):
+                self.errors.append('Invalid type ' + child['type'] + f' with operant "+" @ {ctx.start.line}')
+                return {'type': 'Error'}
+        return {'type':'Int'}
         return self.visitChildren(ctx)
 
 
@@ -272,32 +297,17 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#True.
     def visitTrue(self, ctx):
-        # bool = ctx.TRUE()
-        # if not bool.getText() in self.symbolTable:
-        #     self.symbolTable.append({ 'id': bool.getText(), 'type': TokenTypes.BOOL.value, 'occurrences': [getOccurrencePosition(bool) ] })
-        # else:
-        #     self.symbolTable[bool.getText()]['occurrences'].append(getOccurrencePosition(bool))
-        return {'type': 'bool'}
+        return {'type': 'Bool'}
 
 
     # Visit a parse tree produced by YAPLParser#String.
     def visitString(self, ctx):
-        string = ctx.STRING()
-        if not string.getText() in self.symbolTable:
-            self.symbolTable.append({ 'id': string.getText(), 'type': TokenTypes.STRING.value, 'occurrences': [getOccurrencePosition(string) ] })
-        # else:
-        #     self.symbolTable[string.getText()]['occurrences'].append(getOccurrencePosition(string))
-        return {'type': 'string'}
+        return {'type': 'String'}
 
 
     # Visit a parse tree produced by YAPLParser#False.
     def visitFalse(self, ctx):
-        bool = ctx.FALSE()
-        if not bool.getText() in self.symbolTable:
-            self.symbolTable.append({ 'id': bool.getText(), 'type': TokenTypes.BOOL.value, 'occurrences': [getOccurrencePosition(bool) ] })
-        # else:
-        #     self.symbolTable[bool.getText()]['occurrences'].append(getOccurrencePosition(bool))
-        return {'type': 'bool'}
+        return {'type': 'Bool'}
 
 
     # Visit a parse tree produced by YAPLParser#Self.
@@ -346,21 +356,33 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Int.
     def visitInt(self, ctx):
-        num = ctx.INTEGER()
-        if not num.getText() in self.symbolTable:
-            self.symbolTable.append({ 'id': num.getText(), 'type': TokenTypes.INT.value, 'occurrences': [getOccurrencePosition(num) ] })
-        # else:
-        #     self.symbolTable[num.getText()]['occurrences'].append(getOccurrencePosition(num))
-        return {'type': 'int'}
+        return {'type': 'Int'}
 
 
     # Visit a parse tree produced by YAPLParser#Divide.
     def visitDivide(self, ctx):
+        for node in ctx.expr():
+            child = self.visit(node)
+
+            if 'idType' in child:
+                if child['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { child['idType']} @ {ctx.start.line}")
+            
+            #Impicit cast from bool to int
+            if(child['type']=='Bool'):
+                child['type'] = 'Int'
+                    
+            if(child['type']!='Int' and child['type']!='Bool'):
+                self.errors.append('Invalid type ' + child['type'] + f' with operant "/" @ {ctx.start.line}')
+                return {'type': 'Error'}
+        return {'type':'Int'}
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by YAPLParser#Parenthesis.
     def visitParenthesis(self, ctx):
+        child = self.visit(ctx.expr())
+        return {'type':child['type']}
         return self.visitChildren(ctx)
 
 
@@ -371,11 +393,18 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Identifier.
     def visitIdentifier(self, ctx):
-        return self.visitChildren(ctx)
+        return self.visit(ctx.id_())
 
 
     # Visit a parse tree produced by YAPLParser#Brackets.
     def visitBrackets(self, ctx):
+        expressions_count = len(ctx.expr())
+        for expression in ctx.expr():
+            expressions_count -= 1
+            expr = self.visit(expression)
+            if(expressions_count==0):
+                return expr
+        return {'type': 'Object'}
         return self.visitChildren(ctx)
 
 
@@ -387,13 +416,20 @@ class YAPLTree(YAPLVisitor):
     # Visit a parse tree produced by YAPLParser#Multiply.
     def visitMultiply(self, ctx):
         for node in ctx.expr():
-            # print('hola',node.getText())
             child = self.visit(node)
-            # print('child:',child)
-            # type = self.symbolTable[node.getText()]['type']
-            # if (self.symbolTable[node.getText()]['type'] != 'int' and self.symbolTable[node.getText()]['type'] != 'bool'):
-            #     self.errors.append(f'Invalid division {node.getText()} is {type} @ line {ctx.MULTIPLY_SIGN().getPayload().line}')
-            #     return {'type': 'Error'}
+
+            if 'idType' in child:
+                if child['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { child['idType']} @ {ctx.start.line}")
+            
+            #Impicit cast from bool to int
+            if(child['type']=='Bool'):
+                child['type'] = 'Int'
+                    
+            if(child['type']!='Int' and child['type']!='Bool'):
+                self.errors.append('Invalid type ' + child['type'] + f' with operant "*" @ {ctx.start.line}')
+                return {'type': 'Error'}
+        return {'type':'Int'}
         return self.visitChildren(ctx)
 
 
@@ -404,6 +440,21 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Declaration.
     def visitDeclaration(self, ctx):
+
+        id = self.visit(ctx.id_())
+        value = self.visit(ctx.expr())
+
+
+        if id['type'] != value['type']:
+            if(id['type']=='Int' and value['type']=='Bool'):
+                return {'type': 'Bool', 'idType': id['type']}
+            elif(id['type']=='Bool' and value['type']=='Int'):
+                return {'type': 'Int', 'idType': id['type']}
+            else:
+                # self.errors.append(f'Static type of expression should be the same or an inherited type {ctx.start.line}')
+                return {'type': value['type'], 'idType': id['type']}
+
+        return {'type': value['type'], 'idType': id['type']}
         return self.visitChildren(ctx)
 
 
@@ -426,6 +477,21 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Substract.
     def visitSubstract(self, ctx):
+        for node in ctx.expr():
+            child = self.visit(node)
+
+            if 'idType' in child:
+                if child['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { child['idType']} @ {ctx.start.line}")
+            
+            #Impicit cast from bool to int
+            if(child['type']=='Bool'):
+                child['type'] = 'Int'
+                    
+            if(child['type']!='Int' and child['type']!='Bool'):
+                self.errors.append('Invalid type ' + child['type'] + f' with operant "-" @ {ctx.start.line}')
+                return {'type': 'Error'}
+        return {'type':'Int'}
         return self.visitChildren(ctx)
 
 
