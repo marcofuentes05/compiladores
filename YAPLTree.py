@@ -160,7 +160,7 @@ class YAPLTree(YAPLVisitor):
         #Set current method
         self.currentMethod = id
         typeId = ctx.TYPE_ID().getText()
-        entry = {'id': id, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': [], 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
+        entry = {'id': id, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
         
         # Check if the class doesn't exist
         add = True
@@ -344,7 +344,7 @@ class YAPLTree(YAPLVisitor):
             if len(exprClassSymbols) == 0:
                 return self.visitChildren(ctx)
             exprClassSymbol = exprClassSymbols[0]
-            idSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == id.getText() and (symbol['belongs'] == exprSymbol['type'] or symbol['belongs'] == exprClassSymbol['inherits']) and len(symbol['typeParams']) == len(ctx.expr()[1:]) ]
+            idSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == id.getText() and (symbol['belongs'] == exprSymbol['type'] or symbol['belongs'] == exprClassSymbol['inherits']) and (len(symbol['typeParams']) == len(ctx.expr()[1:]) if symbol['typeParams'] is not None else True) ]
             if len(idSymbols) != 0:
                 isDefined = True
             if not isDefined:
