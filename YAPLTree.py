@@ -138,12 +138,13 @@ class YAPLTree(YAPLVisitor):
                 symbol = sym
         if symbol == None:
             for sym in self.symbolTable:
-                    if sym['id'] == id  and sym['belongs'] == self.currentClass:
+                    if sym['id'] == id  and sym['belongs']:
                         symbol = sym    
         if(ctx.getText()=='self'):
                 return {'type':self.currentClass}
         elif(symbol==None):
-            self.errors.append(f"{ctx.getText()} has not been declared @ {ctx.start.line}")
+            if ctx.getText() != 'out_int':
+                self.errors.append(f"{ctx.getText()} has not been declared @ {ctx.start.line}")
             return {'type': 'Error'}
         return {'type':symbol['type'], 'symbol': symbol}
         return self.visitChildren(ctx)
@@ -282,6 +283,10 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#New.
     def visitNew(self, ctx):
+        print(ctx.TYPE_ID())
+        for symbol in self.symbolTable:
+            if symbol['id'] == ctx.TYPE_ID().getText():
+                return {'type': ctx.TYPE_ID().getText()}
         return self.visitChildren(ctx)
 
 
@@ -444,6 +449,8 @@ class YAPLTree(YAPLVisitor):
         id = self.visit(ctx.id_())
         value = self.visit(ctx.expr())
 
+        print(ctx.expr().__class__)
+
 
         if id['type'] != value['type']:
             if(id['type']=='Int' and value['type']=='Bool'):
@@ -532,4 +539,5 @@ class YAPLTree(YAPLVisitor):
         if add == True:
             self.symbolTable.append(entry)
 
+        return{'type': 'Int'}
         return self.visitChildren(ctx)
