@@ -25,39 +25,88 @@ def getOccurrencePosition(element):
 class YAPLTree(YAPLVisitor):
     def __init__(self):
         YAPLVisitor.__init__(self)
-        self.symbolTable = {}
+        self.symbolTable = [
+            {'id': 'String', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None},
+            {'id': 'Int', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None},
+            {'id': 'Bool', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None},
+            {'id': 'IO', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None},
+            {'id': 'in_string', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None},
+            {'id': 'out_string', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None},
+            {'id': 'in_int', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None},
+            {'id': 'out_int', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None},
+            {'id': 'length', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': [], 'line': None, 'col': None},
+            {'id': 'concat', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['String'], 'line': None, 'col': None},
+            {'id': 'substr', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['Int', 'Int'], 'line': None, 'col': None}
+        ]
         self.errors = []
+
+        self.mainClassCounter = 0
+        self.mainMethodCounter = 0
+
+        self.currentClass = ''
+        self.currentMethod = ''
 
 
     # Visit a parse tree produced by YAPLParser#prog.
     def visitProg(self, ctx):
         # for node in ctx.class_prod():
         #     child = self.visit(node)
-        return self.visitChildren(ctx)
+        self.visitChildren(ctx)
+        if self.mainClassCounter != 1:
+            self.errors.append(f'There has to be 1 Main class')
+        elif self.mainMethodCounter != 1:
+            self.errors.append(f'Class Main must have a main method')
 
 
     # Visit a parse tree produced by YAPLParser#class_prod.
     def visitClass_prod(self, ctx):
-        # print(dir(ctx))
-        # print(ctx.getRuleContext().getText)
-        classNames = [classCtx.getText() for classCtx in ctx.TYPE_ID()]
-        has_error = False
-        if classNames[0] in primitive_types:
-            self.errors.append(f'Cannot override primitive type f{classNames[0]} @{ctx.TYPE_ID()[0].getPayload().line}')
-            has_error = True
-        if len(classNames) == 2 and classNames[0] == classNames[1]:
-            self.errors.append(f'Recursive inheritance @ {ctx.TYPE_ID()[0].getPayload().line}')
-            has_error = True
-        if main_class_id in classNames and main_class_id in self.symbolTable:
-            self.errors.append(f'Multiple main defs @ {ctx.TYPE_ID()[0].getPayload().line}')
-            has_error = True
-        if len(classNames) == 2 and classNames[1] in primitive_types:
-            self.errors.append(f'Class {classNames[0]} cannot inherit from primitive type {classNames[1]} @{ctx.TYPE_ID()[0].getPayload().line}')
-            has_error = True
-        if not has_error:
-            for className in ctx.TYPE_ID():
-                if not className.getText() in self.symbolTable:
-                    self.symbolTable[className.getText()] = { 'type': TokenTypes.CLASS_ID.value, 'occurrences': [getOccurrencePosition(className)] }
+
+        #See if there is only 1 Main class
+        for clase in ctx.TYPE_ID():
+            if clase.getText() == 'Main':
+                self.mainClassCounter += 1
+
+        #Set current class
+        self.currentClass = ctx.TYPE_ID()[0].getText()
+
+        # check if Main class inherits
+        if self.currentClass == 'Main' and len(ctx.TYPE_ID()) > 1:
+            self.errors.append(f"Main class can't inherit from another class")
+        elif len(ctx.TYPE_ID()) > 1:
+            if ctx.TYPE_ID()[1].getText() in primitive_types:
+                self.errors.append(f"Can't inherit from primitive type")
+
+        # class to be added to the table
+        entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column}
+
+        # Check if the class doesn't exist
+        add = True
+        for symbol in self.symbolTable:
+            if symbol['id'] == entry['id']:
+                add = False
+
+        #Add entry to table
+        if add == True:
+            self.symbolTable.append(entry)
+
+        # classNames = [classCtx.getText() for classCtx in ctx.TYPE_ID()]
+        # has_error = False
+        # if classNames[0] in primitive_types:
+        #     self.errors.append(f'Cannot override primitive type f{classNames[0]} @{ctx.TYPE_ID()[0].getPayload().line}')
+        #     has_error = True
+        # if len(classNames) == 2 and classNames[0] == classNames[1]:
+        #     self.errors.append(f'Recursive inheritance @ {ctx.TYPE_ID()[0].getPayload().line}')
+        #     has_error = True
+        # if main_class_id in classNames and main_class_id in self.symbolTable:
+        #     self.errors.append(f'Multiple main defs @ {ctx.TYPE_ID()[0].getPayload().line}')
+        #     has_error = True
+        # if len(classNames) == 2 and classNames[1] in primitive_types:
+        #     self.errors.append(f'Class {classNames[0]} cannot inherit from primitive type {classNames[1]} @{ctx.TYPE_ID()[0].getPayload().line}')
+        #     has_error = True
+        # if not has_error:
+        #     for className in ctx.TYPE_ID():
+        #         if not className.getText() in self.symbolTable:
+        #             self.symbolTable.append({ 'id': className.getText(), 'type': TokenTypes.CLASS_ID.value, 'occurrences': [getOccurrencePosition(className)] })
             
         return self.visitChildren(ctx)
 
@@ -65,25 +114,44 @@ class YAPLTree(YAPLVisitor):
     # Visit a parse tree produced by YAPLParser#id.
     def visitId(self, ctx):
         id = ctx.OBJECT_ID()
-        if not id.getText() in self.symbolTable:
-            self.symbolTable[id.getText()] = { 'type': TokenTypes.VARIABLE_ID.value, 'occurrences': [getOccurrencePosition(id) ] }
-        else:
-            self.symbolTable[id.getText()]['occurrences'].append(getOccurrencePosition(id))
+        # if not id.getText() in self.symbolTable:
+        #     self.symbolTable.append({ 'id': id.getText(), 'type': TokenTypes.VARIABLE_ID.value, 'occurrences': [getOccurrencePosition(id) ] })
+        # else:
+        #     self.symbolTable[id.getText()]['occurrences'].append(getOccurrencePosition(id))
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by YAPLParser#MethodFeature.
     def visitMethodFeature(self, ctx):
+        #Get method name
         id = ctx.id_().getText()
+        #See if there is only 1 main method on Main class
+        if self.currentClass == 'Main' and id == 'main':
+            self.mainMethodCounter += 1
+
+        #Set current method
+        self.currentMethod = id
         typeId = ctx.TYPE_ID().getText()
-        self.symbolTable[id] = {
-            'type': TokenTypes.FUNCTION_ID.value,
-            'scope': ctx.parentCtx.getRuleContext().TYPE_ID()[0].getText(),
-            'occurrences': [getOccurrencePosition(ctx.TYPE_ID())],
-            'variable-type': TokenTypes.FUNCTION_ID.value,
-            'return-type': typeId,
-            'props': [{'id': formal.id_().getText(), 'type': formal.TYPE_ID().getText()} for formal in ctx.formal()]
-        }
+        entry = {'id': id, 'type': typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
+        
+        # Check if the class doesn't exist
+        add = True
+        for symbol in self.symbolTable:
+            if symbol['id'] == entry['id'] and symbol['type'] == entry['type'] and symbol['belongs'] == entry['belongs'] and symbol['line'] == entry['line']:
+                add = False
+
+        #Add entry to table
+        if add == True:
+            self.symbolTable.append(entry)
+        # self.symbolTable.append({
+        #     'id': id,
+        #     'type': TokenTypes.FUNCTION_ID.value,
+        #     'scope': ctx.parentCtx.getRuleContext().TYPE_ID()[0].getText(),
+        #     'occurrences': [getOccurrencePosition(ctx.TYPE_ID())],
+        #     'variable-type': TokenTypes.FUNCTION_ID.value,
+        #     'return-type': typeId,
+        #     'props': [{'id': formal.id_().getText(), 'type': formal.TYPE_ID().getText()} for formal in ctx.formal()]
+        # })
         return self.visitChildren(ctx)
 
 
@@ -91,17 +159,79 @@ class YAPLTree(YAPLVisitor):
     def visitAttributeFeature(self, ctx):
         id = ctx.id_().getText()
         typeId = ctx.TYPE_ID().getText()
-        self.symbolTable[id] = {
-            'type': TokenTypes.VARIABLE_ID.value,
-            'scope': ctx.parentCtx.getRuleContext().TYPE_ID()[0].getText(),
-            'occurrences': [getOccurrencePosition(ctx.TYPE_ID())],
-            'variable-type': typeId
-        }
+
+        if typeId == 'Int':
+            value = 0
+        elif typeId == 'Bool':
+            value = False
+        elif typeId == 'String':
+            value = ""
+        else:
+            value = None
+
+        entry = {'id': id, 'type': typeId, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
+
+        # Check if the class doesn't exist
+        add = True
+        for symbol in self.symbolTable:
+            if symbol['id'] == entry['id'] and symbol['type'] == entry['type'] and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['belongs']:
+                add = False
+
+        #Add entry to table
+        if add == True:
+            self.symbolTable.append(entry)
+        # self.symbolTable.append({
+        #     'id': id,
+        #     'type': TokenTypes.VARIABLE_ID.value,
+        #     'scope': ctx.parentCtx.getRuleContext().TYPE_ID()[0].getText(),
+        #     'occurrences': [getOccurrencePosition(ctx.TYPE_ID())],
+        #     'variable-type': typeId
+        # })
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by YAPLParser#formal.
     def visitFormal(self, ctx):
+
+        
+        # Add parameters to method on symbol table entry
+        for symbol in self.symbolTable:
+            print(symbol)
+            if symbol['id'] == self.currentMethod and symbol['belongs'] == self.currentClass and symbol['line'] == ctx.TYPE_ID().getPayload().line:
+                if symbol['typeParams'] == None:
+                    symbol['typeParams'] = [ctx.TYPE_ID().getText()]
+                else:
+                    symbol['typeParams'].append(ctx.TYPE_ID().getText())
+
+        id = ctx.id_().getText()
+        typeId = ctx.TYPE_ID().getText()
+
+        if typeId == 'Int':
+            value = 0
+        elif typeId == 'Bool':
+            value = False
+        elif typeId == 'String':
+            value = ""
+        else:
+            value = None
+
+        entry = {'id': id, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
+
+        # Check if the class doesn't exist
+        add = True
+        for symbol in self.symbolTable:
+            if symbol['id'] == entry['id'] and symbol['type'] == entry['type'] and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['type']:
+                add = False
+
+        #Add entry to table
+        if add == True:
+            self.symbolTable.append(entry)
+
+
+        # If we found a parameter on main method of Class main 
+        if self.currentClass == 'Main' and self.currentMethod == 'main':
+            self.errors.append(f'main method on class Main must not contain parameters')
+
         return self.visitChildren(ctx)
 
 
@@ -136,11 +266,11 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#True.
     def visitTrue(self, ctx):
-        bool = ctx.TRUE()
-        if not bool.getText() in self.symbolTable:
-            self.symbolTable[bool.getText()] = { 'type': TokenTypes.BOOL.value, 'occurrences': [getOccurrencePosition(bool) ] }
-        else:
-            self.symbolTable[bool.getText()]['occurrences'].append(getOccurrencePosition(bool))
+        # bool = ctx.TRUE()
+        # if not bool.getText() in self.symbolTable:
+        #     self.symbolTable.append({ 'id': bool.getText(), 'type': TokenTypes.BOOL.value, 'occurrences': [getOccurrencePosition(bool) ] })
+        # else:
+        #     self.symbolTable[bool.getText()]['occurrences'].append(getOccurrencePosition(bool))
         return {'type': 'bool'}
 
 
@@ -148,9 +278,9 @@ class YAPLTree(YAPLVisitor):
     def visitString(self, ctx):
         string = ctx.STRING()
         if not string.getText() in self.symbolTable:
-            self.symbolTable[string.getText()] = { 'type': TokenTypes.STRING.value, 'occurrences': [getOccurrencePosition(string) ] }
-        else:
-            self.symbolTable[string.getText()]['occurrences'].append(getOccurrencePosition(string))
+            self.symbolTable.append({ 'id': string.getText(), 'type': TokenTypes.STRING.value, 'occurrences': [getOccurrencePosition(string) ] })
+        # else:
+        #     self.symbolTable[string.getText()]['occurrences'].append(getOccurrencePosition(string))
         return {'type': 'string'}
 
 
@@ -158,9 +288,9 @@ class YAPLTree(YAPLVisitor):
     def visitFalse(self, ctx):
         bool = ctx.FALSE()
         if not bool.getText() in self.symbolTable:
-            self.symbolTable[bool.getText()] = { 'type': TokenTypes.BOOL.value, 'occurrences': [getOccurrencePosition(bool) ] }
-        else:
-            self.symbolTable[bool.getText()]['occurrences'].append(getOccurrencePosition(bool))
+            self.symbolTable.append({ 'id': bool.getText(), 'type': TokenTypes.BOOL.value, 'occurrences': [getOccurrencePosition(bool) ] })
+        # else:
+        #     self.symbolTable[bool.getText()]['occurrences'].append(getOccurrencePosition(bool))
         return {'type': 'bool'}
 
 
@@ -178,9 +308,9 @@ class YAPLTree(YAPLVisitor):
     def visitInt(self, ctx):
         num = ctx.INTEGER()
         if not num.getText() in self.symbolTable:
-            self.symbolTable[num.getText()] = { 'type': TokenTypes.INT.value, 'occurrences': [getOccurrencePosition(num) ] }
-        else:
-            self.symbolTable[num.getText()]['occurrences'].append(getOccurrencePosition(num))
+            self.symbolTable.append({ 'id': num.getText(), 'type': TokenTypes.INT.value, 'occurrences': [getOccurrencePosition(num) ] })
+        # else:
+        #     self.symbolTable[num.getText()]['occurrences'].append(getOccurrencePosition(num))
         return {'type': 'int'}
 
 
@@ -264,4 +394,29 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Let.
     def visitLet(self, ctx):
+        
+        id = ctx.id_()[0].getText()
+        typeId = ctx.TYPE_ID()[0].getText()
+
+        if typeId == 'Int':
+            value = 0
+        elif typeId == 'Bool':
+            value = False
+        elif typeId == 'String':
+            value = ""
+        else:
+            value = None
+
+        entry = {'id': id, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column}
+
+        # Check if the class doesn't exist
+        add = True
+        for symbol in self.symbolTable:
+            if symbol['id'] == entry['id'] and symbol['type'] == typeId and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['belongs']:
+                add = False
+
+        #Add entry to table
+        if add == True:
+            self.symbolTable.append(entry)
+
         return self.visitChildren(ctx)
