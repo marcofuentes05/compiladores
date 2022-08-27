@@ -68,6 +68,11 @@ class YAPLTree(YAPLVisitor):
 
         #Set current class
         self.currentClass = ctx.TYPE_ID()[0].getText()
+        
+        inheritedClass = None
+
+        # Check if the class doesn't exist
+        add = True
 
         # check if Main class inherits
         if self.currentClass == 'Main' and len(ctx.TYPE_ID()) > 1:
@@ -75,12 +80,16 @@ class YAPLTree(YAPLVisitor):
         elif len(ctx.TYPE_ID()) > 1:
             if ctx.TYPE_ID()[1].getText() in primitive_types:
                 self.errors.append(f"Can't inherit from primitive type")
+                add = False
+            elif len([symbol for symbol in self.symbolTable if ctx.TYPE_ID()[1].getText()== symbol['id']]) == 0:
+                self.errors.append(f'Inherited class {ctx.TYPE_ID()[1].getText()} does not exist')
+                add = False
+            else:
+                inheritedClass = ctx.TYPE_ID()[1].getText()
 
         # class to be added to the table
-        entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column}
+        entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': inheritedClass}
 
-        # Check if the class doesn't exist
-        add = True
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id']:
                 add = False
@@ -136,9 +145,11 @@ class YAPLTree(YAPLVisitor):
         
         # Check if the class doesn't exist
         add = True
+        print([formal.TYPE_ID().getText() for formal in ctx.formal()])
         for symbol in self.symbolTable:
-            if symbol['id'] == entry['id'] and symbol['type'] == entry['type'] and symbol['belongs'] == entry['belongs'] and symbol['line'] == entry['line']:
+            if symbol['id'] == entry['id'] and symbol['type'] == entry['type'] and symbol['belongs'] == entry['belongs'] and symbol['typeParams']==[formal.TYPE_ID().getText() for formal in ctx.formal()]:
                 add = False
+                self.errors.append(f'Method {id} has already been declared @ {ctx.TYPE_ID().getPayload().line}')
 
         #Add entry to table
         if add == True:
@@ -174,19 +185,14 @@ class YAPLTree(YAPLVisitor):
         # Check if the class doesn't exist
         add = True
         for symbol in self.symbolTable:
-            if symbol['id'] == entry['id'] and symbol['type'] == entry['type'] and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['belongs']:
+            if symbol['id'] == entry['id'] and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['belongs']:
+                print('LLEGAMOS ')
                 add = False
+                self.errors.append(f'Variable {id} is already defined @ {ctx.id_().OBJECT_ID().getPayload().line}')
 
         #Add entry to table
         if add == True:
             self.symbolTable.append(entry)
-        # self.symbolTable.append({
-        #     'id': id,
-        #     'type': TokenTypes.VARIABLE_ID.value,
-        #     'scope': ctx.parentCtx.getRuleContext().TYPE_ID()[0].getText(),
-        #     'occurrences': [getOccurrencePosition(ctx.TYPE_ID())],
-        #     'variable-type': typeId
-        # })
         return self.visitChildren(ctx)
 
 
@@ -196,7 +202,7 @@ class YAPLTree(YAPLVisitor):
         
         # Add parameters to method on symbol table entry
         for symbol in self.symbolTable:
-            print(symbol)
+            # print(symbol)
             if symbol['id'] == self.currentMethod and symbol['belongs'] == self.currentClass and symbol['line'] == ctx.TYPE_ID().getPayload().line:
                 if symbol['typeParams'] == None:
                     symbol['typeParams'] = [ctx.TYPE_ID().getText()]
@@ -301,6 +307,21 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#FunctionCallBuggy.
     def visitFunctionCallBuggy(self, ctx):
+        id = ctx.id_()
+        firstExpr = ctx.expr()[0]
+        isDefined = False
+        firstExprSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == firstExpr.getText()]
+        if (len(firstExprSymbols) != 0):
+            exprSymbol = firstExprSymbols[0]
+            exprClass = exprSymbol['type']
+            exprClassSymbol = [symbol for symbol in self.symbolTable if symbol['id'] == exprClass][0]
+            idSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == id.getText() and (symbol['belongs'] == exprSymbol['type'] or symbol['belongs'] == exprClassSymbol['inherits']) and len(symbol['typeParams']) == len(ctx.expr()[1:]) ]
+            if len(idSymbols) != 0:
+                isDefined = True
+            if not isDefined:
+                self.errors.append(f'Method {id.getText()} does not exist in class {firstExprSymbols[0]["type"]} @ {id.OBJECT_ID().getPayload().line}')
+        else:
+            self.errors.append(f'Variable {firstExpr.getText()} called before assignment @ {ctx.id_().OBJECT_ID().getPayload().line} ' )
         return self.visitChildren(ctx)
 
 
@@ -347,9 +368,9 @@ class YAPLTree(YAPLVisitor):
     # Visit a parse tree produced by YAPLParser#Multiply.
     def visitMultiply(self, ctx):
         for node in ctx.expr():
-            print('hola',node.getText())
+            # print('hola',node.getText())
             child = self.visit(node)
-            print('child:',child)
+            # print('child:',child)
             # type = self.symbolTable[node.getText()]['type']
             # if (self.symbolTable[node.getText()]['type'] != 'int' and self.symbolTable[node.getText()]['type'] != 'bool'):
             #     self.errors.append(f'Invalid division {node.getText()} is {type} @ line {ctx.MULTIPLY_SIGN().getPayload().line}')
@@ -369,6 +390,13 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#FunctionCall.
     def visitFunctionCall(self, ctx):
+        id = ctx.id_()
+        isDefined = False
+        for symbol in self.symbolTable:
+            if (symbol['id'] == id.getText() and symbol['typeParams'] != None and (symbol['belongs'] in [self.currentClass, 'IO'] or symbol['scope']=='global')) or id.getText() == self.currentMethod: # Last one is for recursive purposes
+                isDefined = True
+        if not isDefined:
+            self.errors.append(f'Method {id.getText()} called before assignment @{ctx.id_().OBJECT_ID().getPayload().line} ' )
         return self.visitChildren(ctx)
 
 
