@@ -1,6 +1,7 @@
 # Generated from YAPL.g4 by ANTLR 4.10.1
 from pydoc import classname
 from dist.YAPLVisitor import YAPLVisitor
+from dist.YAPLParser import YAPLParser
 from enum import Enum
 
 class TokenTypes(Enum):
@@ -141,11 +142,10 @@ class YAPLTree(YAPLVisitor):
         #Set current method
         self.currentMethod = id
         typeId = ctx.TYPE_ID().getText()
-        entry = {'id': id, 'type': typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
+        entry = {'id': id, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': [], 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
         
         # Check if the class doesn't exist
         add = True
-        print([formal.TYPE_ID().getText() for formal in ctx.formal()])
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id'] and symbol['type'] == entry['type'] and symbol['belongs'] == entry['belongs'] and symbol['typeParams']==[formal.TYPE_ID().getText() for formal in ctx.formal()]:
                 add = False
@@ -246,7 +246,7 @@ class YAPLTree(YAPLVisitor):
         # for child in ctx.getChildren():
             # print('child ',child.getText())
         for node in ctx.expr():
-            print('exp', node.getText())
+            # print('exp', node.getText())
             self.visit(node)
             # type = self.symbolTable[node.getText()]['type']
             # if (self.symbolTable[node.getText()]['type'] != 'int' and self.symbolTable[node.getText()]['type'] != 'bool'):
@@ -309,12 +309,31 @@ class YAPLTree(YAPLVisitor):
     def visitFunctionCallBuggy(self, ctx):
         id = ctx.id_()
         firstExpr = ctx.expr()[0]
+        if isinstance(firstExpr, YAPLParser.FunctionCallBuggyContext):
+            isDefined = False
+            firstExprSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == firstExpr.id_().getText()]
+            if len(firstExprSymbols) != 0:
+                firstExprSymbol = firstExprSymbols[0]
+                idSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == id.getText()]
+                if len(idSymbols)>0:
+                    idSymbol = idSymbols[0]
+                    if idSymbol['belongs'] == firstExprSymbol['type']:
+                        isDefined = True
+                if not isDefined:
+                    self.errors.append(f'Method {id.getText()} does not exist in class {firstExprSymbol["type"]} @ {ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}')
+            # else:
+            #     self.errors.append(f'{firstExpr.id_().getText()} has not been defined @ {ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}')
+            return self.visitChildren(ctx)
+            
         isDefined = False
         firstExprSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == firstExpr.getText()]
         if (len(firstExprSymbols) != 0):
             exprSymbol = firstExprSymbols[0]
             exprClass = exprSymbol['type']
-            exprClassSymbol = [symbol for symbol in self.symbolTable if symbol['id'] == exprClass][0]
+            exprClassSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == exprClass]
+            if len(exprClassSymbols) == 0:
+                return self.visitChildren(ctx)
+            exprClassSymbol = exprClassSymbols[0]
             idSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == id.getText() and (symbol['belongs'] == exprSymbol['type'] or symbol['belongs'] == exprClassSymbol['inherits']) and len(symbol['typeParams']) == len(ctx.expr()[1:]) ]
             if len(idSymbols) != 0:
                 isDefined = True
