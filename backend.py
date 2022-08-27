@@ -9,7 +9,10 @@ from dist.YAPLLexer import YAPLLexer
 from dist.YAPLParser import YAPLParser
 from customErrorListener import customErrorListener
 from flask import Flask, request
+import time
 import logging
+
+SYNTAX_ERRORS_FILE = './instance/syntaxErrors.txt'
 
 def create_app():
     app = Flask(__name__)
@@ -32,15 +35,14 @@ def create_app():
         os.makedirs(app.instance_path)
         os.makedirs(uploads_dir)
     except OSError as error:
-        print('ERROR CREATING DIRS')
-        print(error)
+        pass
 
     @app.route('/')
     def hello_world():
         return 'Hello, World!'
 
-    @app.route('/compile', methods=['POST'])
-    def compile():
+    @app.route('/compile_file', methods=['POST'])
+    def compile_file():
         if 'file' not in request.files:
             return {
                     'message': 'No files passed'
@@ -69,6 +71,52 @@ def create_app():
             'errors': visitor.errors
         } 
 
+    @app.route('/compile_content', methods=['POST'])
+    def compile_content():
+        open(SYNTAX_ERRORS_FILE, 'w').close()
+        program = request.form.get('program')
+        temp_dir = os.path.join(uploads_dir, 'temp.yapl')
+
+        f = open(temp_dir, "w")
+        f.write(program)
+        f.close()
+
+        syntaxErrors = []
+        try: 
+            lexer = YAPLLexer(FileStream(temp_dir))
+            lexer.removeErrorListeners()
+            lexer.addErrorListener(customErrorListener())
+            stream = CommonTokenStream(lexer)
+            stream.fill()
+        except Exception as e:
+            print('ERROR: ', e)
+
+        parser = YAPLParser(stream)
+        parser.removeErrorListeners()
+        parser.addErrorListener(customErrorListener())
+
+        tree = parser.prog()
+        visitor = YAPLTree()
+        visitor.visit(tree)
+        syntaxErrors = []
+        with open(SYNTAX_ERRORS_FILE, 'r') as errors:
+            for error in errors.readlines():
+                syntaxErrors.append(error)
+
+        return {
+            'text': program,
+            'symbolTable': visitor.symbolTable,
+            'errors': [*syntaxErrors, *visitor.errors]
+        } 
+    @app.route('/compile_content', methods=['OPTIONS'])
+    def options():
+        return {
+            'options': 'ok'
+        }
+
+    @app.route('/time')
+    def get_current_time(): 
+        return {'time': time.time()}
     return app
 
 app = create_app()
