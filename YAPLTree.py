@@ -7,6 +7,9 @@ class TokenTypes(Enum):
     CLASS_ID='class-id'
     VARIABLE_ID='variable-id'
     OPERATOR = 'operator'
+    INT = 'int'
+    BOOL = 'bool'
+    STRING = 'string'
     FUNCTION_ID = 'function-id'
 
 main_class_id = 'Main'
@@ -104,8 +107,15 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Add.
     def visitAdd(self, ctx):
-        # for node in ctx.expr():
-            # print(self.visit(node).get('type') if type(self.visit(node)) is dict else node.getText())
+        # for child in ctx.getChildren():
+            # print('child ',child.getText())
+        for node in ctx.expr():
+            print('exp', node.getText())
+            self.visit(node)
+            # type = self.symbolTable[node.getText()]['type']
+            # if (self.symbolTable[node.getText()]['type'] != 'int' and self.symbolTable[node.getText()]['type'] != 'bool'):
+            #     self.errors.append(f'Invalid addition {node.getText()} is {type} @ line {ctx.PLUS_SIGN().getPayload().line}')
+            #     return {'type': 'Error'}
         return self.visitChildren(ctx)
 
 
@@ -126,16 +136,31 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#True.
     def visitTrue(self, ctx):
+        bool = ctx.TRUE()
+        if not bool.getText() in self.symbolTable:
+            self.symbolTable[bool.getText()] = { 'type': TokenTypes.BOOL.value, 'occurrences': [getOccurrencePosition(bool) ] }
+        else:
+            self.symbolTable[bool.getText()]['occurrences'].append(getOccurrencePosition(bool))
         return {'type': 'bool'}
 
 
     # Visit a parse tree produced by YAPLParser#String.
     def visitString(self, ctx):
+        string = ctx.STRING()
+        if not string.getText() in self.symbolTable:
+            self.symbolTable[string.getText()] = { 'type': TokenTypes.STRING.value, 'occurrences': [getOccurrencePosition(string) ] }
+        else:
+            self.symbolTable[string.getText()]['occurrences'].append(getOccurrencePosition(string))
         return {'type': 'string'}
 
 
     # Visit a parse tree produced by YAPLParser#False.
     def visitFalse(self, ctx):
+        bool = ctx.FALSE()
+        if not bool.getText() in self.symbolTable:
+            self.symbolTable[bool.getText()] = { 'type': TokenTypes.BOOL.value, 'occurrences': [getOccurrencePosition(bool) ] }
+        else:
+            self.symbolTable[bool.getText()]['occurrences'].append(getOccurrencePosition(bool))
         return {'type': 'bool'}
 
 
@@ -151,6 +176,11 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Int.
     def visitInt(self, ctx):
+        num = ctx.INTEGER()
+        if not num.getText() in self.symbolTable:
+            self.symbolTable[num.getText()] = { 'type': TokenTypes.INT.value, 'occurrences': [getOccurrencePosition(num) ] }
+        else:
+            self.symbolTable[num.getText()]['occurrences'].append(getOccurrencePosition(num))
         return {'type': 'int'}
 
 
@@ -186,6 +216,14 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Multiply.
     def visitMultiply(self, ctx):
+        for node in ctx.expr():
+            print('hola',node.getText())
+            child = self.visit(node)
+            print('child:',child)
+            # type = self.symbolTable[node.getText()]['type']
+            # if (self.symbolTable[node.getText()]['type'] != 'int' and self.symbolTable[node.getText()]['type'] != 'bool'):
+            #     self.errors.append(f'Invalid division {node.getText()} is {type} @ line {ctx.MULTIPLY_SIGN().getPayload().line}')
+            #     return {'type': 'Error'}
         return self.visitChildren(ctx)
 
 

@@ -12,5 +12,5 @@ class customErrorListener(ErrorListener):
     ANSI_CYAN = "\u001B[36m"
     ANSI_WHITE = "\u001B[37m"
 
-    def syntaxError(self, offendingSymbol, line, character, message, e):
+    def syntaxError(self, offendingSymbol, line, character, message, e, e2):
         print(self.ANSI_YELLOW + "Error en " + str(line) + " @ " + str(character) + ":\t" + str(message) + self.ANSI_RESET)
