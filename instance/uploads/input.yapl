@@ -1,0 +1,11 @@
+class Main inherits IO {
+    a : Int <- 5 + 11 - (1 * 2);
+};
+
+class Marco {
+    v: Bool <- false;
+
+    func(x: Int, y: String): Bool {
+        self
+    };
+};
