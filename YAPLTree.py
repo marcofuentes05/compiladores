@@ -1,5 +1,6 @@
 # Generated from YAPL.g4 by ANTLR 4.10.1
 from pydoc import classname
+import sys
 from dist.YAPLVisitor import YAPLVisitor
 from dist.YAPLParser import YAPLParser
 from enum import Enum
@@ -27,17 +28,17 @@ class YAPLTree(YAPLVisitor):
     def __init__(self):
         YAPLVisitor.__init__(self)
         self.symbolTable = [
-            {'id': 'String', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None},
-            {'id': 'Int', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None},
-            {'id': 'Bool', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None},
-            {'id': 'IO', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None},
-            {'id': 'in_string', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None},
-            {'id': 'out_string', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None},
-            {'id': 'in_int', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None},
-            {'id': 'out_int', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None},
-            {'id': 'length', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': [], 'line': None, 'col': None},
-            {'id': 'concat', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['String'], 'line': None, 'col': None},
-            {'id': 'substr', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['Int', 'Int'], 'line': None, 'col': None}
+            {'id': 'String', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '8', 'memory': None, 'position': None},
+            {'id': 'Int', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '8', 'memory': None, 'position': None},
+            {'id': 'Bool', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '1', 'memory': None, 'position': None},
+            {'id': 'IO', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
+            {'id': 'in_string', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
+            {'id': 'out_string', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
+            {'id': 'in_int', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
+            {'id': 'out_int', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
+            {'id': 'length', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': [], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
+            {'id': 'concat', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
+            {'id': 'substr', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['Int', 'Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None}
         ]
         self.errors = []
 
@@ -95,7 +96,14 @@ class YAPLTree(YAPLVisitor):
                 inheritedClass = ctx.TYPE_ID()[1].getText()
 
         # class to be added to the table
-        entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': inheritedClass}
+        entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': inheritedClass, 'size': None, 'memory': None, 'position': None}
+        
+        print('hola')
+        print(len(self.currentClass))
+        print(len(self.currentClass.encode('utf-8')))
+        print(sys.getsizeof(self.currentClass))
+        print(sys.getsizeof(self.currentClass.encode('utf-8')))
+        print('adios')
 
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id']:
@@ -153,15 +161,20 @@ class YAPLTree(YAPLVisitor):
     # Visit a parse tree produced by YAPLParser#MethodFeature.
     def visitMethodFeature(self, ctx):
         #Get method name
-        id = ctx.id_().getText()
+        ident = ctx.id_().getText()
         #See if there is only 1 main method on Main class
-        if self.currentClass == 'Main' and id == 'main':
+        if self.currentClass == 'Main' and ident == 'main':
             self.mainMethodCounter += 1
 
         #Set current method
-        self.currentMethod = id
+        self.currentMethod = ident
         typeId = ctx.TYPE_ID().getText()
-        entry = {'id': id, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
+        print('tipo')
+        if typeId == 'Int' or typeId == 'String' or typeId == 'Bool':
+            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Global', 'position': hex(id(ident))}
+        else:
+            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'posittion': None}
+
         
         # Check if the class doesn't exist
         add = True
@@ -181,7 +194,7 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#AttributeFeature.
     def visitAttributeFeature(self, ctx):
-        id = ctx.id_().getText()
+        ident = ctx.id_().getText()
         typeId = ctx.TYPE_ID().getText()
 
         #If expression exists Check if type expression type is equal to mehtod type
@@ -202,14 +215,18 @@ class YAPLTree(YAPLVisitor):
             if typeId != valType:
                 self.errors.append(f"Can't assign {valType} to  variable type {typeId} @ {ctx.TYPE_ID().getPayload().line}")
 
-        entry = {'id': id, 'type': typeId, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
+        if typeId == 'Int' or typeId == 'String' or typeId == 'Bool':
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Global', 'position': hex(id(ident))}
+        else:
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': 'Global', 'position': None}
+
 
         # Check if the class doesn't exist
         add = True
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id'] and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['belongs']:
                 add = False
-                self.errors.append(f'Variable {id} is already defined @ {ctx.id_().OBJECT_ID().getPayload().line}')
+                self.errors.append(f'Variable {ident} is already defined @ {ctx.id_().OBJECT_ID().getPayload().line}')
 
         #Add entry to table
         if add == True:
@@ -229,7 +246,7 @@ class YAPLTree(YAPLVisitor):
                 else:
                     symbol['typeParams'].append(ctx.TYPE_ID().getText())
 
-        id = ctx.id_().getText()
+        ident = ctx.id_().getText()
         typeId = ctx.TYPE_ID().getText()
 
         if typeId == 'Int':
@@ -241,7 +258,10 @@ class YAPLTree(YAPLVisitor):
         else:
             value = None
 
-        entry = {'id': id, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column}
+        if typeId == 'Int' or typeId == 'Bool' or typeId == 'String':
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Stack', 'position': hex(id(ident))}
+        else:
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
 
         # Check if the class doesn't exist
         add = True
@@ -515,7 +535,7 @@ class YAPLTree(YAPLVisitor):
     # Visit a parse tree produced by YAPLParser#Let.
     def visitLet(self, ctx):
         
-        id = ctx.id_()[0].getText()
+        ident = ctx.id_()[0].getText()
         typeId = ctx.TYPE_ID()[0].getText()
 
         if typeId == 'Int':
@@ -527,8 +547,11 @@ class YAPLTree(YAPLVisitor):
         else:
             value = None
 
-        entry = {'id': id, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column}
-
+        if typeId == 'Int' or typeId == 'Bool' or typeId == 'String':
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': None, 'size': sys.getsizeof(ident), 'memory': 'Stack', 'position': hex(id(ident))}
+        else:
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
+            
         # Check if the class doesn't exist
         add = True
         for symbol in self.symbolTable:

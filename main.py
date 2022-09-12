@@ -2,7 +2,6 @@
 import pprint
 import sys
 from antlr4 import *
-import antlr4
 from antlr4.tree.Trees import Trees
 from YAPLTree import YAPLTree
 from dist.YAPLLexer import YAPLLexer
