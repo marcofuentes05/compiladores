@@ -48,6 +48,20 @@ Para correr el laboratorio:
 ```
 python3 main.py input.yapl
 ```
-### Video Laboratorio 1
+#### Video Laboratorio 1
 
 https://youtu.be/nwIqlAE828g
+
+### Laboratorio 2 
+
+Para correr el laboratorio:
+
+```
+python3 main.py input.yapl
+```
+
+La documentación de la representación intermedia se encuentra en `./Lab 2.pdf`
+
+#### Video Laboratorio 2
+
+https://youtu.be/oquLbfFB0vg
