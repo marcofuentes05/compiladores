@@ -1,0 +1,19 @@
+.title {
+    font-size: 20px;
+    color: white;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.headers {
+    background-color: grey;
+}
+
+.header {
+    width: 20px;
+}
+

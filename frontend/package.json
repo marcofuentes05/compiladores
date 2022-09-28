@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A frontend for our YAPL compiler",
   "scripts": {
-    "start": "webpack-dev-server --hot --open"
+    "start": "webpack-dev-server --hot --open",
+    "proxy": "lcp --proxyUrl http://127.0.0.1:5000"
   },
   "author": "Marco Fuentes",
   "license": "ISC",

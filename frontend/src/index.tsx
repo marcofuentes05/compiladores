@@ -10,6 +10,7 @@ import { FileImporter } from './components/DropZone/DropZone';
 import { onClickCompile } from './utils';
 import './styles.css'
 import { Errors } from './components/Errors';
+import {SymbolTable} from './components/SymbolTable/symbol-table';
 
 setupLanguage();
 const App = () => {
@@ -17,12 +18,14 @@ const App = () => {
     const [editor, setEditor] = useState(null);
     const [isCompiling, setIsCompiling] = useState<boolean>(false);
     const [errors, setErrors] = useState<string[]>()
+    const [symbolTable, setSymbolTable] = useState<string[][]>([[]]);
 return (
     <div>
         <Title />
         <div style={{display: 'flex'}}>
             <Editor
                 language={languageID}
+
                 fileContent={fileContent}
                 onFileContentChange={setFileContent}
                 editor={editor}
@@ -32,8 +35,9 @@ return (
                 <FileImporter setFileContentValue={setFileContent} />
                 <Button text="Compilar" onClick={() => {
                     setErrors([]);
-                    onClickCompile(editor, setIsCompiling, setErrors);
+                    onClickCompile(editor, setIsCompiling, setErrors, setSymbolTable);
                 }} />
+                <SymbolTable data={symbolTable} columns={Object.keys(symbolTable[0])} />
                 <Errors errorsArray={errors} />
             </div>
         </div>
