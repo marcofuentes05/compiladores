@@ -4,7 +4,8 @@ module.exports = {
     mode: 'development',
     entry: {
         app: './src/index.tsx',
-        "editor.worker": 'monaco-editor-core/esm/vs/editor/editor.worker.js'
+        "editor.worker": 'monaco-editor-core/esm/vs/editor/editor.worker.js',
+        "yaplWorker": './src/yapl-lang/yaplLang.worker.ts'
     },
     output: {
         globalObject: 'self',
@@ -12,6 +13,8 @@ module.exports = {
             switch (chunkData.chunk.name) {
                 case 'editor.worker':
                     return 'editor.worker.js';
+                case 'yaplWorker':
+                    return 'yaplWorker.js'
                 default:
                     return 'bundle.[hash].js';
             }

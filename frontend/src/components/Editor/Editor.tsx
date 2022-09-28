@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { useEffect, useState} from 'react';
 import * as monaco from 'monaco-editor-core';
+import { parseAndGetASTRoot } from '../../language-service/parser';
 import './styles.css'
 
 interface IEditorPorps {
@@ -30,6 +31,17 @@ export const Editor: React.FC<IEditorPorps> = (props: IEditorPorps) => {
                 theme: 'vs-dark'
             }));
         }
+        console.log(parseAndGetASTRoot(`
+        class Silly {
+            copy() : SELF_TYPE { self };
+        };
+        
+        class Sally inherits Silly { };
+        
+        class Main {
+            x : Sally <- (new Sally).copy();
+            main() : Sally { x };
+        };`))
     }, [assignRef])
 
     useEffect(() => {

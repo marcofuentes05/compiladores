@@ -2,6 +2,11 @@ import * as monaco from "monaco-editor-core";
 import IRichLanguageConfiguration = monaco.languages.LanguageConfiguration;
 import ILanguage = monaco.languages.IMonarchLanguage;
 
+export const richLanguageConfiguration: IRichLanguageConfiguration = {
+    folding: {
+    }
+};
+
 export const monarchLanguage = <ILanguage>{
     defaultToken: 'invalid',
     keywords: [
