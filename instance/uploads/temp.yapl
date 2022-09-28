@@ -1,0 +1,19 @@
+class Main {
+    a : Int <- 5;
+    b : Bool <- false;
+    c : String <- "hola";
+
+    main() : SELF_TYPE {
+        {
+            a <- a + b;
+        }
+    };
+};
+
+class Marco {
+    v: Bool <- false;
+
+    func(x: Int, y: String): Bool {
+        self
+    };
+};

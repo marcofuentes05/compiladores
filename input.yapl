@@ -9,3 +9,11 @@ class Main {
         }
     };
 };
+
+class Marco {
+    v: Bool <- false;
+
+    func(x: Int, y: String): Bool {
+        self
+    };
+};

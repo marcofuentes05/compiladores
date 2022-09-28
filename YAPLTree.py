@@ -97,13 +97,6 @@ class YAPLTree(YAPLVisitor):
 
         # class to be added to the table
         entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': inheritedClass, 'size': None, 'memory': None, 'position': None}
-        
-        print('hola')
-        print(len(self.currentClass))
-        print(len(self.currentClass.encode('utf-8')))
-        print(sys.getsizeof(self.currentClass))
-        print(sys.getsizeof(self.currentClass.encode('utf-8')))
-        print('adios')
 
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id']:
@@ -169,7 +162,6 @@ class YAPLTree(YAPLVisitor):
         #Set current method
         self.currentMethod = ident
         typeId = ctx.TYPE_ID().getText()
-        print('tipo')
         if typeId == 'Int' or typeId == 'String' or typeId == 'Bool':
             entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Global', 'position': hex(id(ident))}
         else:
