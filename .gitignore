@@ -5,4 +5,10 @@ node_modules/
 *.class
 *.java
 
+*.pyc
+
 parser/
+dist/
+
+__pycache__/
+venv/
