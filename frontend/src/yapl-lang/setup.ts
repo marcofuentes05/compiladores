@@ -5,6 +5,18 @@ import { WorkerManager } from "./WorkerManager";
 import DiagnosticsAdapter from './DiagnosticsAdapter';
 import { richLanguageConfiguration, monarchLanguage } from './YAPLLang';
 
+class MyCompletionItemProvider implements monaco.languages.CompletionItemProvider {
+    triggerCharacters: string[] = [];
+
+    provideCompletionItems(model, position, context, token) {
+    console.log("🚀 ~ file: setup.ts ~ line 12 ~ CompletionItemProvider ~ provideCompetionItems ~ token", token)
+    console.log("🚀 ~ file: setup.ts ~ line 12 ~ CompletionItemProvider ~ provideCompetionItems ~ context", context)
+    console.log("🚀 ~ file: setup.ts ~ line 12 ~ CompletionItemProvider ~ provideCompetionItems ~ position", position)
+    console.log("🚀 ~ file: setup.ts ~ line 12 ~ CompletionItemProvider ~ provideCompetionItems ~ model", model)
+    return {} as monaco.languages.ProviderResult<monaco.languages.CompletionList>;
+    }
+}
+
 export function setupLanguage() {
     (window as any).MonacoEnvironment = {
         getWorkerUrl: function (moduleId, label) {
@@ -15,6 +27,7 @@ export function setupLanguage() {
         }
     }
     monaco.languages.register(languageExtensionPoint);
+    monaco.languages.registerCompletionItemProvider(languageID, new MyCompletionItemProvider())
     monaco.languages.onLanguage(languageID, () => {
         monaco.languages.setMonarchTokensProvider(languageID, monarchLanguage);
         monaco.languages.setLanguageConfiguration(languageID, richLanguageConfiguration);

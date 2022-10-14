@@ -10,7 +10,7 @@ import { FileImporter } from './components/DropZone/DropZone';
 import { onClickCompile } from './utils';
 import './styles.css'
 import { Errors } from './components/Errors';
-import {SymbolTable} from './components/SymbolTable/symbol-table';
+import {SymbolTable, DataType} from './components/SymbolTable/symbol-table';
 
 setupLanguage();
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
     const [editor, setEditor] = useState(null);
     const [isCompiling, setIsCompiling] = useState<boolean>(false);
     const [errors, setErrors] = useState<string[]>()
-    const [symbolTable, setSymbolTable] = useState<string[][]>([[]]);
+    const [symbolTable, setSymbolTable] = useState<DataType[]>();
 return (
     <div>
         <Title />
@@ -32,12 +32,15 @@ return (
                 setEditor={setEditor}
             />
             <div className="right-column">
-                <FileImporter setFileContentValue={setFileContent} />
-                <Button text="Compilar" onClick={() => {
-                    setErrors([]);
-                    onClickCompile(editor, setIsCompiling, setErrors, setSymbolTable);
-                }} />
-                <SymbolTable data={symbolTable} columns={Object.keys(symbolTable[0])} />
+                <div className="buttons">
+                    <FileImporter setFileContentValue={setFileContent} />
+                    <Button text="Compilar" onClick={() => {
+                        setErrors([]);
+                        onClickCompile(editor, setIsCompiling, setErrors, setSymbolTable);
+                    }} />
+                </div>
+                {/*@ts-ignore */}
+                {symbolTable && <SymbolTable data={symbolTable} columns={Object.keys(symbolTable[0])} />}
                 <Errors errorsArray={errors} />
             </div>
         </div>

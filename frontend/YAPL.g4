@@ -25,21 +25,6 @@ DOUBLE_QUOTE: '"';
 STRING
    : '"' (ESC | SAFECODEPOINT)* '"'
    ;
-
-fragment ESC
-   : '\\' (["\\/bfnrt] | UNICODE)
-   ;
-fragment SAFECODEPOINT
-   : ~ ["\\\u0000-\u001F]
-   ;
-fragment UNICODE
-   : 'u' HEX HEX HEX HEX
-   ;
-fragment HEX
-   : [0-9a-fA-F]
-   ;
-fragment ANY_CHARACTER:[A-Za-z];
-
 LINE_COMMENT:'--' .*? [\n\r] -> skip;
 BLOCK_COMMENT: (('...' (ANY_CHARACTER)* '...')| ('(*' .*? '*)' )) -> skip;
 INTEGER: [0-9]+;
@@ -60,6 +45,21 @@ CLOSE_BRACKET: '}';
 WS
    : [ \t\n\r\f] + -> skip
    ;
+
+
+fragment ESC
+   : '\\' (["\\/bfnrt] | UNICODE)
+   ;
+fragment SAFECODEPOINT
+   : ~ ["\\\u0000-\u001F]
+   ;
+fragment UNICODE
+   : 'u' HEX HEX HEX HEX
+   ;
+fragment HEX
+   : [0-9a-fA-F]
+   ;
+fragment ANY_CHARACTER:[A-Za-z];
 
 fragment A : [aA]; // match either an 'a' or 'A'
 fragment B : [bB];

@@ -10,6 +10,7 @@ export const onClickCompile = async (editor, setIsCompiling, setErrors, setSymbo
         body
     } );
     const jsonRsponse = await response.json();
+    console.log("🚀 ~ file: utils.ts ~ line 13 ~ onClickCompile ~ jsonRsponse", jsonRsponse)
     setErrors(jsonRsponse.errors);
     setSymbolTable(jsonRsponse.symbolTable);
     setIsCompiling(false);

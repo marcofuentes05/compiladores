@@ -5,9 +5,15 @@ body {
 
 .right-column {
     width: 50%;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
-    align-items: flex-start;
     padding: 0 12px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 6px;
 }

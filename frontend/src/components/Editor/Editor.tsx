@@ -28,20 +28,11 @@ export const Editor: React.FC<IEditorPorps> = (props: IEditorPorps) => {
                 language: props.language,
                 minimap: { enabled: true },
                 autoIndent: true,
-                theme: 'vs-dark'
+                theme: 'vs-dark',
+                autoClosingBrackets: 'always',
+                cursorBlinking: 'smooth'
             }));
         }
-        console.log(parseAndGetASTRoot(`
-        class Silly {
-            copy() : SELF_TYPE { self };
-        };
-        
-        class Sally inherits Silly { };
-        
-        class Main {
-            x : Sally <- (new Sally).copy();
-            main() : Sally { x };
-        };`))
     }, [assignRef])
 
     useEffect(() => {
