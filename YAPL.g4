@@ -104,20 +104,20 @@ expr: id '<-' expr                                                              
         | 'let' id ':' TYPE_ID ('<-' expr)? (',' id ':' TYPE_ID ('<-' expr)?)* 'in' expr              # Let
         | NEW TYPE_ID                                                                                 # New
         | ISVOID expr                                                                                 # IsVoid
-        | expr PLUS_SIGN expr                                                                         # Add
-        | expr MINUS_SIGN expr                                                                        # Substract
-        | expr MULTIPLY_SIGN expr                                                                     # Multiply
-        | expr DIVIDE_SIGN expr                                                                       # Divide
-        | (MINUS_SIGN|NOT_SIGN) expr                                                                  # NotOrMinus
-        | expr LT_SIGN expr                                                                           # LessThan
-        | expr LE_SIGN expr                                                                           # LessEqualThan
-        | expr EQUAL_SIGN expr                                                                        # Equal
-        | NOT expr                                                                                    # Not
-        | OPEN_PARENTHESIS expr CLOSE_PARENTHESIS                                                     # Parenthesis
         | id                                                                                          # Identifier
         | INTEGER                                                                                     # Int
         | STRING                                                                                      # String
         | TRUE                                                                                        # True
         | FALSE                                                                                       # False
         | 'self'                                                                                      # Self 
+        | OPEN_PARENTHESIS expr CLOSE_PARENTHESIS                                                     # Parenthesis
+        | NOT expr                                                                                    # Not
+        | (MINUS_SIGN|NOT_SIGN) expr                                                                  # NotOrMinus
+        | expr MULTIPLY_SIGN expr                                                                     # Multiply
+        | expr DIVIDE_SIGN expr                                                                       # Divide
+        | expr MINUS_SIGN expr                                                                        # Substract
+        | expr PLUS_SIGN expr                                                                         # Add
+        | expr LT_SIGN expr                                                                           # LessThan
+        | expr LE_SIGN expr                                                                           # LessEqualThan
+        | expr EQUAL_SIGN expr                                                                        # Equal
         ;
