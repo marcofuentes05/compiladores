@@ -1,5 +1,4 @@
 class Fibonacci {
-  	
   	fibonacci(n: Int) : Int {
         {( 
          	let f : Int in

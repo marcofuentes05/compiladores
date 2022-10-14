@@ -1,0 +1,27 @@
+
+class Marco {
+    v: Bool <- false;
+
+    func(x: Int, y: String): SELF_TYPE {
+        self
+    };
+};
+
+class Test {
+    testFunction() : Marco {
+        self
+    };
+};
+
+class Main {
+    a : Int <- 5 + 11 - (1 * 2);
+    variable : Marco;
+    testVariable : Test;
+
+    main() : SELF_TYPE{{
+        variable <- new Marco;
+        variable.func(5, "hola").func(5, "hola").func(5, "hola").func(5, "hola");
+        testVariable <- new Test;
+        testVariable.testFunction().func(5, "hola").func(5, "hola");
+    }};
+};
