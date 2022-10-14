@@ -1,4 +1,5 @@
 # Generated from YAPL.g4 by ANTLR 4.10.1
+import pprint
 from pydoc import classname
 import sys
 from dist.YAPLVisitor import YAPLVisitor
@@ -70,6 +71,8 @@ class YAPLTree(YAPLVisitor):
 
         #Set current class
         self.currentClass = ctx.TYPE_ID()[0].getText()
+
+        print(ctx.TYPE_ID()[0].getText())
         
         inheritedClass = None
 
@@ -82,25 +85,27 @@ class YAPLTree(YAPLVisitor):
         elif len(ctx.TYPE_ID()) > 1:
             if ctx.TYPE_ID()[1].getText() in primitive_types:
                 self.errors.append(f"Can't inherit from primitive type")
-                add = False
+                # add = False
             # check if is recursive inheritance
             elif ctx.TYPE_ID()[1].getText() == self.currentClass:
                 self.errors.append(f"Can't do recursive inheritance") 
 
 
-                add = False
+                # add = False
             elif len([symbol for symbol in self.symbolTable if ctx.TYPE_ID()[1].getText()== symbol['id']]) == 0:
                 self.errors.append(f'Inherited class {ctx.TYPE_ID()[1].getText()} does not exist')
-                add = False
+                # add = False
             else:
                 inheritedClass = ctx.TYPE_ID()[1].getText()
 
         # class to be added to the table
         entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': inheritedClass, 'size': None, 'memory': None, 'position': None}
 
+        pprint.pp(add)
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id']:
                 add = False
+        pprint.pp(add)
 
         #Add entry to table
         if add == True:
@@ -295,10 +300,11 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#New.
     def visitNew(self, ctx):
-        print(ctx.TYPE_ID())
+        
         for symbol in self.symbolTable:
             if symbol['id'] == ctx.TYPE_ID().getText():
                 return {'type': ctx.TYPE_ID().getText()}
+        return {'type': None}
         return self.visitChildren(ctx)
 
 
@@ -459,11 +465,13 @@ class YAPLTree(YAPLVisitor):
     def visitDeclaration(self, ctx):
 
         id = self.visit(ctx.id_())
+        print(ctx.expr().getText())
         value = self.visit(ctx.expr())
 
         print(ctx.expr().__class__)
 
-
+        print('id ',id['type'])
+        print('value ', value['type'])
         if id['type'] != value['type']:
             if(id['type']=='Int' and value['type']=='Bool'):
                 return {'type': 'Bool', 'idType': id['type']}
