@@ -1,11 +1,10 @@
 # Generated from YAPL.g4 by ANTLR 4.10.1
 import pprint
-from pydoc import classname
 import sys
+from enum import Enum
+from triplet import ThreeWayCode
 from dist.YAPLVisitor import YAPLVisitor
 from dist.YAPLParser import YAPLParser
-from enum import Enum
-from triplet import Triplet, ThreeWayCode
 
 class TokenTypes(Enum):
     CLASS_ID='class-id'
@@ -16,7 +15,7 @@ class TokenTypes(Enum):
     STRING = 'string'
     FUNCTION_ID = 'function-id'
 
-main_class_id = 'Main'
+MAIN_CLASS_ID = 'Main'
 
 primitive_types = ['Int', 'String', 'Bool']
 
@@ -185,7 +184,9 @@ class YAPLTree(YAPLVisitor):
         #Add entry to table
         if add == True:
             self.symbolTable.append(entry)
-        
+            for formal in ctx.formal():
+                formal_entry = {'id': formal.id_().getText(), 'type': formal.TYPE_ID().getText(), 'value': None, 'scope': 'global', 'belongs': ident, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
+                self.symbolTable.append(formal_entry)
         expr = self.visit(ctx.expr())
 
         # return self.visitChildren(ctx)
@@ -282,7 +283,6 @@ class YAPLTree(YAPLVisitor):
     def visitAdd(self, ctx):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
-
         temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'], expr2['value'])
 
         if 'idType' in expr1:
@@ -460,7 +460,9 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Identifier.
     def visitIdentifier(self, ctx):
-        return {'type': self.visit(ctx.id_()), 'triplet': None, 'value': ctx.id_().getText()}
+        result = self.visit(ctx.id_())
+        print(result)
+        return {'type': result['type'], 'triplet': None, 'value': ctx.id_().getText()}
 
 
     # Visit a parse tree produced by YAPLParser#Brackets.
@@ -547,13 +549,16 @@ class YAPLTree(YAPLVisitor):
     def visitFunctionCall(self, ctx):
         id = ctx.id_()
         isDefined = False
+        functionSymbol = None
         for symbol in self.symbolTable:
             if (symbol['id'] == id.getText() and symbol['typeParams'] != None and (symbol['belongs'] in [self.currentClass, 'IO'] or symbol['scope']=='global')) or id.getText() == self.currentMethod: # Last one is for recursive purposes
                 isDefined = True
+                functionSymbol = symbol
         if not isDefined:
             self.errors.append(f'Method {id.getText()} called before assignment @{ctx.id_().OBJECT_ID().getPayload().line} ' )
-        return self.visitChildren(ctx)
-
+        self.visitChildren(ctx)
+        if isDefined:
+            return { **functionSymbol, 'idType': functionSymbol['type']}
 
     # Visit a parse tree produced by YAPLParser#While.
     def visitWhile(self, ctx):
@@ -610,34 +615,35 @@ class YAPLTree(YAPLVisitor):
 
 
     # Visit a parse tree produced by YAPLParser#Let.
-    def visitLet(self, ctx):
-        
-        ident = ctx.id_()[0].getText()
-        typeId = ctx.TYPE_ID()[0].getText()
 
-        if typeId == 'Int':
+    def visitLet(self, ctx):
+        ident = ctx.id_()[0].getText()
+        type_id = ctx.TYPE_ID()[0].getText()
+
+        if type_id == 'Int':
             value = 0
-        elif typeId == 'Bool':
+        elif type_id == 'Bool':
             value = False
-        elif typeId == 'String':
+        elif type_id == 'String':
             value = ""
         else:
             value = None
 
-        if typeId == 'Int' or typeId == 'Bool' or typeId == 'String':
-            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': None, 'size': sys.getsizeof(ident), 'memory': 'Stack', 'position': hex(id(ident))}
+        if type_id == 'Int' or type_id == 'Bool' or type_id == 'String':
+            entry = {'id': ident, 'type': type_id, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': None, 'size': sys.getsizeof(ident), 'memory': 'Stack', 'position': hex(id(ident))}
         else:
-            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
+            entry = {'id': ident, 'type': type_id, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
             
         # Check if the class doesn't exist
         add = True
         for symbol in self.symbolTable:
-            if symbol['id'] == entry['id'] and symbol['type'] == typeId and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['belongs']:
+            if symbol['id'] == entry['id'] and symbol['type'] == type_id and symbol['scope'] == entry['scope'] and symbol['belongs'] == entry['belongs']:
                 add = False
-
-        #Add entry to table
-        if add == True:
+        # Add entry to table
+        if add:
             self.symbolTable.append(entry)
-
-        return{'type': 'Int'}
-        return self.visitChildren(ctx)
+        for expression in ctx.expr():
+            self.visit(expression)
+        temporal_value = self.threeWayCode.add('LET', ident)
+        return{'type': 'Int', 'triplet': temporal_value, 'value': temporal_value }
+        # return self.visitChildren(ctx)
