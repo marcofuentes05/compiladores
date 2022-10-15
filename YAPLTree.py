@@ -44,12 +44,19 @@ class YAPLTree(YAPLVisitor):
         ]
         self.errors = []
 
+        self.labels = []
+
         self.mainClassCounter = 0
         self.mainMethodCounter = 0
 
         self.currentClass = ''
         self.currentMethod = ''
 
+    def new_label(self):
+        label = "l_" + str(len(self.labels))
+        self.labels.append(label)
+
+        return label
 
     # Visit a parse tree produced by YAPLParser#prog.
     def visitProg(self, ctx):
@@ -72,8 +79,6 @@ class YAPLTree(YAPLVisitor):
 
         #Set current class
         self.currentClass = ctx.TYPE_ID()[0].getText()
-
-        print(ctx.TYPE_ID()[0].getText())
         
         inheritedClass = None
 
@@ -102,11 +107,9 @@ class YAPLTree(YAPLVisitor):
         # class to be added to the table
         entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': inheritedClass, 'size': None, 'memory': None, 'position': None}
 
-        pprint.pp(add)
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id']:
                 add = False
-        pprint.pp(add)
 
         #Add entry to table
         if add == True:
@@ -139,6 +142,8 @@ class YAPLTree(YAPLVisitor):
         #Check if variable has been declared
         id = ctx.getText()
         symbol = None
+
+        print('llegue')
         
         for sym in self.symbolTable:
             if sym['id'] == id  and sym['belongs'] == self.currentMethod:
@@ -341,6 +346,22 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#IfElse.
     def visitIfElse(self, ctx):
+
+        condition = self.visit(ctx.expr()[0])
+
+        terceto_not = self.threeWayCode.add('not', condition['value'])
+
+        then = self.visit(ctx.expr()[1])
+        then_label = self.new_label()
+        else_exp = self.visit(ctx.expr()[2])
+        else_label = self.new_label()
+
+        terceto_if = self.threeWayCode.add('goto', then_label, condition['value'])
+
+        terceto_else = self.threeWayCode.add('goto', else_label, terceto_not)
+
+        return {'value': terceto_if, 'triplet': terceto_if}
+
         return self.visitChildren(ctx)
 
 
@@ -562,6 +583,15 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#While.
     def visitWhile(self, ctx):
+
+        condition = self.visit(ctx.expr()[0])
+
+        content = self.visit(ctx.expr()[1])
+        content_label = self.new_label()
+
+        while_triplet = self.threeWayCode.add('goto', content_label, condition['value'])
+
+        return {'value': while_triplet, 'triplet': while_triplet}
         return self.visitChildren(ctx)
 
 
@@ -569,6 +599,8 @@ class YAPLTree(YAPLVisitor):
     def visitSubstract(self, ctx):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
+
+        print(expr1,' ', expr2)
 
         temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'], expr2['value'])
 
