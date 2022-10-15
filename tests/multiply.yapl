@@ -7,7 +7,7 @@ class Main {
     main(): SELF_TYPE {
         {
             e <- not true;
-            a <- 5 * (8 * "true");
+            a <- New Int;
         }
     }  
 };

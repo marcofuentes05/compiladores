@@ -1,5 +1,4 @@
 # Generated from YAPL.g4 by ANTLR 4.10.1
-from parser import expr
 import pprint
 from pydoc import classname
 import sys
@@ -318,7 +317,8 @@ class YAPLTree(YAPLVisitor):
         
         for symbol in self.symbolTable:
             if symbol['id'] == ctx.TYPE_ID().getText():
-                return {'type': ctx.TYPE_ID().getText()}
+                temporal_value = self.threeWayCode.add(ctx.NEW().getText(), ctx.TYPE_ID().getText())
+                return {'type': ctx.TYPE_ID().getText(), 'triplet': temporal_value, 'value': temporal_value}
         return {'type': None}
         return self.visitChildren(ctx)
 
