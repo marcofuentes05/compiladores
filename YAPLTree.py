@@ -234,8 +234,6 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#formal.
     def visitFormal(self, ctx):
-
-        
         # Add parameters to method on symbol table entry
         for symbol in self.symbolTable:
             if symbol['id'] == self.currentMethod and symbol['belongs'] == self.currentClass and symbol['line'] == ctx.TYPE_ID().getPayload().line:
@@ -321,7 +319,7 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#True.
     def visitTrue(self, ctx):
-        return {'type': 'Bool'}
+        return {'type': 'Bool', 'value': ctx.getText(), 'triplet': None}
 
 
     # Visit a parse tree produced by YAPLParser#String.
@@ -331,7 +329,7 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#False.
     def visitFalse(self, ctx):
-        return {'type': 'Bool'}
+        return {'type': 'Bool', 'value': ctx.getText(), 'triplet': None}
 
 
     # Visit a parse tree produced by YAPLParser#Self.
