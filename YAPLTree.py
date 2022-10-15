@@ -5,6 +5,7 @@ import sys
 from dist.YAPLVisitor import YAPLVisitor
 from dist.YAPLParser import YAPLParser
 from enum import Enum
+from triplet import Triplet, ThreeWayCode
 
 class TokenTypes(Enum):
     CLASS_ID='class-id'
@@ -82,7 +83,7 @@ class YAPLTree(YAPLVisitor):
         # check if Main class inherits
         if self.currentClass == 'Main' and len(ctx.TYPE_ID()) > 1:
             self.errors.append(f"Main class can't inherit from another class")
-        elif len(ctx.TYPE_ID()) > 1:
+        if len(ctx.TYPE_ID()) > 1:
             if ctx.TYPE_ID()[1].getText() in primitive_types:
                 self.errors.append(f"Can't inherit from primitive type")
                 # add = False
@@ -170,7 +171,7 @@ class YAPLTree(YAPLVisitor):
         if typeId == 'Int' or typeId == 'String' or typeId == 'Bool':
             entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Global', 'position': hex(id(ident))}
         else:
-            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'posittion': None}
+            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
 
         
         # Check if the class doesn't exist
@@ -379,7 +380,7 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Int.
     def visitInt(self, ctx):
-        return {'type': 'Int'}
+        return {'type': 'Int', 'Triplet': None, 'value': ctx.getText()}
 
 
     # Visit a parse tree produced by YAPLParser#Divide.
@@ -453,7 +454,6 @@ class YAPLTree(YAPLVisitor):
                 self.errors.append('Invalid type ' + child['type'] + f' with operant "*" @ {ctx.start.line}')
                 return {'type': 'Error'}
         return {'type':'Int'}
-        return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by YAPLParser#LessEqualThan.
@@ -464,14 +464,15 @@ class YAPLTree(YAPLVisitor):
     # Visit a parse tree produced by YAPLParser#Declaration.
     def visitDeclaration(self, ctx):
 
+        pprint.pprint(self.symbolTable)
+
         id = self.visit(ctx.id_())
         print(ctx.expr().getText())
         value = self.visit(ctx.expr())
 
         print(ctx.expr().__class__)
 
-        print('id ',id['type'])
-        print('value ', value['type'])
+
         if id['type'] != value['type']:
             if(id['type']=='Int' and value['type']=='Bool'):
                 return {'type': 'Bool', 'idType': id['type']}
@@ -482,7 +483,7 @@ class YAPLTree(YAPLVisitor):
                 return {'type': value['type'], 'idType': id['type']}
 
         return {'type': value['type'], 'idType': id['type']}
-        return self.visitChildren(ctx)
+        # return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by YAPLParser#FunctionCall.
