@@ -107,6 +107,15 @@ class YAPLListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by YAPLParser#Self.
+    def enterSelf(self, ctx:YAPLParser.SelfContext):
+        pass
+
+    # Exit a parse tree produced by YAPLParser#Self.
+    def exitSelf(self, ctx:YAPLParser.SelfContext):
+        pass
+
+
     # Enter a parse tree produced by YAPLParser#String.
     def enterString(self, ctx:YAPLParser.StringContext):
         pass
@@ -122,15 +131,6 @@ class YAPLListener(ParseTreeListener):
 
     # Exit a parse tree produced by YAPLParser#False.
     def exitFalse(self, ctx:YAPLParser.FalseContext):
-        pass
-
-
-    # Enter a parse tree produced by YAPLParser#Self.
-    def enterSelf(self, ctx:YAPLParser.SelfContext):
-        pass
-
-    # Exit a parse tree produced by YAPLParser#Self.
-    def exitSelf(self, ctx:YAPLParser.SelfContext):
         pass
 
 

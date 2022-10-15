@@ -30,9 +30,9 @@ def main(argv):
     # visitor.symbolTable()
     visitor.visit(tree)
 
-    print("\nTabla de simbolos:")
-    pprint.pp(visitor.symbolTable)
-
+    # print("\nTabla de simbolos:")
+    # pprint.pp(visitor.symbolTable)
+    pprint.pp([str(tr) for tr in visitor.threeWayCode.triplets])
     print('ERRORS:')
     print(visitor.errors)
 

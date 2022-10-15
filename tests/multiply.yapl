@@ -1,0 +1,13 @@
+class Main {
+    a : Int;
+    b : Int;
+    c : Int;
+    d : Int;
+    e: Bool;
+    main(): SELF_TYPE {
+        {
+            e <- not true;
+            a <- 5 * (8 * "true");
+        }
+    }  
+};

@@ -1,4 +1,5 @@
 # Generated from YAPL.g4 by ANTLR 4.10.1
+from parser import expr
 import pprint
 from pydoc import classname
 import sys
@@ -29,6 +30,7 @@ def getOccurrencePosition(element):
 class YAPLTree(YAPLVisitor):
     def __init__(self):
         YAPLVisitor.__init__(self)
+        self.threeWayCode = ThreeWayCode()
         self.symbolTable = [
             {'id': 'String', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '8', 'memory': None, 'position': None},
             {'id': 'Int', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '8', 'memory': None, 'position': None},
@@ -279,21 +281,35 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Add.
     def visitAdd(self, ctx):
-        for node in ctx.expr():
-            child = self.visit(node)
+        expr1 = self.visit(ctx.expr()[0])
+        expr2 = self.visit(ctx.expr()[1])
 
-            if 'idType' in child:
-                if child['idType'] != 'Int':
-                    self.errors.append(f"Can't assign type Int to variable type { child['idType']} @ {ctx.start.line}")
-            
-            #Impicit cast from bool to int
-            if(child['type']=='Bool'):
-                child['type'] = 'Int'
-                    
-            if(child['type']!='Int' and child['type']!='Bool'):
-                self.errors.append('Invalid type ' + child['type'] + f' with operant "+" @ {ctx.start.line}')
-                return {'type': 'Error'}
-        return {'type':'Int'}
+        temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'], expr2['value'])
+
+        if 'idType' in expr1:
+                if expr1['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { expr1['idType']} @ {ctx.start.line}")
+
+        if 'idType' in expr2:
+                if expr2['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { expr2['idType']} @ {ctx.start.line}")
+
+        #Implicit cast from bool to int
+        if(expr1['type']=='Bool'):
+            expr1['type'] = 'Int'
+                
+        if(expr1['type']!='Int' and expr1['type']!='Bool'):
+            self.errors.append('Invalid type ' + expr1['type'] + f' with operant "+" @ {ctx.start.line}')
+            return {'type': 'Error', 'value': 'Error', 'triplet': None}
+
+        if(expr2['type']=='Bool'):
+            expr2['type'] = 'Int'
+                
+        if(expr2['type']!='Int' and expr2['type']!='Bool'):
+            self.errors.append('Invalid type ' + expr2['type'] + f' with operant "+" @ {ctx.start.line}')
+            return {'type': 'Error', 'value': 'Error', 'triplet': None}
+
+        return {'type':'Int', 'triplet': temporal_value, 'value': temporal_value}
         return self.visitChildren(ctx)
 
 
@@ -309,6 +325,17 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#NotOrMinus.
     def visitNotOrMinus(self, ctx):
+        sign = ctx.MINUS_SIGN() if ctx.MINUS_SIGN() else ctx.NOT_SIGN()
+
+        expr = self.visit(ctx.expr())
+
+        temporal_value = self.threeWayCode.add(sign, expr['value'])
+
+        if sign == ctx.MINUS_SIGN():
+            return {'type': 'Int', 'value': temporal_value, 'triplet': temporal_value}
+        else:
+            return {'type': 'Bool', 'value': temporal_value, 'triplet': temporal_value}
+
         return self.visitChildren(ctx)
 
 
@@ -324,7 +351,7 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#String.
     def visitString(self, ctx):
-        return {'type': 'String'}
+        return {'type': 'String', 'triplet': None, 'value': ctx.getText()}
 
 
     # Visit a parse tree produced by YAPLParser#False.
@@ -334,7 +361,7 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Self.
     def visitSelf(self, ctx):
-        return self.visitChildren(ctx)
+        return {'type': 'self', 'triplet': None, 'value': ctx.getTExt()}
 
 
     # Visit a parse tree produced by YAPLParser#FunctionCallBuggy.
@@ -378,44 +405,62 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Int.
     def visitInt(self, ctx):
-        return {'type': 'Int', 'Triplet': None, 'value': ctx.getText()}
+        return {'type': 'Int', 'triplet': None, 'value': ctx.getText()}
 
 
     # Visit a parse tree produced by YAPLParser#Divide.
     def visitDivide(self, ctx):
-        for node in ctx.expr():
-            child = self.visit(node)
+        expr1 = self.visit(ctx.expr()[0])
+        expr2 = self.visit(ctx.expr()[1])
 
-            if 'idType' in child:
-                if child['idType'] != 'Int':
-                    self.errors.append(f"Can't assign type Int to variable type { child['idType']} @ {ctx.start.line}")
-            
-            #Impicit cast from bool to int
-            if(child['type']=='Bool'):
-                child['type'] = 'Int'
-                    
-            if(child['type']!='Int' and child['type']!='Bool'):
-                self.errors.append('Invalid type ' + child['type'] + f' with operant "/" @ {ctx.start.line}')
-                return {'type': 'Error'}
-        return {'type':'Int'}
-        return self.visitChildren(ctx)
+        temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), expr1['value'], expr2['value'])
+
+        if 'idType' in expr1:
+                if expr1['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { expr1['idType']} @ {ctx.start.line}")
+
+        if 'idType' in expr2:
+                if expr2['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { expr2['idType']} @ {ctx.start.line}")
+
+        #Impicit cast from bool to int
+        if(expr1['type']=='Bool'):
+            expr1['type'] = 'Int'
+                
+        if(expr1['type']!='Int' and expr1['type']!='Bool'):
+            self.errors.append('Invalid type ' + expr1['type'] + f' with operant "/" @ {ctx.start.line}')
+            return {'type': 'Error', 'value': 'Error', 'triplet': None}
+
+        if(expr2['type']=='Bool'):
+            expr2['type'] = 'Int'
+                
+        if(expr2['type']!='Int' and expr2['type']!='Bool'):
+            self.errors.append('Invalid type ' + expr2['type'] + f' with operant "/" @ {ctx.start.line}')
+            return {'type': 'Error', 'value': 'Error', 'triplet': None}
+
+        return {'type':'Int', 'triplet': temporal_value, 'value': temporal_value}
 
 
     # Visit a parse tree produced by YAPLParser#Parenthesis.
     def visitParenthesis(self, ctx):
         child = self.visit(ctx.expr())
-        return {'type':child['type']}
-        return self.visitChildren(ctx)
+        temporal_value = self.threeWayCode.add('<-',  child['value'] )
+        
+        return {'type':child['type'], 'triplet': temporal_value, 'value': temporal_value}
 
 
     # Visit a parse tree produced by YAPLParser#LessThan.
     def visitLessThan(self, ctx):
-        return self.visitChildren(ctx)
+        expr0 = self.visit(ctx.expr()[0]) 
+        expr1 = self.visit(ctx.expr()[1])
+        temporal_value = self.threeWayCode.add('<', expr0['value'], expr1['value'])
+        return {'type': 'Bool', 'triplet': temporal_value, 'value': temporal_value}
+        
 
 
     # Visit a parse tree produced by YAPLParser#Identifier.
     def visitIdentifier(self, ctx):
-        return self.visit(ctx.id_())
+        return {'type': self.visit(ctx.id_()), 'triplet': None, 'value': ctx.id_().getText()}
 
 
     # Visit a parse tree produced by YAPLParser#Brackets.
@@ -432,55 +477,69 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Equal.
     def visitEqual(self, ctx):
-        return self.visitChildren(ctx)
+        expr0 = self.visit(ctx.expr()[0]) 
+        expr1 = self.visit(ctx.expr()[1])
+        temporal_value = self.threeWayCode.add('=', expr0['value'], expr1['value'])
+        return {'type': 'Bool', 'triplet': temporal_value, 'value': temporal_value}
 
 
     # Visit a parse tree produced by YAPLParser#Multiply.
     def visitMultiply(self, ctx):
-        for node in ctx.expr():
-            child = self.visit(node)
+        expr1 = self.visit(ctx.expr()[0])
+        expr2 = self.visit(ctx.expr()[1])
 
-            if 'idType' in child:
-                if child['idType'] != 'Int':
-                    self.errors.append(f"Can't assign type Int to variable type { child['idType']} @ {ctx.start.line}")
-            
-            #Impicit cast from bool to int
-            if(child['type']=='Bool'):
-                child['type'] = 'Int'
-                    
-            if(child['type']!='Int' and child['type']!='Bool'):
-                self.errors.append('Invalid type ' + child['type'] + f' with operant "*" @ {ctx.start.line}')
-                return {'type': 'Error'}
-        return {'type':'Int'}
+        temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), expr1['value'], expr2['value'])
+
+        if 'idType' in expr1:
+            if expr1['idType'] != 'Int':
+                self.errors.append(f"Can't assign type Int to variable type { expr1['idType']} @ {ctx.start.line}")
+
+        if 'idType' in expr2:
+            if expr2['idType'] != 'Int':
+                self.errors.append(f"Can't assign type Int to variable type { expr1['idType']} @ {ctx.start.line}")
+
+        #Implicit cast from bool to int 
+        if (expr1['type'] == 'Bool'):
+            expr1['type'] = 'Int'
+        
+        if(expr1['type']!='Int' and expr1['type']!='Bool'):
+                self.errors.append('Invalid type ' + expr1['type'] + f' with operant "*" @ {ctx.start.line}')
+                return {'type': 'Error', 'value': 'Error', 'triplet': None}
+
+        if (expr2['type'] == 'Bool'):
+            expr2['type'] = 'Int'
+        
+        if(expr2['type']!='Int' and expr2['type']!='Bool'):
+                self.errors.append('Invalid type ' + expr2['type'] + f' with operant "*" @ {ctx.start.line}')
+                return {'type': 'Error', 'value': 'Error', 'triplet': None}
+
+        return {'type':'Int', 'triplet': temporal_value, 'value': temporal_value}
 
 
     # Visit a parse tree produced by YAPLParser#LessEqualThan.
     def visitLessEqualThan(self, ctx):
-        return self.visitChildren(ctx)
+        expr0 = self.visit(ctx.expr()[0]) 
+        expr1 = self.visit(ctx.expr()[1])
+        temporal_value = self.threeWayCode.add('<=', expr0['value'], expr1['value'])
+        return {'type': 'Bool', 'triplet': temporal_value, 'value': temporal_value}
+        # return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by YAPLParser#Declaration.
     def visitDeclaration(self, ctx):
-
-        pprint.pprint(self.symbolTable)
-
         id = self.visit(ctx.id_())
-        print(ctx.expr().getText())
-        value = self.visit(ctx.expr())
-
-        print(ctx.expr().__class__)
-
-
+        value = self.visit(ctx.expr()) 
+        temporal_value = self.threeWayCode.add('<-', value['value'], None, ctx.id_().getText(), None)
         if id['type'] != value['type']:
             if(id['type']=='Int' and value['type']=='Bool'):
-                return {'type': 'Bool', 'idType': id['type']}
+                return {'type': 'Bool', 'idType': id['type'], 'triplet': temporal_value, 'value': temporal_value}
             elif(id['type']=='Bool' and value['type']=='Int'):
-                return {'type': 'Int', 'idType': id['type']}
+                return {'type': 'Int', 'idType': id['type'], 'triplet': temporal_value, 'value': temporal_value}
             else:
                 # self.errors.append(f'Static type of expression should be the same or an inherited type {ctx.start.line}')
-                return {'type': value['type'], 'idType': id['type']}
+                return {'type': value['type'], 'idType': id['type'], 'triplet': temporal_value, 'value': temporal_value}
 
-        return {'type': value['type'], 'idType': id['type']}
+        return {'type': value['type'], 'idType': id['type'], 'triplet': temporal_value, 'value': temporal_value}
         # return self.visitChildren(ctx)
 
 
@@ -503,31 +562,50 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#Substract.
     def visitSubstract(self, ctx):
-        for node in ctx.expr():
-            child = self.visit(node)
+        expr1 = self.visit(ctx.expr()[0])
+        expr2 = self.visit(ctx.expr()[1])
 
-            if 'idType' in child:
-                if child['idType'] != 'Int':
-                    self.errors.append(f"Can't assign type Int to variable type { child['idType']} @ {ctx.start.line}")
-            
-            #Impicit cast from bool to int
-            if(child['type']=='Bool'):
-                child['type'] = 'Int'
-                    
-            if(child['type']!='Int' and child['type']!='Bool'):
-                self.errors.append('Invalid type ' + child['type'] + f' with operant "-" @ {ctx.start.line}')
-                return {'type': 'Error'}
-        return {'type':'Int'}
-        return self.visitChildren(ctx)
+        temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'], expr2['value'])
 
+        if 'idType' in expr1:
+                if expr1['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { expr1['idType']} @ {ctx.start.line}")
+
+        if 'idType' in expr2:
+                if expr2['idType'] != 'Int':
+                    self.errors.append(f"Can't assign type Int to variable type { expr2['idType']} @ {ctx.start.line}")
+
+        #Impicit cast from bool to int
+        if(expr1['type']=='Bool'):
+            expr1['type'] = 'Int'
+                
+        if(expr1['type']!='Int' and expr1['type']!='Bool'):
+            self.errors.append('Invalid type ' + expr1['type'] + f' with operant "-" @ {ctx.start.line}')
+            return {'type': 'Error', 'value': 'Error', 'triplet': None}    
+
+        if(expr2['type']=='Bool'):
+            expr2['type'] = 'Int'
+                
+        if(expr2['type']!='Int' and expr2['type']!='Bool'):
+            self.errors.append('Invalid type ' + expr2['type'] + f' with operant "-" @ {ctx.start.line}')
+            return {'type': 'Error', 'value': 'Error', 'triplet': None}         
+        
+        return {'type':'Int', 'triplet': temporal_value, 'value': temporal_value}
 
     # Visit a parse tree produced by YAPLParser#IsVoid.
     def visitIsVoid(self, ctx):
-        return self.visitChildren(ctx)
-
+        expr = self.visit(ctx.expr())
+        temporal_value = self.threeWayCode.add(ctx.ISVOID().getText(), expr['value'])
+        return {'type': 'Bool', 'value': temporal_value, 'triplet': temporal_value}
 
     # Visit a parse tree produced by YAPLParser#Not.
     def visitNot(self, ctx):
+        expr = self.visit(ctx.expr())
+
+        temporal_value = self.threeWayCode.add(ctx.NOT().getText(), expr['value'])
+
+        return {'type': 'Bool', 'value': temporal_value, 'triplet': temporal_value}
+
         return self.visitChildren(ctx)
 
 

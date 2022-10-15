@@ -95,23 +95,17 @@ feature: id '(' (formal (',' formal)* )? ')' ':' TYPE_ID '{' expr '}'           
         | id ':' TYPE_ID ('<-' expr)?                                                                 # AttributeFeature
         ; 
 formal: id ':' TYPE_ID ;
-expr: id '<-' expr                                                                                    # Declaration
-        | expr ('@' TYPE_ID)? '.'id (OPEN_PARENTHESIS (expr (',' expr)*)? CLOSE_PARENTHESIS)?         # FunctionCallBuggy
-        | id OPEN_PARENTHESIS (expr (',' expr)*)? CLOSE_PARENTHESIS                                   # FunctionCall
-        | IF expr THEN expr ELSE expr FI                                                              # IfElse
-        | WHILE expr LOOP expr POOL                                                                   # While
-        | '{' (expr ';')+ '}'                                                                         # Brackets
-        | 'let' id ':' TYPE_ID ('<-' expr)? (',' id ':' TYPE_ID ('<-' expr)?)* 'in' expr              # Let
-        | NEW TYPE_ID                                                                                 # New
-        | ISVOID expr                                                                                 # IsVoid
+expr: 'self'                                                                                          # Self 
         | id                                                                                          # Identifier
         | INTEGER                                                                                     # Int
         | STRING                                                                                      # String
         | TRUE                                                                                        # True
         | FALSE                                                                                       # False
-        | 'self'                                                                                      # Self 
-        | OPEN_PARENTHESIS expr CLOSE_PARENTHESIS                                                     # Parenthesis
+        | NEW TYPE_ID                                                                                 # New
+        | ISVOID expr                                                                                 # IsVoid
         | NOT expr                                                                                    # Not
+        | '{' (expr ';')+ '}'                                                                         # Brackets
+        | OPEN_PARENTHESIS expr CLOSE_PARENTHESIS                                                     # Parenthesis
         | (MINUS_SIGN|NOT_SIGN) expr                                                                  # NotOrMinus
         | expr MULTIPLY_SIGN expr                                                                     # Multiply
         | expr DIVIDE_SIGN expr                                                                       # Divide
@@ -120,4 +114,10 @@ expr: id '<-' expr                                                              
         | expr LT_SIGN expr                                                                           # LessThan
         | expr LE_SIGN expr                                                                           # LessEqualThan
         | expr EQUAL_SIGN expr                                                                        # Equal
+        | id '<-' expr                                                                                # Declaration
+        | 'let' id ':' TYPE_ID ('<-' expr)? (',' id ':' TYPE_ID ('<-' expr)?)* 'in' expr              # Let
+        | expr ('@' TYPE_ID)? '.'id (OPEN_PARENTHESIS (expr (',' expr)*)? CLOSE_PARENTHESIS)?         # FunctionCallBuggy
+        | id OPEN_PARENTHESIS (expr (',' expr)*)? CLOSE_PARENTHESIS                                   # FunctionCall
+        | IF expr THEN expr ELSE expr FI                                                              # IfElse
+        | WHILE expr LOOP expr POOL                                                                   # While
         ;

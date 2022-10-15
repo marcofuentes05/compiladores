@@ -64,6 +64,11 @@ class YAPLVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by YAPLParser#Self.
+    def visitSelf(self, ctx:YAPLParser.SelfContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by YAPLParser#String.
     def visitString(self, ctx:YAPLParser.StringContext):
         return self.visitChildren(ctx)
@@ -71,11 +76,6 @@ class YAPLVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by YAPLParser#False.
     def visitFalse(self, ctx:YAPLParser.FalseContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by YAPLParser#Self.
-    def visitSelf(self, ctx:YAPLParser.SelfContext):
         return self.visitChildren(ctx)
 
 
