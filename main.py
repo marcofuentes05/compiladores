@@ -10,6 +10,7 @@ from customErrorListener import customErrorListener
 
 def main(argv):
     input = FileStream(argv[1])
+    # input = FileStream('./02fibonacci.yapl')
 
     lexer = YAPLLexer(input)
     lexer.removeErrorListeners()

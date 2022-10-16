@@ -7,7 +7,7 @@ class Fibonacci {
              	if n = 2 then 
                   	f <- 1
               	else
-                	f <- fibonacci(n-1) + fibonacci(n-2)
+                	f <- fibonacci(n-1) * fibonacci(n-2)
             	fi 
           	fi
      };
