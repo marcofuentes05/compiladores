@@ -317,7 +317,8 @@ class YAPLTree(YAPLVisitor):
     def visitAdd(self, ctx):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
-        triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'], expr2['value'])
+
+        triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
 
 
         if 'idType' in expr1:
@@ -436,8 +437,6 @@ class YAPLTree(YAPLVisitor):
             expectedParams = functionSymbol['typeParams']
             for index, param in enumerate(ctx.expr()):
                 paramObj = self.visit(param)
-                print('param', param.getText())
-                print('buenas',paramObj)
                 if paramObj['type'] == expectedParams[index]:
                     pass
                 else:
@@ -543,7 +542,7 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        triplet, temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), expr1['value'], expr2['value'])
+        triplet, temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
 
         if 'idType' in expr1:
                 if expr1['idType'] != 'Int':
@@ -624,7 +623,7 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        triplet, temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), expr1['value'], expr2['value'])
+        triplet, temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
 
         if 'idType' in expr1:
             if expr1['idType'] != 'Int':
@@ -699,7 +698,7 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'], expr2['value'])
+        triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
 
         if 'idType' in expr1:
                 if expr1['idType'] != 'Int':
