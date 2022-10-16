@@ -22,23 +22,20 @@ interface SymbolTableProps {
 }
 
 export const SymbolTable = (props: SymbolTableProps) => {
-    console.table(props.data)
     return (
-        <>
+        <div className="symbol-table">
             <div className="symbol-table-title">Symbol Table</div>
-            <div className="table">
-                <div className="headers">
-                    {props.columns && props.columns.map((column, index) => <div key={index} className="element">{column}</div>)}
+            <div className="body">
+                <div className="row headers">
+                    {props.columns && props.columns.map((column, index) => <div key={index} className="element header">{column}</div>)}
                 </div>
-                <div className="body">
-                    {props.data.map((rowElement, rowIndex) => <div className="row">
-                        {props.columns.map((columnName, columnIndex) => <div className="element" key={`${rowIndex}=${columnIndex}`}>{rowElement[columnName] || 'null'}</div>)}
-                    </div>
-                    
-                    )}
+                {props.data.map((rowElement, rowIndex) => <div className="row">
+                    {props.columns.map((columnName, columnIndex) => <div className="element" key={`${rowIndex}=${columnIndex}`}>{rowElement[columnName] || 'null'}</div>)}
                 </div>
+                
+                )}
             </div>
-        </>
+        </div>
        
     )
 };

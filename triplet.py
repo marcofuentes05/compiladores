@@ -9,7 +9,24 @@ class Triplet:
         self.temporal_value = temporal_value
 
     def __str__(self):
-        return f"{self.first_operand} {self.operator} {self.second_operand} ({self.temporal_value}) # {self.label}"
+        if not self.label:
+            self.label = '    '
+
+        if self.operator == '<-' and not self.second_operand:
+            return f"{self.label} {self.temporal_value} {self.operator} {self.first_operand} "
+        elif self.operator == '<-' and self.second_operand:
+            return f"{self.label} {self.temporal_value} {self.operator} {self.first_operand} # {self.second_operand}"
+        elif self.operator == 'goto' and self.second_operand:
+            return f"{self.label} {self.operator} {self.first_operand} if {self.second_operand}"
+        elif self.operator == 'goto' and not self.second_operand and self.temporal_value:
+            return f"{self.label} {self.operator} {self.first_operand} # {self.temporal_value}"
+        elif self.operator == 'goto' and not self.second_operand:
+            return f"{self.label} {self.operator} {self.first_operand}"
+        elif not self.second_operand:
+            return f"{self.label} {self.temporal_value} <- {self.operator} {self.first_operand}"
+        elif self.operator == 'call':
+            return f"{self.label} {self.temporal_value} <- {self.operator} {self.first_operand} {self.second_operand}"
+        return f"{self.label} {self.temporal_value} <- {self.first_operand} {self.operator} {self.second_operand}"
 
 class ThreeWayCode:
     def __init__(self):
@@ -18,9 +35,9 @@ class ThreeWayCode:
     def add(self, operator, first_operand, second_operand=None, label=None, temporal_value=None):
         triplet = Triplet(operator, first_operand, second_operand, label, temporal_value)
         if triplet.temporal_value == None:
-            triplet.temporal_value = f"P{len(self.triplets)}"
+            triplet.temporal_value = f"R{len(self.triplets)}"
         self.triplets.append(triplet)
-        return triplet.temporal_value
+        return triplet, triplet.temporal_value
 
     def generate_code(self, output_path = './instance/three_way_code/'):
         name = f"{output_path}code{random.randint(1,1000)}.txt"

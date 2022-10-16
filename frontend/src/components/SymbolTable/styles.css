@@ -1,60 +1,60 @@
+.symbol-table {
+    width: 60%;
+}
+
 .symbol-table-title {
     font-size: 20px;
     color: white;
     width: 100%;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    margin: 12px 0;
-}
-
-.table {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    width: 100%;
-    border-radius: 8px;
-    max-height: 40vh;
-    overflow-y: auto;
-}
-
-.headers {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     background-color: #48727d;
-    display: grid;
-    row-gap: 4px;
-    grid-template-columns:repeat(12, 1fr);
-    text-transform: capitalize;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 0;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    padding: 12px 0;
 }
 
 .body {
     background-color: #395b64;
-    display: grid;
-    /* flex-direction: column; */
-    row-gap: 4px;
-    grid-template-columns:repeat(12, 1fr);
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    overflow-y: auto;
+    max-height: 90%;
 }
 
-.row {
+.headers{
     display: contents;
-    /* flex-direction: row; */
+}
+
+.header {
+    top: 0;
+    position: -webkit-sticky;
+    z-index: 0;
+    position: sticky;
+    text-transform: capitalize;
+    background-color: #48727d !important;
+}
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: calc(13 * 80px);
 }
 
 .row:hover > div{
     background-color: #3d6069;
-  }
+}
+
 .element {
     font-family: 'Courier New', Courier, monospace;
     padding: 2px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border-bottom: 1px solid gray;
     height: 24px;
+    width: 80px;
 }
 
 .element:nth-last-child(-n+12) {

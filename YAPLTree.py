@@ -30,17 +30,17 @@ class YAPLTree(YAPLVisitor):
         YAPLVisitor.__init__(self)
         self.threeWayCode = ThreeWayCode()
         self.symbolTable = [
-            {'id': 'String', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '8', 'memory': None, 'position': None},
-            {'id': 'Int', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '8', 'memory': None, 'position': None},
-            {'id': 'Bool', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '1', 'memory': None, 'position': None},
-            {'id': 'IO', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
-            {'id': 'in_string', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
-            {'id': 'out_string', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
-            {'id': 'in_int', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
-            {'id': 'out_int', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
-            {'id': 'length', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': [], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
-            {'id': 'concat', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None},
-            {'id': 'substr', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['Int', 'Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None}
+            {'id': 'String', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '8', 'memory': None, 'position': None, 'register': None},
+            {'id': 'Int', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '8', 'memory': None, 'position': None, 'register': None},
+            {'id': 'Bool', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': '1', 'memory': None, 'position': None, 'register': None},
+            {'id': 'IO', 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None},
+            {'id': 'in_string', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None},
+            {'id': 'out_string', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None},
+            {'id': 'in_int', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None},
+            {'id': 'out_int', 'type': 'SELF_TYPE', 'value': None, 'scope': 'global', 'belongs': 'IO', 'typeParams': ['Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None},
+            {'id': 'length', 'type': 'Int', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': [], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None},
+            {'id': 'concat', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['String'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None},
+            {'id': 'substr', 'type': 'String', 'value': None, 'scope': 'global', 'belongs': 'String', 'typeParams': ['Int', 'Int'], 'line': None, 'col': None, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None}
         ]
         self.errors = []
 
@@ -53,7 +53,7 @@ class YAPLTree(YAPLVisitor):
         self.currentMethod = ''
 
     def new_label(self):
-        label = "l_" + str(len(self.labels))
+        label = "L" + str(len(self.labels)) + '  '
         self.labels.append(label)
 
         return label
@@ -105,7 +105,7 @@ class YAPLTree(YAPLVisitor):
                 inheritedClass = ctx.TYPE_ID()[1].getText()
 
         # class to be added to the table
-        entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': inheritedClass, 'size': None, 'memory': None, 'position': None}
+        entry = {'id': self.currentClass, 'type': 'class', 'value': None, 'scope': None, 'belongs': None, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': inheritedClass, 'size': None, 'memory': None, 'position': None, 'register': None}
 
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id']:
@@ -141,10 +141,7 @@ class YAPLTree(YAPLVisitor):
     def visitId(self, ctx):
         #Check if variable has been declared
         id = ctx.getText()
-        symbol = None
-
-        print('llegue')
-        
+        symbol = None        
         for sym in self.symbolTable:
             if sym['id'] == id  and sym['belongs'] == self.currentMethod:
                 symbol = sym
@@ -173,10 +170,12 @@ class YAPLTree(YAPLVisitor):
         #Set current method
         self.currentMethod = ident
         typeId = ctx.TYPE_ID().getText()
-        if typeId == 'Int' or typeId == 'String' or typeId == 'Bool':
-            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Global', 'position': hex(id(ident))}
+        if typeId == 'Int' or typeId == 'Bool':
+            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': [], 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Global', 'position': hex(id(ident)), 'register': None}
+        elif typeId == 'String':
+            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': [], 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': len(ident), 'memory': 'Global', 'position': hex(id(ident)), 'register': None}
         else:
-            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
+            entry = {'id': ident, 'type': self.currentClass if typeId == 'SELF_TYPE' else typeId, 'value': None, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': [], 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None}
 
         
         # Check if the class doesn't exist
@@ -184,15 +183,36 @@ class YAPLTree(YAPLVisitor):
         for symbol in self.symbolTable:
             if symbol['id'] == entry['id'] and symbol['type'] == entry['type'] and symbol['belongs'] == entry['belongs'] and symbol['typeParams']==[formal.TYPE_ID().getText() for formal in ctx.formal()]:
                 add = False
-                self.errors.append(f'Method {id} has already been declared @ {ctx.TYPE_ID().getPayload().line}')
+                self.errors.append(f'Method {ident} has already been declared @ {ctx.TYPE_ID().getPayload().line}')
 
         #Add entry to table
         if add == True:
             self.symbolTable.append(entry)
-            for formal in ctx.formal():
-                formal_entry = {'id': formal.id_().getText(), 'type': formal.TYPE_ID().getText(), 'value': None, 'scope': 'global', 'belongs': ident, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
-                self.symbolTable.append(formal_entry)
+            # for formal in ctx.formal():
+            #     formal_entry = {'id': formal.id_().getText(), 'type': formal.TYPE_ID().getText(), 'value': None, 'scope': 'global', 'belongs': ident, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
+            #     self.symbolTable.append(formal_entry)
+        # expr = self.visit(ctx.expr())
+
+        # expr = self.visit(ctx.expr())
+
+        # if expr['triplet']:
+        #     expr['triplet'].label = self.new_label()
+
+        #     triplet, temporal_value = self.threeWayCode.add('goto', expr['triplet'].label)
+        # else:
+        #     triplet, temporal_value = self.threeWayCode.add('goto', expr['value'])
+
+        self.visit(ctx.id_())
+        for formal in ctx.formal():
+            self.visit(formal)
+            
         expr = self.visit(ctx.expr())
+
+        if expr['triplet']:
+            expr['triplet'].label = self.new_label()
+            triplet, temporal_value = self.threeWayCode.add('goto', expr['triplet'].label, None, None, ctx.id_().getText())
+        else:
+            triplet, temporal_value = self.threeWayCode.add('goto', expr['value'], None, None, ctx.id_().getText())
 
         # return self.visitChildren(ctx)
 
@@ -204,8 +224,12 @@ class YAPLTree(YAPLVisitor):
 
         #If expression exists Check if type expression type is equal to mehtod type
         valType = None
+        newValue = None
         if ctx.expr() != None:
-            valType = self.visit(ctx.expr())['type']
+            val = self.visit(ctx.expr())
+            valType = val['type']
+            newValue = val['value']
+            print(valType)
 
         if typeId == 'Int':
             value = 0
@@ -216,14 +240,18 @@ class YAPLTree(YAPLVisitor):
         else:
             value = None
 
+        triplet, temporal_value = self.threeWayCode.add('<-', newValue if newValue else value, ident)
+
         if ctx.expr() != None:
             if typeId != valType:
                 self.errors.append(f"Can't assign {valType} to  variable type {typeId} @ {ctx.TYPE_ID().getPayload().line}")
 
-        if typeId == 'Int' or typeId == 'String' or typeId == 'Bool':
-            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Global', 'position': hex(id(ident))}
+        if typeId == 'Int' or typeId == 'Bool':
+            entry = {'id': ident, 'type': typeId, 'value': newValue if newValue else value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Global', 'position': hex(id(ident)), 'register': triplet.temporal_value}
+        elif typeId == 'String':
+            entry = {'id': ident, 'type': typeId, 'value': newValue if newValue else value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': len(newValue) if newValue else len(value), 'memory': 'Global', 'position': hex(id(ident)), 'register': triplet.temporal_value}
         else:
-            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': 'Global', 'position': None}
+            entry = {'id': ident, 'type': typeId, 'value': newValue if newValue else value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': 'Global', 'position': None, 'register': triplet.temporal_value}
 
 
         # Check if the class doesn't exist
@@ -236,6 +264,8 @@ class YAPLTree(YAPLVisitor):
         #Add entry to table
         if add == True:
             self.symbolTable.append(entry)
+
+
         return self.visitChildren(ctx)
 
 
@@ -244,10 +274,7 @@ class YAPLTree(YAPLVisitor):
         # Add parameters to method on symbol table entry
         for symbol in self.symbolTable:
             if symbol['id'] == self.currentMethod and symbol['belongs'] == self.currentClass and symbol['line'] == ctx.TYPE_ID().getPayload().line:
-                if symbol['typeParams'] == None:
-                    symbol['typeParams'] = [ctx.TYPE_ID().getText()]
-                else:
-                    symbol['typeParams'].append(ctx.TYPE_ID().getText())
+                symbol['typeParams'].append(ctx.TYPE_ID().getText())
 
         ident = ctx.id_().getText()
         typeId = ctx.TYPE_ID().getText()
@@ -261,10 +288,12 @@ class YAPLTree(YAPLVisitor):
         else:
             value = None
 
-        if typeId == 'Int' or typeId == 'Bool' or typeId == 'String':
-            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Stack', 'position': hex(id(ident))}
+        if typeId == 'Int' or typeId == 'Bool':
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': sys.getsizeof(id) / 8, 'memory': 'Stack', 'position': hex(id(ident)), 'register': None}
+        elif typeId == 'String':
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': len(ident), 'memory': 'Stack', 'position': hex(id(ident)), 'register': None}
         else:
-            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
+            entry = {'id': ident, 'type': typeId, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None, 'register': None}
 
         # Check if the class doesn't exist
         add = True
@@ -288,7 +317,8 @@ class YAPLTree(YAPLVisitor):
     def visitAdd(self, ctx):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
-        temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'], expr2['value'])
+        triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'], expr2['value'])
+
 
         if 'idType' in expr1:
                 if expr1['idType'] != 'Int':
@@ -313,7 +343,7 @@ class YAPLTree(YAPLVisitor):
             self.errors.append('Invalid type ' + expr2['type'] + f' with operant "+" @ {ctx.start.line}')
             return {'type': 'Error', 'value': 'Error', 'triplet': None}
 
-        return {'type':'Int', 'triplet': temporal_value, 'value': temporal_value}
+        return {'type':'Int', 'triplet': triplet, 'value': temporal_value}
         return self.visitChildren(ctx)
 
 
@@ -322,8 +352,8 @@ class YAPLTree(YAPLVisitor):
         
         for symbol in self.symbolTable:
             if symbol['id'] == ctx.TYPE_ID().getText():
-                temporal_value = self.threeWayCode.add(ctx.NEW().getText(), ctx.TYPE_ID().getText())
-                return {'type': ctx.TYPE_ID().getText(), 'triplet': temporal_value, 'value': temporal_value}
+                triplet, temporal_value = self.threeWayCode.add(ctx.NEW().getText(), ctx.TYPE_ID().getText())
+                return {'type': ctx.TYPE_ID().getText(), 'triplet': triplet, 'value': temporal_value}
         return {'type': None}
         return self.visitChildren(ctx)
 
@@ -334,12 +364,12 @@ class YAPLTree(YAPLVisitor):
 
         expr = self.visit(ctx.expr())
 
-        temporal_value = self.threeWayCode.add(sign, expr['value'])
+        triplet, temporal_value = self.threeWayCode.add(sign, expr['value'])
 
         if sign == ctx.MINUS_SIGN():
-            return {'type': 'Int', 'value': temporal_value, 'triplet': temporal_value}
+            return {'type': 'Int', 'value': temporal_value, 'triplet': triplet}
         else:
-            return {'type': 'Bool', 'value': temporal_value, 'triplet': temporal_value}
+            return {'type': 'Bool', 'value': temporal_value, 'triplet': triplet}
 
         return self.visitChildren(ctx)
 
@@ -349,18 +379,20 @@ class YAPLTree(YAPLVisitor):
 
         condition = self.visit(ctx.expr()[0])
 
-        terceto_not = self.threeWayCode.add('not', condition['value'])
+        terceto_not, temp_not = self.threeWayCode.add('not', condition['value'])
 
         then = self.visit(ctx.expr()[1])
         then_label = self.new_label()
+        then['triplet'].label = then_label
         else_exp = self.visit(ctx.expr()[2])
         else_label = self.new_label()
+        else_exp['triplet'].label = else_label
 
-        terceto_if = self.threeWayCode.add('goto', then_label, condition['value'])
+        terceto_if, temp_if = self.threeWayCode.add('goto', then_label, condition['value'])
 
-        terceto_else = self.threeWayCode.add('goto', else_label, terceto_not)
+        terceto_else, temp_else = self.threeWayCode.add('goto', else_label, temp_not)
 
-        return {'value': terceto_if, 'triplet': terceto_if}
+        return {'value': temp_if, 'triplet': terceto_if}
 
         return self.visitChildren(ctx)
 
@@ -384,9 +416,41 @@ class YAPLTree(YAPLVisitor):
     def visitSelf(self, ctx):
         return {'type': 'self', 'triplet': None, 'value': ctx.getTExt()}
 
+    # Visit a parse tree produced by YAPLParser#FunctionCall.
+    def visitFunctionCall(self, ctx):
+        id = ctx.id_()
+        isDefined = False
+        functionSymbol = None
+        for symbol in self.symbolTable:
+            if (symbol['id'] == id.getText() and symbol['typeParams'] != None and (symbol['belongs'] in [self.currentClass, 'IO'] or symbol['scope']=='global')):
+                isDefined = True
+                functionSymbol = symbol
+        if not isDefined:
+            self.errors.append(f'Method {id.getText()} called before assignment @{ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column} ' )
+            return {'idType': 'Error', 'value': None}
+        if functionSymbol == None or functionSymbol['typeParams'] == None:
+            pass
+        elif len(functionSymbol['typeParams']) != len(ctx.expr()):
+            self.errors.append(f'Method {id.getText()} expected {len(functionSymbol["typeParams"])} param, but got {len(ctx.expr())} @{ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}')
+        else:
+            expectedParams = functionSymbol['typeParams']
+            for index, param in enumerate(ctx.expr()):
+                paramObj = self.visit(param)
+                print('param', param.getText())
+                print('buenas',paramObj)
+                if paramObj['type'] == expectedParams[index]:
+                    pass
+                else:
+                    self.errors.append(f"Method {id.getText()} expected {expectedParams[index]} as its param number {index+1}, but got {paramObj['type']} instead @{ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}")
+                triplet, temporal_value = self.threeWayCode.add('param', paramObj['value'] if 'value' in paramObj.keys() else param.getText())
+            triplet, temporal_value = self.threeWayCode.add('call', ctx.id_().getText(), len(ctx.expr()))
+            # for param in ctx.expr():
+        if isDefined:
+            return { **functionSymbol, 'idType': functionSymbol['type']}
 
     # Visit a parse tree produced by YAPLParser#FunctionCallBuggy.
     def visitFunctionCallBuggy(self, ctx):
+        return_value = {'type': None}
         id = ctx.id_()
         firstExpr = ctx.expr()[0]
         if isinstance(firstExpr, YAPLParser.FunctionCallBuggyContext):
@@ -399,11 +463,36 @@ class YAPLTree(YAPLVisitor):
                     idSymbol = idSymbols[0]
                     if idSymbol['belongs'] == firstExprSymbol['type']:
                         isDefined = True
+                        passedParamsList = ctx.expr()[1:]
+                        for param in passedParamsList:
+                            triplet, temporal_value = self.threeWayCode.add('param', param.getText())
+                        triplet, temporal_value = self.threeWayCode.add('call', id.getText(), len(passedParamsList))
+                        
+
+                        if idSymbol['typeParams'] == None:
+                            pass
+                        elif len(idSymbols[0]['typeParams']) != len(passedParamsList):
+                            self.errors.append(f'Method {id.getText()} expected {len(idSymbols[0]["typeParams"])} param, but got {len(ctx.expr()[1:])} @{ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}')
+                        else:
+                            expectedParams = idSymbols[0]['typeParams']
+                            for index, param in enumerate(passedParamsList):
+                                paramObj = self.visit(param)
+                                if paramObj['type'] == expectedParams[index]:
+                                    pass
+                                else:
+                                    self.errors.append(f"Method {id.getText()} expected {expectedParams[index]} as its param number {index+1}, but got {paramObj['type']} instead @{ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}")
+                        return_value = { **idSymbol, 'type': idSymbol['type'] }
+                        
                 if not isDefined:
                     self.errors.append(f'Method {id.getText()} does not exist in class {firstExprSymbol["type"]} @ {ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}')
-            # else:
-            #     self.errors.append(f'{firstExpr.id_().getText()} has not been defined @ {ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}')
-            return self.visitChildren(ctx)
+                    return_value = {'type': 'Error'}
+
+            else:
+                self.errors.append(f'{firstExpr.id_().getText()} has not been defined @ {ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}')
+                # return self.visitChildren(ctx)
+                return_value = {'type': 'Error'}
+            self.visitChildren(ctx)
+            return return_value
             
         isDefined = False
         firstExprSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == firstExpr.getText()]
@@ -412,16 +501,36 @@ class YAPLTree(YAPLVisitor):
             exprClass = exprSymbol['type']
             exprClassSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == exprClass]
             if len(exprClassSymbols) == 0:
-                return self.visitChildren(ctx)
+                return_value = {'type': 'Error'}
             exprClassSymbol = exprClassSymbols[0]
-            idSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == id.getText() and (symbol['belongs'] == exprSymbol['type'] or symbol['belongs'] == exprClassSymbol['inherits']) and (len(symbol['typeParams']) == len(ctx.expr()[1:]) if symbol['typeParams'] is not None else True) ]
+            idSymbols = [symbol for symbol in self.symbolTable if symbol['id'] == id.getText() and (symbol['belongs'] == exprSymbol['type'] or symbol['belongs'] == exprClassSymbol['inherits'])]
             if len(idSymbols) != 0:
                 isDefined = True
+                for param in ctx.expr()[1:]:
+                    triplet, temporal_value = self.threeWayCode.add('param', param.getText())
+                triplet, temporal_value = self.threeWayCode.add('call', id.getText(), len(idSymbols[0]['typeParams']))
+
+                return_value = { 'type' : idSymbols[0]['type']}
+                lastExpressions = ctx.expr()[1:] #estos son los parametros de la funcion
+                if idSymbols[0]['typeParams'] == None:
+                    pass
+                elif len(idSymbols[0]['typeParams']) != len(lastExpressions):
+                    self.errors.append(f'Method {id.getText()} expected {len(idSymbols[0]["typeParams"])} param, but got {len(ctx.expr()[1:])} @{ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}')
+                else:
+                    expectedParams = idSymbols[0]['typeParams']
+                    for index, param in enumerate(lastExpressions):
+                        paramObj = self.visit(param)
+                        if paramObj['type'] == expectedParams[index]:
+                            pass
+                        else:
+                            self.errors.append(f"Method {id.getText()} expected {expectedParams[index]} as its param number {index+1}, but got {paramObj['type']} instead @{ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}")
             if not isDefined:
                 self.errors.append(f'Method {id.getText()} does not exist in class {firstExprSymbols[0]["type"]} @ {id.OBJECT_ID().getPayload().line}')
+                return_value = { 'type': 'Error'}
         else:
             self.errors.append(f'Variable {firstExpr.getText()} called before assignment @ {ctx.id_().OBJECT_ID().getPayload().line} ' )
-        return self.visitChildren(ctx)
+        self.visitChildren(ctx)
+        return return_value
 
 
     # Visit a parse tree produced by YAPLParser#Int.
@@ -434,7 +543,7 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), expr1['value'], expr2['value'])
+        triplet, temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), expr1['value'], expr2['value'])
 
         if 'idType' in expr1:
                 if expr1['idType'] != 'Int':
@@ -459,30 +568,29 @@ class YAPLTree(YAPLVisitor):
             self.errors.append('Invalid type ' + expr2['type'] + f' with operant "/" @ {ctx.start.line}')
             return {'type': 'Error', 'value': 'Error', 'triplet': None}
 
-        return {'type':'Int', 'triplet': temporal_value, 'value': temporal_value}
+        return {'type':'Int', 'triplet': triplet, 'value': temporal_value}
 
 
     # Visit a parse tree produced by YAPLParser#Parenthesis.
     def visitParenthesis(self, ctx):
         child = self.visit(ctx.expr())
-        temporal_value = self.threeWayCode.add('<-',  child['value'] )
+        triplet, temporal_value = self.threeWayCode.add('<-',  child['value'] )
         
-        return {'type':child['type'], 'triplet': temporal_value, 'value': temporal_value}
+        return {'type':child['type'], 'triplet': triplet, 'value': temporal_value}
 
 
     # Visit a parse tree produced by YAPLParser#LessThan.
     def visitLessThan(self, ctx):
         expr0 = self.visit(ctx.expr()[0]) 
         expr1 = self.visit(ctx.expr()[1])
-        temporal_value = self.threeWayCode.add('<', expr0['value'], expr1['value'])
-        return {'type': 'Bool', 'triplet': temporal_value, 'value': temporal_value}
+        triplet, temporal_value = self.threeWayCode.add('<', expr0['value'], expr1['value'])
+        return {'type': 'Bool', 'triplet': triplet, 'value': temporal_value}
         
 
 
     # Visit a parse tree produced by YAPLParser#Identifier.
     def visitIdentifier(self, ctx):
         result = self.visit(ctx.id_())
-        print(result)
         return {'type': result['type'], 'triplet': None, 'value': ctx.id_().getText()}
 
 
@@ -491,9 +599,14 @@ class YAPLTree(YAPLVisitor):
         expressions_count = len(ctx.expr())
         for expression in ctx.expr():
             expressions_count -= 1
-            expr = self.visit(expression)
-            if(expressions_count==0):
-                return expr
+            # expr = self.visit(expression)
+            # if(expressions_count==0):
+            #     return expr
+            if expression == ctx.expr()[0]:
+                expr0 = self.visit(ctx.expr()[0])
+            else:
+                expr = self.visit(expression)
+        return {'type':'Object', 'triplet': expr0['triplet'], 'value': expr0['value']}
         return {'type': 'Object'}
         return self.visitChildren(ctx)
 
@@ -502,8 +615,8 @@ class YAPLTree(YAPLVisitor):
     def visitEqual(self, ctx):
         expr0 = self.visit(ctx.expr()[0]) 
         expr1 = self.visit(ctx.expr()[1])
-        temporal_value = self.threeWayCode.add('=', expr0['value'], expr1['value'])
-        return {'type': 'Bool', 'triplet': temporal_value, 'value': temporal_value}
+        triplet, temporal_value = self.threeWayCode.add('=', expr0['value'], expr1['value'])
+        return {'type': 'Bool', 'triplet': triplet, 'value': temporal_value}
 
 
     # Visit a parse tree produced by YAPLParser#Multiply.
@@ -511,7 +624,7 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), expr1['value'], expr2['value'])
+        triplet, temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), expr1['value'], expr2['value'])
 
         if 'idType' in expr1:
             if expr1['idType'] != 'Int':
@@ -536,15 +649,15 @@ class YAPLTree(YAPLVisitor):
                 self.errors.append('Invalid type ' + expr2['type'] + f' with operant "*" @ {ctx.start.line}')
                 return {'type': 'Error', 'value': 'Error', 'triplet': None}
 
-        return {'type':'Int', 'triplet': temporal_value, 'value': temporal_value}
+        return {'type':'Int', 'triplet': triplet, 'value': temporal_value}
 
 
     # Visit a parse tree produced by YAPLParser#LessEqualThan.
     def visitLessEqualThan(self, ctx):
         expr0 = self.visit(ctx.expr()[0]) 
         expr1 = self.visit(ctx.expr()[1])
-        temporal_value = self.threeWayCode.add('<=', expr0['value'], expr1['value'])
-        return {'type': 'Bool', 'triplet': temporal_value, 'value': temporal_value}
+        triplet, temporal_value = self.threeWayCode.add('<=', expr0['value'], expr1['value'])
+        return {'type': 'Bool', 'triplet': triplet, 'value': temporal_value}
         # return self.visitChildren(ctx)
 
 
@@ -552,34 +665,20 @@ class YAPLTree(YAPLVisitor):
     def visitDeclaration(self, ctx):
         id = self.visit(ctx.id_())
         value = self.visit(ctx.expr()) 
-        temporal_value = self.threeWayCode.add('<-', value['value'], None, ctx.id_().getText(), None)
+        triplet, temporal_value = self.threeWayCode.add('<-', value['value'], ctx.id_().getText(), None, None)
+        if id['type'] == 'String' and value['type'] != 'String':
+            self.errors.append(f"Can't assign type {value['type']} to variable type { id['type']} @ {ctx.start.line}")
         if id['type'] != value['type']:
             if(id['type']=='Int' and value['type']=='Bool'):
-                return {'type': 'Bool', 'idType': id['type'], 'triplet': temporal_value, 'value': temporal_value}
+                return {'type': 'Bool', 'idType': id['type'], 'triplet': triplet, 'value': temporal_value}
             elif(id['type']=='Bool' and value['type']=='Int'):
-                return {'type': 'Int', 'idType': id['type'], 'triplet': temporal_value, 'value': temporal_value}
+                return {'type': 'Int', 'idType': id['type'], 'triplet': triplet, 'value': temporal_value}
             else:
                 # self.errors.append(f'Static type of expression should be the same or an inherited type {ctx.start.line}')
-                return {'type': value['type'], 'idType': id['type'], 'triplet': temporal_value, 'value': temporal_value}
+                return {'type': value['type'], 'idType': id['type'], 'triplet': triplet, 'value': temporal_value}
 
-        return {'type': value['type'], 'idType': id['type'], 'triplet': temporal_value, 'value': temporal_value}
+        return {'type': value['type'], 'idType': id['type'], 'triplet': triplet, 'value': temporal_value}
         # return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by YAPLParser#FunctionCall.
-    def visitFunctionCall(self, ctx):
-        id = ctx.id_()
-        isDefined = False
-        functionSymbol = None
-        for symbol in self.symbolTable:
-            if (symbol['id'] == id.getText() and symbol['typeParams'] != None and (symbol['belongs'] in [self.currentClass, 'IO'] or symbol['scope']=='global')) or id.getText() == self.currentMethod: # Last one is for recursive purposes
-                isDefined = True
-                functionSymbol = symbol
-        if not isDefined:
-            self.errors.append(f'Method {id.getText()} called before assignment @{ctx.id_().OBJECT_ID().getPayload().line} ' )
-        self.visitChildren(ctx)
-        if isDefined:
-            return { **functionSymbol, 'idType': functionSymbol['type']}
 
     # Visit a parse tree produced by YAPLParser#While.
     def visitWhile(self, ctx):
@@ -588,11 +687,11 @@ class YAPLTree(YAPLVisitor):
 
         content = self.visit(ctx.expr()[1])
         content_label = self.new_label()
+        content['triplet'].label = content_label
 
-        while_triplet = self.threeWayCode.add('goto', content_label, condition['value'])
+        while_triplet, temporal_value = self.threeWayCode.add('goto', content_label, condition['value'])
 
-        return {'value': while_triplet, 'triplet': while_triplet}
-        return self.visitChildren(ctx)
+        return {'value': temporal_value, 'triplet': while_triplet}
 
 
     # Visit a parse tree produced by YAPLParser#Substract.
@@ -600,9 +699,7 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        print(expr1,' ', expr2)
-
-        temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'], expr2['value'])
+        triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'], expr2['value'])
 
         if 'idType' in expr1:
                 if expr1['idType'] != 'Int':
@@ -627,21 +724,21 @@ class YAPLTree(YAPLVisitor):
             self.errors.append('Invalid type ' + expr2['type'] + f' with operant "-" @ {ctx.start.line}')
             return {'type': 'Error', 'value': 'Error', 'triplet': None}         
         
-        return {'type':'Int', 'triplet': temporal_value, 'value': temporal_value}
+        return {'type':'Int', 'triplet': triplet, 'value': temporal_value}
 
     # Visit a parse tree produced by YAPLParser#IsVoid.
     def visitIsVoid(self, ctx):
         expr = self.visit(ctx.expr())
-        temporal_value = self.threeWayCode.add(ctx.ISVOID().getText(), expr['value'])
-        return {'type': 'Bool', 'value': temporal_value, 'triplet': temporal_value}
+        triplet, temporal_value = self.threeWayCode.add(ctx.ISVOID().getText(), expr['value'])
+        return {'type': 'Bool', 'value': temporal_value, 'triplet': triplet}
 
     # Visit a parse tree produced by YAPLParser#Not.
     def visitNot(self, ctx):
         expr = self.visit(ctx.expr())
 
-        temporal_value = self.threeWayCode.add(ctx.NOT().getText(), expr['value'])
+        triplet, temporal_value = self.threeWayCode.add(ctx.NOT().getText(), expr['value'])
 
-        return {'type': 'Bool', 'value': temporal_value, 'triplet': temporal_value}
+        return {'type': 'Bool', 'value': temporal_value, 'triplet': triplet}
 
         return self.visitChildren(ctx)
 
@@ -661,8 +758,10 @@ class YAPLTree(YAPLVisitor):
         else:
             value = None
 
-        if type_id == 'Int' or type_id == 'Bool' or type_id == 'String':
+        if type_id == 'Int' or type_id == 'Bool':
             entry = {'id': ident, 'type': type_id, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': None, 'size': sys.getsizeof(ident), 'memory': 'Stack', 'position': hex(id(ident))}
+        elif type_id == 'String':
+            entry = {'id': ident, 'type': type_id, 'value': value, 'scope': 'global', 'belongs': self.currentClass, 'typeParams': None, 'line': ctx.TYPE_ID().getPayload().line, 'col': ctx.TYPE_ID().getPayload().column, 'inherits': None, 'size': len(ident), 'memory': 'Stack', 'position': hex(id(ident))}
         else:
             entry = {'id': ident, 'type': type_id, 'value': value, 'scope': 'local', 'belongs': self.currentMethod, 'typeParams': None, 'line': ctx.TYPE_ID()[0].getPayload().line, 'col': ctx.TYPE_ID()[0].getPayload().column, 'inherits': None, 'size': None, 'memory': None, 'position': None}
             
@@ -676,6 +775,6 @@ class YAPLTree(YAPLVisitor):
             self.symbolTable.append(entry)
         for expression in ctx.expr():
             self.visit(expression)
-        temporal_value = self.threeWayCode.add('LET', ident)
-        return{'type': 'Int', 'triplet': temporal_value, 'value': temporal_value }
+        triplet, temporal_value = self.threeWayCode.add('LET', ident)
+        return{'type': 'Int', 'triplet': triplet, 'value': temporal_value }
         # return self.visitChildren(ctx)

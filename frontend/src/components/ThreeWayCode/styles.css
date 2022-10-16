@@ -1,0 +1,23 @@
+.three-way-code {
+    width: 100%;
+    background: rgb(30,30,30);
+    color: gainsboro;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 50%;
+    overflow-y: auto;
+    padding: 0 12px 12px;
+}
+
+.triplet {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.three-way-code-title {
+    font-size: 20px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 12px 0;
+}

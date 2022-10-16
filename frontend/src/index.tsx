@@ -11,6 +11,7 @@ import { onClickCompile } from './utils';
 import './styles.css'
 import { Errors } from './components/Errors';
 import {SymbolTable, DataType} from './components/SymbolTable/symbol-table';
+import {ThreeWayCode} from "./components/ThreeWayCode/three-way-code";
 
 setupLanguage();
 const App = () => {
@@ -19,6 +20,8 @@ const App = () => {
     const [isCompiling, setIsCompiling] = useState<boolean>(false);
     const [errors, setErrors] = useState<string[]>()
     const [symbolTable, setSymbolTable] = useState<DataType[]>();
+    const [threeWayCode, setThreeWayCode] = useState<string[]>([]);
+    const [isErrorsCollapsed, setIsErrorCollapsed] = useState<boolean>(false);
 return (
     <div>
         <Title />
@@ -36,12 +39,15 @@ return (
                     <FileImporter setFileContentValue={setFileContent} />
                     <Button text="Compilar" onClick={() => {
                         setErrors([]);
-                        onClickCompile(editor, setIsCompiling, setErrors, setSymbolTable);
+                        onClickCompile(editor, setIsCompiling, setErrors, setSymbolTable, setThreeWayCode);
                     }} />
                 </div>
-                {/*@ts-ignore */}
-                {symbolTable && <SymbolTable data={symbolTable} columns={Object.keys(symbolTable[0])} />}
-                <Errors errorsArray={errors} />
+                <div className="columns">
+                    <ThreeWayCode threeWayCode={threeWayCode} />
+                    {/*@ts-ignore */}
+                    {symbolTable && <SymbolTable data={symbolTable} columns={Object.keys(symbolTable[0])} />}
+                </div>
+                <Errors isClosed={isErrorsCollapsed} onToggle={()=>setIsErrorCollapsed(!isErrorsCollapsed)} errorsArray={errors} />
             </div>
         </div>
     </div>

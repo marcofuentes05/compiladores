@@ -1,19 +1,13 @@
 class Main {
     a : Int <- 5;
-    b : Bool <- false;
+    b : Int;
     c : String <- "hola";
 
     main() : SELF_TYPE {
         {
-            a <- a + b;
+            b <- b + a;
+            b <- 3 + 2 * (2 - 1)
         }
     };
 };
 
-class Marco {
-    v: Bool <- false;
-
-    func(x: Int, y: String): Bool {
-        self
-    };
-};
