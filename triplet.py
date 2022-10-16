@@ -39,6 +39,30 @@ class ThreeWayCode:
         self.triplets.append(triplet)
         return triplet, triplet.temporal_value
 
+    def optimize_code(self):
+        available = []
+
+        for index, triplet in enumerate(self.triplets):
+            temporal_value = triplet.temporal_value # R1, R2, ..., Rn
+            occurrences = [occurrence for occurrence in self.triplets[index:] if (temporal_value in [occurrence.first_operand, occurrence.second_operand, occurrence.label ] and temporal_value != 'main')]
+            if len(occurrences) == 0:
+                available.append(temporal_value)
+                print('Occurrences > 0',temporal_value, occurrences)
+            if len(available) > 1:
+                # Replace the current temporal_value with a recicled content
+                recicled_value  = available.pop(0)
+                print('recicled', recicled_value)
+                for element in self.triplets[index:]:
+                    if element.first_operand == temporal_value:
+                        element.first_operand = recicled_value
+                    if element.second_operand == temporal_value:
+                        element.second_operand = recicled_value
+                    if element.temporal_value == temporal_value:
+                        element.temporal_value = recicled_value
+
+        print('🚀 available', available)
+        return self.triplets, available
+
     def generate_code(self, output_path = './instance/three_way_code/'):
         name = f"{output_path}code{random.randint(1,1000)}.txt"
         new_file = open(name, "w")
