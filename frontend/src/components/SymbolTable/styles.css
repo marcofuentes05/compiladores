@@ -23,16 +23,11 @@
     max-height: 90%;
 }
 
-.headers{
-    display: contents;
-}
-
 .header {
     top: 0;
     position: -webkit-sticky;
     position: sticky;
     z-index: 0;
-    position: sticky;
     text-transform: capitalize;
     background-color: #48727d !important;
 }

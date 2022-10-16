@@ -20,7 +20,7 @@ const App = () => {
     const [isCompiling, setIsCompiling] = useState<boolean>(false);
     const [errors, setErrors] = useState<string[]>()
     const [symbolTable, setSymbolTable] = useState<DataType[]>();
-    const [threeWayCode, setThreeWayCode] = useState<string[]>([]);
+    const [threeWayCode, setThreeWayCode] = useState<string[]>();
     const [isErrorsCollapsed, setIsErrorCollapsed] = useState<boolean>(false);
 return (
     <div>
@@ -43,7 +43,7 @@ return (
                     }} />
                 </div>
                 <div className="columns">
-                    <ThreeWayCode threeWayCode={threeWayCode} />
+                    {threeWayCode && threeWayCode.length !== 0 && <ThreeWayCode threeWayCode={threeWayCode} />}
                     {/*@ts-ignore */}
                     {symbolTable && <SymbolTable data={symbolTable} columns={Object.keys(symbolTable[0])} />}
                 </div>

@@ -9,10 +9,13 @@ export const onClickCompile = async (editor, setIsCompiling, setErrors, setSymbo
         method: 'POST',
         body
     } );
-    const jsonResponse = await response.json();
-    console.log("🚀 ~ file: utils.ts ~ line 13 ~ onClickCompile ~ jsonRsponse", jsonResponse)
-    setErrors(jsonResponse.errors);
-    setSymbolTable(jsonResponse.symbolTable);
-    setThreeWayCode(jsonResponse.three_way_code);
-    setIsCompiling(false);
+    if (response.status === 200) {
+        const jsonResponse = await response.json();
+        setErrors(jsonResponse.errors);
+        setSymbolTable(jsonResponse.symbolTable);
+        setThreeWayCode(jsonResponse.three_way_code);
+        setIsCompiling(false);
+    } else {
+        setErrors(['Server error (NOT 200 STATUS)'])
+    }
 }
