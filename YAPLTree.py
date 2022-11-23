@@ -377,11 +377,8 @@ class YAPLTree(YAPLVisitor):
 
     # Visit a parse tree produced by YAPLParser#IfElse.
     def visitIfElse(self, ctx):
-
         condition = self.visit(ctx.expr()[0])
-
         terceto_not, temp_not = self.threeWayCode.add('not', condition['value'])
-
         then = self.visit(ctx.expr()[1])
         then_label = self.new_label()
         then['triplet'].label = then_label
@@ -394,9 +391,6 @@ class YAPLTree(YAPLVisitor):
         terceto_else, temp_else = self.threeWayCode.add('goto', else_label, temp_not)
 
         return {'value': temp_if, 'triplet': terceto_if}
-
-        return self.visitChildren(ctx)
-
 
     # Visit a parse tree produced by YAPLParser#True.
     def visitTrue(self, ctx):

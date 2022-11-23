@@ -107,7 +107,7 @@ def create_app():
             'text': program,
             'symbolTable': visitor.symbolTable,
             'errors': [*syntaxErrors, *visitor.errors],
-            'three_way_code': [str(triplet) for triplet in visitor.threeWayCode.triplets]
+            'three_way_code': [str(triplet) for triplet in visitor.threeWayCode.optimize_code()[0]]
         } 
     @app.route('/compile_content', methods=['OPTIONS'])
     def options():
