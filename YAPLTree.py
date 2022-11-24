@@ -1,6 +1,7 @@
 # Generated from YAPL.g4 by ANTLR 4.10.1
 import pprint
 import sys
+import re
 from enum import Enum
 from triplet import ThreeWayCode
 from dist.YAPLVisitor import YAPLVisitor
@@ -22,8 +23,6 @@ primitive_types = ['Int', 'String', 'Bool']
 def getOccurrencePosition(element):
     elementPayload = element.getPayload()
     return f'{elementPayload.line}:{elementPayload.column}'
-
-# This class defines a complete generic visitor for a parse tree produced by YAPLParser.
 
 class YAPLTree(YAPLVisitor):
     def __init__(self):
@@ -240,7 +239,7 @@ class YAPLTree(YAPLVisitor):
         else:
             value = None
 
-        triplet, temporal_value = self.threeWayCode.add('<-', newValue if newValue else value, ident)
+        triplet, temporal_value = self.threeWayCode.add('<-', newValue if newValue else value, hex(id(ident)))
 
         if ctx.expr() != None:
             if typeId != valType:
@@ -318,7 +317,41 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
+        print(expr1, expr2)
+
+        if (expr1['value'] and re.search("^[0-9]*$", expr1['value'])):
+            triplet_expr1, temporal_value_expr1 = self.threeWayCode.add('<-', expr1['value'], 'num')
+
+        if (expr2['value'] and re.search("^[0-9]*$", expr2['value'])):
+            triplet_expr2, temporal_value_expr2 = self.threeWayCode.add('<-', expr2['value'], 'num')
+
+        if (expr1['value'] and re.search("^[0-9]*$", expr1['value']) and re.search("^[0-9]*$", expr2['value']) is None):
+            triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), temporal_value_expr1, expr2['value'] if expr2['value'] else expr2['id'])
+        elif (expr2['value'] and re.search("^[0-9]*$", expr2['value']) and re.search("^[0-9]*$", expr1['value']) is None):
+            triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], temporal_value_expr2)
+        elif (expr1['value'] and re.search("^[0-9]*$", expr1['value']) and expr2['value'] and re.search("^[0-9]*$", expr2['value'])):
+            triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), temporal_value_expr1, temporal_value_expr2)
+        else:
+            expr1_reg = None
+            expr2_reg = None
+            if (expr1['value'] and re.search("\$", expr1['value']) is None):
+                for symbol in self.symbolTable:
+                    if (symbol['id'] == expr1['value']):
+                        expr1_reg = symbol['register']
+
+            if (expr2['value'] and re.search("\$", expr2['value']) is None):
+                for symbol in self.symbolTable:
+                    if symbol['id'] == expr2['value']:
+                        expr2_reg = symbol['register']
+
+            if (expr1['value'] and re.search("\$", expr1['value']) is None and re.search("\$", expr2['value'])):
+                triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1_reg, expr2['value'] if expr2['value'] else expr2['id'])
+            elif (expr2['value'] and re.search("\$", expr2['value']) is None and re.search("\$", expr1['value'])):
+                triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2_reg)
+            elif (expr1['value'] and re.search("\$", expr1['value']) is None and expr2['value'] and re.search("\$", expr2['value']) is None):
+                triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1_reg, expr2_reg)
+            else:
+                triplet, temporal_value = self.threeWayCode.add(ctx.PLUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
 
 
         if 'idType' in expr1:
@@ -435,7 +468,11 @@ class YAPLTree(YAPLVisitor):
                     pass
                 else:
                     self.errors.append(f"Method {id.getText()} expected {expectedParams[index]} as its param number {index+1}, but got {paramObj['type']} instead @{ctx.id_().OBJECT_ID().getPayload().line}:{ctx.id_().OBJECT_ID().getPayload().column}")
-                triplet, temporal_value = self.threeWayCode.add('param', paramObj['value'] if 'value' in paramObj.keys() else param.getText())
+                register = None
+                for row in self.symbolTable:
+                    if row['id'] == param.getText():
+                        register = row['register']
+                triplet, temporal_value = self.threeWayCode.add('param', register)#paramObj['value'] if 'value' in paramObj.keys() else param.getText())
             triplet, temporal_value = self.threeWayCode.add('call', ctx.id_().getText(), len(ctx.expr()))
             # for param in ctx.expr():
         if isDefined:
@@ -536,7 +573,20 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        triplet, temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
+        if (expr1['value'] and re.search("^[0-9]*$", expr1['value'])):
+            triplet_expr1, temporal_value_expr1 = self.threeWayCode.add('<-', expr1['value'], 'num')
+
+        if (expr2['value'] and re.search("^[0-9]*$", expr2['value'])):
+            triplet_expr2, temporal_value_expr2 = self.threeWayCode.add('<-', expr2['value'], 'num')
+
+        if (expr1['value'] and re.search("^[0-9]*$", expr1['value']) and re.search("^[0-9]*$", expr2['value']) is None):
+            triplet, temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), temporal_value_expr1, expr2['value'] if expr2['value'] else expr2['id'])
+        elif (expr2['value'] and re.search("^[0-9]*$", expr2['value']) and re.search("^[0-9]*$", expr1['value']) is None):
+            triplet, temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], temporal_value_expr2)
+        elif (expr1['value'] and re.search("^[0-9]*$", expr1['value']) and expr2['value'] and re.search("^[0-9]*$", expr2['value'])):
+            triplet, temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), temporal_value_expr1, temporal_value_expr2)
+        else:
+            triplet, temporal_value = self.threeWayCode.add(ctx.DIVIDE_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
 
         if 'idType' in expr1:
                 if expr1['idType'] != 'Int':
@@ -617,7 +667,20 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        triplet, temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
+        if (expr1['value'] and re.search("^[0-9]*$", expr1['value'])):
+            triplet_expr1, temporal_value_expr1 = self.threeWayCode.add('<-', expr1['value'], 'num')
+
+        if (expr2['value'] and re.search("^[0-9]*$", expr2['value'])):
+            triplet_expr2, temporal_value_expr2 = self.threeWayCode.add('<-', expr2['value'], 'num')
+
+        if (expr1['value'] and re.search("^[0-9]*$", expr1['value']) and re.search("^[0-9]*$", expr2['value']) is None):
+            triplet, temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), temporal_value_expr1, expr2['value'] if expr2['value'] else expr2['id'])
+        elif (expr2['value'] and re.search("^[0-9]*$", expr2['value']) and re.search("^[0-9]*$", expr1['value']) is None):
+            triplet, temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], temporal_value_expr2)
+        elif (expr1['value'] and re.search("^[0-9]*$", expr1['value']) and expr2['value'] and re.search("^[0-9]*$", expr2['value'])):
+            triplet, temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), temporal_value_expr1, temporal_value_expr2)
+        else:
+            triplet, temporal_value = self.threeWayCode.add(ctx.MULTIPLY_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
 
         if 'idType' in expr1:
             if expr1['idType'] != 'Int':
@@ -658,7 +721,11 @@ class YAPLTree(YAPLVisitor):
     def visitDeclaration(self, ctx):
         id = self.visit(ctx.id_())
         value = self.visit(ctx.expr()) 
-        triplet, temporal_value = self.threeWayCode.add('<-', value['value'], ctx.id_().getText(), None, None)
+        address = None 
+        for row in self.symbolTable:
+            if row['id'] == ctx.id_().getText():
+                address=row['position']
+        triplet, temporal_value = self.threeWayCode.add('<-', value['value'])
         if id['type'] == 'String' and value['type'] != 'String':
             self.errors.append(f"Can't assign type {value['type']} to variable type { id['type']} @ {ctx.start.line}")
         if id['type'] != value['type']:
@@ -692,7 +759,43 @@ class YAPLTree(YAPLVisitor):
         expr1 = self.visit(ctx.expr()[0])
         expr2 = self.visit(ctx.expr()[1])
 
-        triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
+        for symbol in self.symbolTable:
+            if symbol['id'] == 'b':
+                print(symbol)
+
+        if (expr1['value'] and re.search("^[0-9]*$", expr1['value'])):
+            triplet_expr1, temporal_value_expr1 = self.threeWayCode.add('<-', expr1['value'], 'num')
+
+        if (expr2['value'] and re.search("^[0-9]*$", expr2['value'])):
+            triplet_expr2, temporal_value_expr2 = self.threeWayCode.add('<-', expr2['value'], 'num')
+
+        if (expr1['value'] and re.search("^[0-9]*$", expr1['value']) and re.search("^[0-9]*$", expr2['value']) is None):
+            triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), temporal_value_expr1, expr2['value'] if expr2['value'] else expr2['id'])
+        elif (expr2['value'] and re.search("^[0-9]*$", expr2['value']) and re.search("^[0-9]*$", expr1['value']) is None):
+            triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], temporal_value_expr2)
+        elif (expr1['value'] and re.search("^[0-9]*$", expr1['value']) and expr2['value'] and re.search("^[0-9]*$", expr2['value'])):
+            triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), temporal_value_expr1, temporal_value_expr2)
+        else:
+            expr1_reg = None
+            expr2_reg = None
+            if (expr1['value'] and re.search("\$", expr1['value']) is None):
+                for symbol in self.symbolTable:
+                    if (symbol['id'] == expr1['value']):
+                        expr1_reg = symbol['register']
+
+            if (expr2['value'] and re.search("\$", expr2['value']) is None):
+                for symbol in self.symbolTable:
+                    if symbol['id'] == expr2['value']:
+                        expr2_reg = symbol['register']
+
+            if (expr1['value'] and re.search("\$", expr1['value']) is None and re.search("\$", expr2['value'])):
+                triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1_reg, expr2['value'] if expr2['value'] else expr2['id'])
+            elif (expr2['value'] and re.search("\$", expr2['value']) is None and re.search("\$", expr1['value'])):
+                triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2_reg)
+            elif (expr1['value'] and re.search("\$", expr1['value']) is None and expr2['value'] and re.search("\$", expr2['value']) is None):
+                triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1_reg, expr2_reg)
+            else:
+                triplet, temporal_value = self.threeWayCode.add(ctx.MINUS_SIGN().getText(), expr1['value'] if expr1['value'] else expr1['id'], expr2['value'] if expr2['value'] else expr2['id'])
 
         if 'idType' in expr1:
                 if expr1['idType'] != 'Int':

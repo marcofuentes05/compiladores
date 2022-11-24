@@ -3641,3 +3641,438 @@ AttributeError: 'NoneType' object has no attribute 'getText'
 2022-10-16 15:55:47,247 INFO backend MainThread : App successfuly started!
 2022-10-16 15:55:47,252 WARNING werkzeug MainThread :  * Debugger is active!
 2022-10-16 15:55:47,262 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 15:46:27,266 INFO backend MainThread : App successfuly started!
+2022-11-23 15:46:27,274 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-11-23 15:46:27,274 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-11-23 15:46:27,275 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 15:46:27,440 INFO backend MainThread : App successfuly started!
+2022-11-23 15:46:27,443 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 15:46:27,452 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 15:49:55,490 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 15:49:55] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 15:55:17,466 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 15:55:17] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 17:56:11,146 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 17:56:11] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 19:07:38,934 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 19:07:38] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 19:07:55,148 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 19:07:55] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:02:17,405 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 20:02:17,520 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:02:17,943 INFO backend MainThread : App successfuly started!
+2022-11-23 20:02:17,949 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:02:17,961 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:02:30,547 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:02:30] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-11-23 20:03:35,083 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 20:03:35,123 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:03:35,373 INFO backend MainThread : App successfuly started!
+2022-11-23 20:03:35,377 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:03:35,382 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:03:39,658 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:03:39] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:04:49,959 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 20:04:50,004 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:04:50,321 INFO backend MainThread : App successfuly started!
+2022-11-23 20:04:50,327 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:04:50,332 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:04:53,052 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:04:53] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:05:26,997 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:05:26] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:05:28,435 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:05:28] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:05:28,909 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:05:28] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:05:29,134 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:05:29] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:05:30,760 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 20:05:30,808 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:05:31,061 INFO backend MainThread : App successfuly started!
+2022-11-23 20:05:31,065 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:05:31,069 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:05:31,103 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:05:31] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:06:26,435 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 20:06:26,480 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:06:26,834 INFO backend MainThread : App successfuly started!
+2022-11-23 20:06:26,839 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:06:26,844 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:06:29,927 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:06:29] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:10:51,904 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 20:10:51,954 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:10:52,230 INFO backend MainThread : App successfuly started!
+2022-11-23 20:10:52,234 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:10:52,241 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:10:52,512 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:10:52] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:19:18,731 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 20:19:18,794 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:19:19,102 INFO backend MainThread : App successfuly started!
+2022-11-23 20:19:19,108 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:19:19,119 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:19:32,945 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 20:19:32,995 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:19:33,259 INFO backend MainThread : App successfuly started!
+2022-11-23 20:19:33,263 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:19:33,268 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:19:35,184 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:19:35] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-11-23 20:20:02,975 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 20:20:03,030 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:20:03,306 INFO backend MainThread : App successfuly started!
+2022-11-23 20:20:03,312 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:20:03,316 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:20:06,103 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:20:06] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-11-23 20:20:46,794 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 20:20:46,850 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:20:47,110 INFO backend MainThread : App successfuly started!
+2022-11-23 20:20:47,114 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:20:47,118 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:20:47,472 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:20:47] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:21:14,072 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:21:14] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:21:29,044 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:21:29] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:30:19,244 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:30:19] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:30:49,179 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 20:30:49,245 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:30:49,546 INFO backend MainThread : App successfuly started!
+2022-11-23 20:30:49,551 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:30:49,559 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:30:50,408 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:30:50] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:31:12,957 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 20:31:13,014 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:31:13,270 INFO backend MainThread : App successfuly started!
+2022-11-23 20:31:13,274 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:31:13,279 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:31:14,591 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:31:14] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:32:18,338 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 20:32:18,388 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:32:18,648 INFO backend MainThread : App successfuly started!
+2022-11-23 20:32:18,652 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:32:18,657 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:32:21,410 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:32:21] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:32:48,250 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:32:48] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:55:07,449 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:55:07] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:59:27,798 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:59:27] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:59:32,782 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:59:32] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 20:59:42,824 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 20:59:42,889 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 20:59:43,211 INFO backend MainThread : App successfuly started!
+2022-11-23 20:59:43,217 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 20:59:43,227 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 20:59:43,547 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 20:59:43] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 21:47:42,356 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 21:47:42,411 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 21:47:42,726 INFO backend MainThread : App successfuly started!
+2022-11-23 21:47:42,732 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 21:47:42,742 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 21:47:43,924 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 21:47:43] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 21:52:21,062 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 21:52:21,162 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 21:52:21,475 INFO backend MainThread : App successfuly started!
+2022-11-23 21:52:21,480 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 21:52:21,486 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 21:52:25,682 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 21:52:25] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 21:56:50,662 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 21:56:50] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 21:56:58,291 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 21:56:58] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 21:58:03,545 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 21:58:03,603 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 21:58:03,911 INFO backend MainThread : App successfuly started!
+2022-11-23 21:58:03,916 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 21:58:03,922 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 21:58:04,824 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 21:58:04] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 22:08:18,470 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 22:08:18,718 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 22:08:19,028 INFO backend MainThread : App successfuly started!
+2022-11-23 22:08:19,032 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 22:08:19,044 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 22:08:26,367 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 22:08:26] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 22:08:41,313 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 22:08:41,362 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 22:08:41,626 INFO backend MainThread : App successfuly started!
+2022-11-23 22:08:41,630 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 22:08:41,640 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 22:08:42,186 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 22:08:42] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 22:08:56,400 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 22:08:56] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 22:10:24,491 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 22:10:24,560 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 22:10:24,846 INFO backend MainThread : App successfuly started!
+2022-11-23 22:10:24,851 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 22:10:24,856 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 22:10:27,051 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 22:10:27] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 22:10:31,260 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 22:10:31] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 22:12:48,210 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 22:12:48,393 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 22:12:48,723 INFO backend MainThread : App successfuly started!
+2022-11-23 22:12:48,728 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 22:12:48,733 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 22:12:53,648 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 22:12:53] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 22:17:54,219 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 22:17:54,275 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 22:17:54,577 INFO backend MainThread : App successfuly started!
+2022-11-23 22:17:54,582 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 22:17:54,588 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 22:17:59,048 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 22:17:59] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-11-23 22:19:30,867 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 22:19:30,912 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 22:19:31,212 INFO backend MainThread : App successfuly started!
+2022-11-23 22:19:31,216 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 22:19:31,221 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 22:19:31,909 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 22:19:31] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 22:41:05,459 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-23 22:41:05,529 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 22:41:05,825 INFO backend MainThread : App successfuly started!
+2022-11-23 22:41:05,830 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 22:41:05,836 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:01:08,979 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 23:01:09,048 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:01:32,764 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:02:23,951 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:02:24,229 INFO backend MainThread : App successfuly started!
+2022-11-23 23:02:24,239 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:02:24,250 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:02:27,430 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:02:27] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:19:48,195 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/triplet.py', reloading
+2022-11-23 23:19:48,256 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:19:48,562 INFO backend MainThread : App successfuly started!
+2022-11-23 23:19:48,567 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:19:48,581 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:19:49,994 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:19:49] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:27:14,373 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-23 23:27:14,418 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:27:14,689 INFO backend MainThread : App successfuly started!
+2022-11-23 23:27:14,694 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:27:14,699 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:27:16,354 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:27:16] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-11-23 23:27:42,237 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-23 23:27:42,289 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:27:42,611 INFO backend MainThread : App successfuly started!
+2022-11-23 23:27:42,615 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:27:42,620 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:27:44,530 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:27:44] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:28:16,647 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/backend.py', reloading
+2022-11-23 23:28:16,686 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:28:16,963 INFO backend MainThread : App successfuly started!
+2022-11-23 23:28:16,967 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:28:16,972 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:28:36,109 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-23 23:28:36,162 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:28:36,419 INFO backend MainThread : App successfuly started!
+2022-11-23 23:28:36,423 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:28:36,428 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:28:38,231 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:28:38] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:28:40,782 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:28:40] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:28:41,280 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:28:41] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:28:41,452 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:28:41] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:28:41,625 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:28:41] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:30:46,130 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-23 23:30:46,175 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:30:46,444 INFO backend MainThread : App successfuly started!
+2022-11-23 23:30:46,449 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:30:46,454 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:30:47,286 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:30:47] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:34:17,771 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-23 23:34:17,815 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:34:18,081 INFO backend MainThread : App successfuly started!
+2022-11-23 23:34:18,086 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:34:18,092 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-23 23:34:21,342 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:34:21] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:35:53,277 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:35:53] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:48:34,324 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [23/Nov/2022 23:48:34] "POST /compile_content HTTP/1.1" 200 -
+2022-11-23 23:53:47,782 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-23 23:53:47,830 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-23 23:53:48,132 INFO backend MainThread : App successfuly started!
+2022-11-23 23:53:48,137 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-23 23:53:48,145 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:03:58,306 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:03:58,348 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:03:58,615 INFO backend MainThread : App successfuly started!
+2022-11-24 00:03:58,619 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:03:58,630 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:05:51,233 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-24 00:05:51,282 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:05:51,544 INFO backend MainThread : App successfuly started!
+2022-11-24 00:05:51,548 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:05:51,558 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:05:55,864 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:05:55] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:08:39,038 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:08:39] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:09:15,512 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:09:15,556 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:09:15,819 INFO backend MainThread : App successfuly started!
+2022-11-24 00:09:15,823 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:09:15,828 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:13:28,820 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-24 00:13:28,861 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:13:29,115 INFO backend MainThread : App successfuly started!
+2022-11-24 00:13:29,119 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:13:29,124 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:13:29,760 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:13:29] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:15:58,573 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:15:58,616 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:15:58,898 INFO backend MainThread : App successfuly started!
+2022-11-24 00:15:58,902 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:15:58,907 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:16:19,990 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:16:20,031 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:16:20,192 INFO backend MainThread : App successfuly started!
+2022-11-24 00:16:20,194 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:16:20,199 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:17:47,032 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:17:47,075 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:17:47,330 INFO backend MainThread : App successfuly started!
+2022-11-24 00:17:47,334 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:17:47,339 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:17:55,816 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:17:55,845 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:17:56,007 INFO backend MainThread : App successfuly started!
+2022-11-24 00:17:56,010 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:17:56,014 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:22:03,776 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:22:03,824 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:22:10,360 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:22:10,591 INFO backend MainThread : App successfuly started!
+2022-11-24 00:22:10,596 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:22:10,600 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:22:37,211 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:22:37,250 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:22:37,479 INFO backend MainThread : App successfuly started!
+2022-11-24 00:22:37,484 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:22:37,489 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:22:44,955 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:22:45,000 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:22:45,161 INFO backend MainThread : App successfuly started!
+2022-11-24 00:22:45,164 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:22:45,168 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:27:18,382 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:27:18,426 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:27:18,694 INFO backend MainThread : App successfuly started!
+2022-11-24 00:27:18,698 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:27:18,703 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:28:12,892 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:28:12] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:28:54,529 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:28:54,567 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:28:54,812 INFO backend MainThread : App successfuly started!
+2022-11-24 00:28:54,816 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:28:54,821 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:29:17,121 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:29:17,164 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:29:17,415 INFO backend MainThread : App successfuly started!
+2022-11-24 00:29:17,419 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:29:17,423 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:29:25,220 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:29:25] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:30:17,087 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:30:17,132 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:30:17,381 INFO backend MainThread : App successfuly started!
+2022-11-24 00:30:17,385 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:30:17,389 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:30:57,825 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:30:57,872 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:30:58,123 INFO backend MainThread : App successfuly started!
+2022-11-24 00:30:58,127 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:30:58,131 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:31:02,907 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:31:02] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:31:59,812 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:31:59,868 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:32:00,159 INFO backend MainThread : App successfuly started!
+2022-11-24 00:32:00,164 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:32:00,173 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:33:32,464 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:33:32,506 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:33:32,784 INFO backend MainThread : App successfuly started!
+2022-11-24 00:33:32,788 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:33:32,793 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:34:11,114 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:34:11,153 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:34:11,410 INFO backend MainThread : App successfuly started!
+2022-11-24 00:34:11,415 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:34:11,419 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:34:32,657 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:34:32,704 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:34:32,952 INFO backend MainThread : App successfuly started!
+2022-11-24 00:34:32,957 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:34:32,961 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:34:37,470 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:34:37] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:35:55,751 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-24 00:35:55,798 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:35:56,061 INFO backend MainThread : App successfuly started!
+2022-11-24 00:35:56,066 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:35:56,075 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:36:02,672 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:36:02] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:38:42,918 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:38:42,964 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:38:43,254 INFO backend MainThread : App successfuly started!
+2022-11-24 00:38:43,259 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:38:43,264 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:40:21,740 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:40:21,834 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:40:22,144 INFO backend MainThread : App successfuly started!
+2022-11-24 00:40:22,148 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:40:22,153 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:40:23,503 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:40:23] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:41:39,792 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:41:39,838 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:41:40,103 INFO backend MainThread : App successfuly started!
+2022-11-24 00:41:40,108 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:41:40,112 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:51:26,683 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:51:26,726 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:51:26,980 INFO backend MainThread : App successfuly started!
+2022-11-24 00:51:26,985 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:51:26,990 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:51:45,143 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:51:45] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:52:49,852 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:52:49,900 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:52:50,165 INFO backend MainThread : App successfuly started!
+2022-11-24 00:52:50,169 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:52:50,175 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:52:52,368 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:52:52] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-11-24 00:53:17,519 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 00:53:17,566 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:53:17,821 INFO backend MainThread : App successfuly started!
+2022-11-24 00:53:17,826 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:53:17,831 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:53:18,490 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:53:18] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 00:55:02,079 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-24 00:55:02,125 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:55:02,384 INFO backend MainThread : App successfuly started!
+2022-11-24 00:55:02,389 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:55:02,396 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:55:57,267 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/triplet.py', reloading
+2022-11-24 00:55:57,304 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 00:55:57,561 INFO backend MainThread : App successfuly started!
+2022-11-24 00:55:57,565 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 00:55:57,570 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 00:56:00,346 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 00:56:00] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:02:35,705 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 01:02:35,746 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 01:02:36,014 INFO backend MainThread : App successfuly started!
+2022-11-24 01:02:36,018 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 01:02:36,023 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 01:02:39,957 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:02:39] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:05:45,921 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:05:45] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:15:43,635 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 01:15:43,684 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 01:15:43,951 INFO backend MainThread : App successfuly started!
+2022-11-24 01:15:43,955 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 01:15:43,960 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 01:15:58,133 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:15:58] "[35m[1mPOST /compile_content HTTP/1.1[0m" 500 -
+2022-11-24 01:16:49,738 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/YAPLTree.py', reloading
+2022-11-24 01:16:49,783 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 01:16:50,044 INFO backend MainThread : App successfuly started!
+2022-11-24 01:16:50,048 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 01:16:50,053 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 01:16:52,120 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:16:52] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:23:55,497 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-24 01:23:55,543 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 01:23:55,802 INFO backend MainThread : App successfuly started!
+2022-11-24 01:23:55,806 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 01:23:55,811 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 01:23:59,561 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:23:59] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:24:41,439 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-24 01:24:41,488 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 01:24:41,733 INFO backend MainThread : App successfuly started!
+2022-11-24 01:24:41,737 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 01:24:41,744 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 01:24:45,804 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:24:45] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:25:06,079 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-24 01:25:06,125 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 01:25:06,387 INFO backend MainThread : App successfuly started!
+2022-11-24 01:25:06,391 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 01:25:06,396 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 01:25:08,126 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:25:08] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:25:23,372 INFO werkzeug MainThread :  * Detected change in '/Users/marcofuentes/Documents/UVG/10mo/compiladores/labs/mips.py', reloading
+2022-11-24 01:25:23,416 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-24 01:25:23,736 INFO backend MainThread : App successfuly started!
+2022-11-24 01:25:23,740 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-24 01:25:23,744 INFO werkzeug MainThread :  * Debugger PIN: 282-754-169
+2022-11-24 01:25:31,177 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:25:31] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:26:30,928 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:26:30] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:27:48,938 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:27:48] "POST /compile_content HTTP/1.1" 200 -
+2022-11-24 01:29:49,747 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [24/Nov/2022 01:29:49] "POST /compile_content HTTP/1.1" 200 -

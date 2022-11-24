@@ -13,9 +13,9 @@ class Triplet:
             self.label = '    '
 
         if self.operator == '<-' and not self.second_operand:
-            return f"{self.label} {self.temporal_value} {self.operator} {self.first_operand} "
+            return f"{self.label} {self.temporal_value} {self.operator} {self.first_operand} " #MV
         elif self.operator == '<-' and self.second_operand:
-            return f"{self.label} {self.temporal_value} {self.operator} {self.first_operand} # {self.second_operand}"
+            return f"{self.label} {self.temporal_value} {self.operator} {self.first_operand} # {self.second_operand}" # LI
         elif self.operator == 'goto' and self.second_operand:
             return f"{self.label} {self.operator} {self.first_operand} if {self.second_operand}"
         elif self.operator == 'goto' and not self.second_operand and self.temporal_value:
@@ -35,7 +35,7 @@ class ThreeWayCode:
     def add(self, operator, first_operand, second_operand=None, label=None, temporal_value=None):
         triplet = Triplet(operator, first_operand, second_operand, label, temporal_value)
         if triplet.temporal_value == None:
-            triplet.temporal_value = f"R{len(self.triplets)}"
+            triplet.temporal_value = f"$t{len(self.triplets)%8}"
         self.triplets.append(triplet)
         return triplet, triplet.temporal_value
 

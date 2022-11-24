@@ -9,6 +9,8 @@ from dist.YAPLLexer import YAPLLexer
 from dist.YAPLParser import YAPLParser
 from customErrorListener import customErrorListener
 from flask import Flask, request
+from triplet import Triplet
+from mips import MIPSCode
 import time
 import logging
 
@@ -103,11 +105,28 @@ def create_app():
             for error in errors.readlines():
                 syntaxErrors.append(error)
 
+        original_triplets = visitor.threeWayCode.triplets
+        # original_triplets = visitor.threeWayCode.optimize_code()[0]
+        triplets = []
+        mappedTemporalValueAddress = {}
+        for row in visitor.symbolTable:
+            if row['id'] is not None:
+                mappedTemporalValueAddress[row['id']] = row['position']
+        print("🚀 ~ file: backend.py ~ line 110 ~ mappedRegisterAddress", mappedTemporalValueAddress)
+        for triplet in original_triplets:
+            # Find memory for register
+            address = mappedTemporalValueAddress[triplet.temporal_value] if triplet.temporal_value in mappedTemporalValueAddress.keys() else None
+            triplets.append(Triplet(triplet.operator, triplet.first_operand, triplet.second_operand, triplet.label, address or triplet.temporal_value))
+
+
+        mipsCode = MIPSCode(triplets, visitor.symbolTable)
+        errors = [*syntaxErrors, *visitor.errors]
         return {
             'text': program,
             'symbolTable': visitor.symbolTable,
-            'errors': [*syntaxErrors, *visitor.errors],
-            'three_way_code': [str(triplet) for triplet in visitor.threeWayCode.optimize_code()[0]]
+            'errors': errors,
+            'three_way_code': [str(triplet) for triplet in original_triplets],
+            'mips_code': mipsCode.getCode() if len(errors) == 0 else ''
         } 
     @app.route('/compile_content', methods=['OPTIONS'])
     def options():
